@@ -775,6 +775,40 @@ footer{
   .contact-btns{flex-direction:column;align-items:center;}
   .footer-top{grid-template-columns:1fr;padding:40px 24px 32px;}
   .footer-bottom{padding:16px 24px 24px;}
+
+  /* ── Mobile font size boost ── */
+  .hero-body{font-size:14px !important;}
+  .philosophy-h{font-size:clamp(22px,5vw,32px) !important;}
+  .svc-desc{font-size:13px !important;}
+  .svc-tag{font-size:10px !important;}
+  .svc-num-tag{font-size:11px !important;}
+  .svc-name{font-size:18px !important;}
+  .pkg-tagline{font-size:13px !important;}
+  .pkg-features li{font-size:13px !important;}
+  .pkg-cadence{font-size:11px !important;}
+  .pkg-tier{font-size:10px !important;}
+  .r-desc{font-size:13px !important;}
+  .r-features li{font-size:13px !important;}
+  .r-tier{font-size:10px !important;}
+  .r-cadence{font-size:11px !important;}
+  .c-desc{font-size:13px !important;}
+  .c-tier{font-size:10px !important;}
+  .tmpl-desc{font-size:13px !important;}
+  .proc-desc{font-size:13px !important;}
+  .proc-name{font-size:18px !important;}
+  .why-p{font-size:14px !important;}
+  .about-p{font-size:14px !important;}
+  .about-role{font-size:12px !important;}
+  .proj-desc{font-size:13px !important;}
+  .proj-name{font-size:22px !important;}
+  .work-tag{font-size:10px !important;}
+  .work-intro{font-size:13px !important;}
+  .contact-p{font-size:14px !important;}
+  .section-label{font-size:10px !important;}
+  .section-eyebrow{font-size:10px !important;}
+  .discovery-note{font-size:13px !important;}
+  .tab-btn{font-size:10px !important;}
+  .f-tagline{font-size:12px !important;}
 }
 
 
