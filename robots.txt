@@ -1,0 +1,5 @@
+# robots.txt for maiacreativehouse.com
+User-agent: *
+Allow: /
+
+Sitemap: https://maiacreativehouse.com/sitemap.xml
