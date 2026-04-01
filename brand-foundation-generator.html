@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brand Foundation Kit  - MAIA Creative House</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23170A0C'/%3E%3Ctext x='50%25' y='55%25' font-family='serif' font-size='18' fill='%23c9a96e' text-anchor='middle' dominant-baseline='middle'%3EM%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
@@ -864,12 +865,157 @@ input[type="range"]::-webkit-slider-thumb:hover {
   .spectrum-label { width: auto; text-align: left; }
   .chip-input-row { flex-direction: column; }
 }
+
+/* ─── ACCESS GATE ─── */
+.access-gate {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: var(--dark);
+}
+
+.access-gate.hidden { display: none; }
+
+.gate-content {
+  text-align: center;
+  max-width: 420px;
+}
+
+.gate-stars {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.gate-stars svg {
+  width: 12px;
+  height: 12px;
+}
+
+.gate-brand {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.gate-brand em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.gate-subtitle {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(201, 169, 110, 0.5);
+  margin-bottom: 40px;
+}
+
+.gate-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.gate-input {
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 16px 20px;
+  background: var(--dark-input);
+  border: 1px solid var(--dark-border);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.3s;
+  margin-bottom: 20px;
+}
+
+.gate-input:focus {
+  border-color: var(--gold);
+}
+
+.gate-input.error {
+  border-color: #8b3a3a;
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.gate-error-msg {
+  font-size: 11px;
+  color: #c97070;
+  margin-bottom: 16px;
+  min-height: 16px;
+}
+
+.btn-gate {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--dark);
+  background: var(--gold);
+  border: none;
+  padding: 14px 44px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.btn-gate:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(201,169,110,0.3);
+}
+
+.gate-hint {
+  font-size: 10px;
+  color: rgba(255,255,255,0.25);
+  margin-top: 28px;
+  line-height: 1.6;
+}
 </style>
 </head>
 <body>
 
+<!-- ═══════════ ACCESS GATE ═══════════ -->
+<div class="access-gate" id="accessGate">
+  <div class="gate-content">
+    <div class="gate-stars">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 L13.2 10 L22 12 L13.2 14 L12 22 L10.8 14 L2 12 L10.8 10 Z" fill="rgba(201,169,110,0.3)"/></svg>
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 L13.2 10 L22 12 L13.2 14 L12 22 L10.8 14 L2 12 L10.8 10 Z" fill="rgba(201,169,110,0.3)"/></svg>
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 L13.2 10 L22 12 L13.2 14 L12 22 L10.8 14 L2 12 L10.8 10 Z" fill="rgba(201,169,110,0.3)"/></svg>
+    </div>
+    <div class="gate-brand">MAIA Creative <em>House</em></div>
+    <div class="gate-subtitle">Brand Foundation Kit</div>
+    <div class="gate-label">Enter Your Access Code</div>
+    <input type="text" class="gate-input" id="gateInput" placeholder="_ _ _ _ _ _ _ _" maxlength="20" autocomplete="off" spellcheck="false">
+    <div class="gate-error-msg" id="gateError"></div>
+    <button class="btn-gate" onclick="checkAccess()">Unlock Kit</button>
+    <p class="gate-hint">Your access code is in the welcome document included with your purchase.</p>
+  </div>
+</div>
+
 <!-- ═══════════ INTRO SCREEN ═══════════ -->
-<div class="intro-screen" id="introScreen">
+<div class="intro-screen" id="introScreen" style="display:none;">
   <div class="intro-content">
     <div class="intro-badge">MAIA Creative House</div>
     <h1 class="intro-title">Brand<br>Foundation <em>Kit</em></h1>
@@ -905,7 +1051,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     <p class="section-subtitle">Your mission is the reason your brand exists today. It's not aspirational  - it's operational. What do you do, for whom, and why does it matter?</p>
 
     <div class="tip-box">
-      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <div class="tip-box-header">✦ MAIA's Tip</div>
       <p>A great mission statement is specific enough that it couldn't belong to anyone else. Avoid generic language like "empowering people" or "making the world better." Ground it in what you actually do every day.</p>
       <div class="example">
         <strong>Example</strong>
@@ -980,7 +1126,7 @@ Combine these into 3 versions of a mission statement (1–3 sentences each). Ver
     <p class="section-subtitle">Your vision is where you're headed. If your mission is today, your vision is 5–10 years from now. What future are you building toward?</p>
 
     <div class="tip-box">
-      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <div class="tip-box-header">✦ MAIA's Tip</div>
       <p>Your vision should feel ambitious but believable. It's the North Star that guides big decisions  - should we launch this product? Enter this market? Partner with this company? If the answer moves you closer to your vision, it's a yes.</p>
       <div class="example">
         <strong>Example</strong>
@@ -1041,7 +1187,7 @@ Distill this into a single vision statement that's ambitious but believable. Giv
     <p class="section-subtitle">Your values are the non-negotiable principles that guide every decision. They should be felt in your work, not just framed on the wall.</p>
 
     <div class="tip-box">
-      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <div class="tip-box-header">✦ MAIA's Tip</div>
       <p>The best brand values are specific and actionable. "Innovation" is vague  - "Question the obvious" tells your team how to behave. Aim for 3–5 values that you'd actually use to make a hard decision.</p>
       <div class="example">
         <strong>Example</strong>
@@ -1091,7 +1237,7 @@ Distill this into a single vision statement that's ambitious but believable. Giv
     <p class="section-subtitle">If your brand were a person at a dinner party, how would they talk? Your voice is the personality that comes through in every word you write.</p>
 
     <div class="tip-box">
-      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <div class="tip-box-header">✦ MAIA's Tip</div>
       <p>Brand voice isn't about what you say  - it's how you say it. Use the spectrums below to find where your brand sits. Most brands aren't at the extremes  - they live somewhere in the middle, and that's where the nuance lives.</p>
       <div class="example">
         <strong>Example</strong>
@@ -1176,7 +1322,7 @@ Distill this into a single vision statement that's ambitious but believable. Giv
     <p class="section-subtitle">Your messaging framework is the toolkit of key messages you'll use again and again. Think of it as your brand's greatest hits  - the lines that make people lean in.</p>
 
     <div class="tip-box">
-      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <div class="tip-box-header">✦ MAIA's Tip</div>
       <p>Great messaging ladders up from a single core message (your brand promise) into supporting pillars. Each pillar should address a different reason someone would choose you. Together, they paint a complete picture.</p>
       <div class="example">
         <strong>Example</strong>
@@ -1260,7 +1406,7 @@ Think about what my ideal customer weighs when making a decision. Give me 5 pote
     <p class="section-subtitle">You can't speak to everyone. The brands that win are the ones who know exactly who they're talking to  - and make that person feel seen.</p>
 
     <div class="tip-box">
-      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <div class="tip-box-header">✦ MAIA's Tip</div>
       <p>Go beyond demographics. The most useful audience profiles focus on psychographics: what does your ideal customer believe? What frustrates them? What does their current workaround look like? That's where your messaging hooks live.</p>
       <div class="example">
         <strong>Example</strong>
@@ -1323,7 +1469,7 @@ Think about what my ideal customer weighs when making a decision. Give me 5 pote
     <p class="section-subtitle">Every brand has an origin story. Yours is the human thread that connects you to your audience  - the moment or realization that made this brand inevitable.</p>
 
     <div class="tip-box">
-      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <div class="tip-box-header">✦ MAIA's Tip</div>
       <p>The best brand stories follow a simple arc: there was a problem → you experienced it personally → that experience became the seed of your brand. People connect with honesty and specificity, not polish. The more real, the better.</p>
       <div class="example">
         <strong>Example</strong>
@@ -1385,7 +1531,7 @@ Then take my answers and write the story in a natural, honest tone  - like I'm t
     <p class="section-subtitle">Before logos and color palettes come direction and intention. This section captures the aesthetic feeling your brand should evoke  - the foundation a designer needs to bring it to life.</p>
 
     <div class="tip-box">
-      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <div class="tip-box-header">✦ MAIA's Tip</div>
       <p>Visual identity is a feeling before it's a file. Think about the brands, spaces, or experiences that feel like yours. A mood board in words is just as powerful as one in images. Focus on textures, emotions, and references  - not specific design choices yet.</p>
       <div class="example">
         <strong>Example</strong>
@@ -1442,7 +1588,7 @@ Then take my answers and write the story in a natural, honest tone  - like I'm t
     <p class="section-subtitle">Positioning is the space you own in your customer's mind. It's not about being better  - it's about being different in a way that matters.</p>
 
     <div class="tip-box">
-      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <div class="tip-box-header">✦ MAIA's Tip</div>
       <p>The positioning sweet spot sits at the intersection of three things: what your audience desperately needs, what you do exceptionally well, and what your competitors can't or won't do. Find that intersection, and you've found your lane.</p>
       <div class="example">
         <strong>Example</strong>
@@ -1619,6 +1765,37 @@ if (isPreview) {
     const sec3nav = document.querySelector('.section[data-section="3"] .btn-next');
     if (sec3nav) sec3nav.textContent = 'Complete Preview \u2192';
   });
+}
+
+// ─── ACCESS GATE ───
+const ACCESS_CODE = 'MAIA-BFK-7924-GOLD';
+
+function checkAccess() {
+  const input = document.getElementById('gateInput');
+  const error = document.getElementById('gateError');
+  const code = input.value.trim().toUpperCase();
+
+  if (code === ACCESS_CODE) {
+    sessionStorage.setItem('maia_access', 'granted');
+    document.getElementById('accessGate').classList.add('hidden');
+    document.getElementById('introScreen').style.display = '';
+  } else {
+    input.classList.add('error');
+    error.textContent = 'Invalid access code. Please check your welcome document.';
+    setTimeout(() => input.classList.remove('error'), 500);
+  }
+}
+
+// Allow Enter key to submit
+document.getElementById('gateInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') checkAccess();
+  document.getElementById('gateError').textContent = '';
+});
+
+// If already unlocked this session, skip gate
+if (sessionStorage.getItem('maia_access') === 'granted') {
+  document.getElementById('accessGate').classList.add('hidden');
+  document.getElementById('introScreen').style.display = '';
 }
 
 // ─── NAVIGATION ───
