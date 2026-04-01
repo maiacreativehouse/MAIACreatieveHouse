@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Foundation Kit — MAIA Creative House</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23170A0C'/%3E%3Ctext x='50%25' y='55%25' font-family='serif' font-size='18' fill='%23c9a96e' text-anchor='middle' dominant-baseline='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --black: #0a0a08;
+    --cream: #f5f0e8;
+    --gold: #c9a96e;
+    --gold-dim: rgba(201, 169, 110, 0.15);
+    --gold-soft: rgba(201, 169, 110, 0.4);
+  }
+
+  html, body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: optimizeLegibility;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page {
+    width: 794px;
+    height: 1123px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+  }
+
+  /* Subtle background glow */
+  .bg-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .bg-decor .glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 169, 110, 0.025) 0%, transparent 70%);
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Content */
+  .content {
+    position: relative;
+    z-index: 1;
+    padding: 55px 70px 50px;
+  }
+
+  /* 3 small stars */
+  .stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .stars svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Eyebrow label */
+  .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 26px;
+    opacity: 0.7;
+  }
+
+  /* Hero Title: MAIA Creative (white) House (gold italic) */
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 46px;
+    font-weight: 300;
+    color: var(--cream);
+    text-align: center;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .hero-title .gold-italic {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  /* Subtitle in Montserrat thin */
+  .hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  .hero-tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    color: rgba(245, 240, 232, 0.45);
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  /* Gold hairline */
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 36px;
+    opacity: 0.35;
+  }
+
+  /* Section eyebrow */
+  .section-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  /* Body text */
+  .body-text {
+    font-size: 11.5px;
+    color: rgba(245, 240, 232, 0.7);
+    line-height: 1.8;
+    margin-bottom: 10px;
+  }
+
+  /* URL Card */
+  .url-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(201, 169, 110, 0.12);
+    border-radius: 4px;
+    padding: 16px 22px;
+    margin: 16px 0;
+    text-align: center;
+  }
+
+  .url-card a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11.5px;
+    font-weight: 400;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    word-break: break-all;
+  }
+
+  .url-hint {
+    font-size: 10px;
+    color: rgba(245, 240, 232, 0.4);
+    margin-top: 4px;
+    margin-bottom: 30px;
+  }
+
+  /* Steps */
+  .steps {
+    margin: 20px 0 30px;
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .step-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--gold);
+    min-width: 50px;
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .step-content {
+    flex: 1;
+  }
+
+  .step-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 3px;
+  }
+
+  .step-desc {
+    font-size: 10.5px;
+    color: rgba(245, 240, 232, 0.5);
+    line-height: 1.6;
+  }
+
+  /* CTA Box */
+  .cta-box {
+    background: rgba(201, 169, 110, 0.04);
+    border-left: 2px solid var(--gold);
+    padding: 20px 26px;
+    margin: 28px 0 30px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .cta-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .cta-text {
+    font-size: 11px;
+    color: rgba(245, 240, 232, 0.7);
+    line-height: 1.7;
+    margin-bottom: 6px;
+  }
+
+  .cta-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+
+  .cta-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(201, 169, 110, 0.1);
+  }
+
+  .disclaimer {
+    font-size: 9px;
+    color: rgba(245, 240, 232, 0.3);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .footer-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(201, 169, 110, 0.4);
+    text-align: center;
+  }
+
+  /* Print styles */
+  @media print {
+    html, body {
+      background: var(--black) !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page {
+      width: 100%;
+      height: 100vh;
+      page-break-after: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="bg-decor">
+    <div class="glow"></div>
+  </div>
+
+  <div class="content">
+    <!-- 3 small stars, centered -->
+    <div class="stars">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2 L13.2 10 L22 12 L13.2 14 L12 22 L10.8 14 L2 12 L10.8 10 Z" fill="rgba(201, 169, 110, 0.3)"/>
+      </svg>
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2 L13.2 10 L22 12 L13.2 14 L12 22 L10.8 14 L2 12 L10.8 10 Z" fill="rgba(201, 169, 110, 0.3)"/>
+      </svg>
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2 L13.2 10 L22 12 L13.2 14 L12 22 L10.8 14 L2 12 L10.8 10 Z" fill="rgba(201, 169, 110, 0.3)"/>
+      </svg>
+    </div>
+
+    <!-- Hero: MAIA Creative (white) House (gold italic) -->
+    <h1 class="hero-title">MAIA Creative <span class="gold-italic">House</span></h1>
+    <p class="hero-subtitle">Brand Foundation Kit</p>
+
+    <p class="hero-tagline">Your AI-powered brand strategy tool is ready.</p>
+
+    <div class="divider"></div>
+
+    <!-- Access Section -->
+    <div class="section-eyebrow">Get Started</div>
+    <p class="body-text">Access your Brand Foundation Kit here:</p>
+    <div class="url-card">
+      <a href="https://maiacreativehouse.com/brand-foundation-generator.html">maiacreativehouse.com/brand-foundation-generator.html</a>
+    </div>
+    <p class="url-hint" style="margin-bottom: 16px;">Bookmark this link. You can return anytime to update your foundation.</p>
+
+    <div class="section-eyebrow">Your Access Code</div>
+    <div class="url-card" style="letter-spacing: 8px; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 500; color: #c9a96e;">
+      MAIA-BFK-7924-GOLD
+    </div>
+    <p class="url-hint">Enter this code when you open the generator. Do not share it.</p>
+
+    <!-- Quick Start -->
+    <div class="section-eyebrow">Quick Start</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <div class="step-title">Answer the guided questions</div>
+          <div class="step-desc">Work through all 9 sections at your own pace. Your progress saves automatically.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <div class="step-title">Use AI prompts when stuck</div>
+          <div class="step-desc">Every field has a "Stuck?" button with built-in prompts to help you think deeper.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <div class="step-title">Generate your foundation</div>
+          <div class="step-desc">Our AI strategist transforms your answers into a polished brand strategy document.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">04</div>
+        <div class="step-content">
+          <div class="step-title">Download your PDF</div>
+          <div class="step-desc">Review your brand foundation, then download and share with your team.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Box -->
+    <div class="cta-box">
+      <div class="cta-heading">Want Expert Help?</div>
+      <p class="cta-text">Turn your foundation into a full brand identity with MAIA Strategy.</p>
+      <a class="cta-link" href="https://maiacreativehouse.com/#contact">Book a Brand Strategy Session &#8594;</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="disclaimer">This product is for personal and commercial use. You may not redistribute, resell, or share your access link. The AI-generated output is a strategic starting point, not a substitute for professional brand consultation. Results vary based on the quality and depth of your answers.</p>
+      <div class="footer-brand">MAIA Creative House · maiacreativehouse.com</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
