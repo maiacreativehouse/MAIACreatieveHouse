@@ -1792,10 +1792,7 @@ document.getElementById('gateInput').addEventListener('keydown', function(e) {
   document.getElementById('gateError').textContent = '';
 });
 
-// If preview mode, skip gate entirely
-const urlParams = new URLSearchParams(window.location.search);
-const isPreview = urlParams.get('mode') === 'preview';
-
+// If preview mode or already unlocked, skip gate entirely
 if (isPreview || sessionStorage.getItem('maia_access') === 'granted') {
   document.getElementById('accessGate').classList.add('hidden');
   document.getElementById('introScreen').style.display = '';
