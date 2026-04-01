@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Foundation Kit  - MAIA Creative House</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold: #c9a96e;
+  --gold-light: #d4bc8e;
+  --dark: #0a0a0a;
+  --dark-card: #111111;
+  --dark-input: #1a1a1a;
+  --dark-border: #2a2a2a;
+  --text: #e8e8e8;
+  --text-muted: #999;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Montserrat', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--dark);
+  color: var(--text);
+  line-height: 1.7;
+  font-weight: 300;
+  min-height: 100vh;
+}
+
+/* Dark scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--dark-border) var(--dark-input);
+}
+*::-webkit-scrollbar { width: 6px; }
+*::-webkit-scrollbar-track { background: var(--dark-input); }
+*::-webkit-scrollbar-thumb { background: var(--dark-border); border-radius: 3px; }
+*::-webkit-scrollbar-thumb:hover { background: #444; }
+
+/* ─── INTRO SCREEN ─── */
+.intro-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-screen::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 20%, rgba(201,169,110,0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(201,169,110,0.04) 0%, transparent 50%);
+  animation: subtleShift 20s ease-in-out infinite;
+}
+
+@keyframes subtleShift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-2%, -1%); }
+}
+
+.intro-content {
+  position: relative;
+  max-width: 680px;
+  text-align: center;
+}
+
+.intro-badge {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(201,169,110,0.3);
+  padding: 8px 20px;
+  margin-bottom: 40px;
+}
+
+.intro-title {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.intro-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.intro-description {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 32px 0 40px;
+}
+
+.intro-sections span {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--dark-border);
+  padding: 6px 14px;
+  border-radius: 2px;
+}
+
+.intro-time {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+.intro-time strong {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.btn-begin {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--dark);
+  background: var(--gold);
+  border: none;
+  padding: 16px 48px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.btn-begin:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(201,169,110,0.3);
+}
+
+/* ─── GENERATOR ─── */
+.generator {
+  display: none;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+}
+
+.generator.active { display: block; }
+
+/* Progress */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--dark-border);
+  z-index: 100;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transition: width 0.6s ease;
+  width: 0%;
+}
+
+.step-indicator {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.section-number {
+  display: block;
+  font-family: var(--serif);
+  font-size: 64px;
+  font-weight: 300;
+  color: rgba(201,169,110,0.15);
+  text-align: center;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+/* Section */
+.section {
+  display: none;
+  animation: fadeUp 0.6s ease;
+}
+
+.section.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+/* Tip Box */
+.tip-box {
+  background: rgba(201,169,110,0.05);
+  border-left: 2px solid var(--gold);
+  padding: 20px 24px;
+  margin-bottom: 36px;
+  border-radius: 0 4px 4px 0;
+}
+
+.tip-box-header {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.tip-box p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.tip-box .example {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(201,169,110,0.1);
+  font-style: italic;
+  color: var(--gold-light);
+  font-size: 13px;
+}
+
+.tip-box .example strong {
+  font-style: normal;
+  color: var(--gold);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Form Fields */
+.field-group {
+  margin-bottom: 28px;
+}
+
+.field-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.field-hint {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Prompt Helper */
+.prompt-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-top: 8px;
+  transition: color 0.3s;
+}
+
+.prompt-toggle:hover { color: var(--gold); }
+
+.prompt-toggle .arrow {
+  display: inline-block;
+  transition: transform 0.3s;
+  font-size: 9px;
+}
+
+.prompt-toggle.open .arrow { transform: rotate(90deg); }
+
+.prompt-box {
+  display: none;
+  background: rgba(201,169,110,0.04);
+  border: 1px dashed rgba(201,169,110,0.25);
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.prompt-box.open { display: block; animation: fadeUp 0.3s ease; }
+
+.prompt-box-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.prompt-box-label::before {
+  content: '✦';
+  font-size: 10px;
+}
+
+.prompt-text {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  background: var(--dark-input);
+  border: 1px solid var(--dark-border);
+  border-radius: 4px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+}
+
+.btn-copy-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid rgba(201,169,110,0.3);
+  color: var(--gold);
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-copy-prompt:hover {
+  background: rgba(201,169,110,0.1);
+  border-color: var(--gold);
+}
+
+.prompt-note {
+  font-size: 11px;
+  color: #666;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+textarea, input[type="text"] {
+  width: 100%;
+  background: var(--dark-input);
+  border: 1px solid var(--dark-border);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 300;
+  padding: 16px 20px;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+textarea:focus, input[type="text"]:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+textarea::placeholder, input::placeholder {
+  color: #555;
+  font-weight: 300;
+}
+
+textarea { min-height: 120px; }
+textarea.short { min-height: 80px; }
+
+/* Values / Pillars chips input */
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(201,169,110,0.1);
+  border: 1px solid rgba(201,169,110,0.3);
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.chip button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+}
+
+.chip button:hover { color: var(--text); }
+
+.chip-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.chip-input-row input {
+  flex: 1;
+}
+
+.btn-add-chip {
+  background: var(--dark-input);
+  border: 1px solid var(--dark-border);
+  color: var(--gold);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  white-space: nowrap;
+}
+
+.btn-add-chip:hover { border-color: var(--gold); }
+
+/* Voice Slider */
+.voice-spectrum {
+  margin-bottom: 24px;
+}
+
+.spectrum-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.spectrum-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  width: 100px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.spectrum-label.right {
+  text-align: left;
+}
+
+input[type="range"] {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2px;
+  background: var(--dark-border);
+  outline: none;
+  border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--gold);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Navigation */
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--dark-border);
+}
+
+.btn-back {
+  background: none;
+  border: 1px solid var(--dark-border);
+  color: var(--text-muted);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-back:hover {
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+
+.btn-next {
+  background: var(--gold);
+  border: none;
+  color: var(--dark);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  cursor: pointer;
+  transition: all 0.4s;
+  font-weight: 500;
+}
+
+.btn-next:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(201,169,110,0.3);
+}
+
+.btn-back.hidden { visibility: hidden; }
+
+/* ─── RESULT SCREEN ─── */
+.result-screen {
+  display: none;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+}
+
+.result-screen.active { display: block; }
+
+.result-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.result-header h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.result-header p {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.result-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--dark);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.4s;
+}
+
+.btn-download:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+.btn-restart {
+  background: none;
+  border: 1px solid var(--dark-border);
+  color: var(--text-muted);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-restart:hover {
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+
+/* Result Document */
+.result-document {
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  padding: 60px 48px;
+  border-radius: 4px;
+}
+
+.doc-brand-name {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 4px;
+  color: var(--gold);
+}
+
+.doc-tagline {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.doc-section {
+  margin-bottom: 40px;
+}
+
+.doc-section-title {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.doc-section-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.doc-section-content {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.doc-values-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.doc-value {
+  background: rgba(201,169,110,0.08);
+  border: 1px solid rgba(201,169,110,0.2);
+  padding: 6px 16px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.doc-voice-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.doc-voice-bar .left-label,
+.doc-voice-bar .right-label {
+  width: 90px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.doc-voice-bar .left-label { text-align: right; }
+.doc-voice-bar .right-label { text-align: left; }
+
+.doc-voice-track {
+  flex: 1;
+  height: 4px;
+  background: var(--dark-border);
+  position: relative;
+  border-radius: 2px;
+}
+
+.doc-voice-dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.doc-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.doc-pillar {
+  background: rgba(201,169,110,0.04);
+  border: 1px solid var(--dark-border);
+  padding: 16px 20px;
+  border-radius: 4px;
+}
+
+.doc-pillar h4 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.doc-pillar p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.doc-divider {
+  border: none;
+  border-top: 1px solid var(--dark-border);
+  margin: 32px 0;
+}
+
+.doc-footer {
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid var(--dark-border);
+  margin-top: 48px;
+}
+
+.doc-footer p {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.doc-footer .maia-credit {
+  color: var(--gold);
+  margin-top: 4px;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+/* ─── STRATEGIST NOTES ─── */
+.strategist-note {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: rgba(201,169,110,0.06);
+  border-left: 2px solid var(--gold);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  border-radius: 0 4px 4px 0;
+}
+
+.note-label {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ─── LOADING ICON ─── */
+.loading-icon {
+  margin-bottom: 24px;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 600px) {
+  .result-document { padding: 32px 24px; }
+  .doc-pillars { grid-template-columns: 1fr; }
+  .spectrum-row { flex-wrap: wrap; gap: 8px; }
+  .spectrum-label { width: auto; text-align: left; }
+  .chip-input-row { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ INTRO SCREEN ═══════════ -->
+<div class="intro-screen" id="introScreen">
+  <div class="intro-content">
+    <div class="intro-badge">MAIA Creative House</div>
+    <h1 class="intro-title">Brand<br>Foundation <em>Kit</em></h1>
+    <p class="intro-description">
+      The same strategic framework used with premium clients  - now in your hands.
+      Answer nine guided sections and walk away with a complete brand foundation document.
+    </p>
+    <div class="intro-sections">
+      <span>Mission</span>
+      <span>Vision</span>
+      <span>Values</span>
+      <span>Brand Voice</span>
+      <span>Messaging</span>
+      <span>Audience</span>
+      <span>Brand Story</span>
+      <span>Visual Direction</span>
+      <span>Positioning</span>
+    </div>
+    <p class="intro-time">Estimated time: <strong>45–60 minutes</strong> · No rush  - your progress is saved as you go.<br>Includes AI prompts at every step to help you get unstuck.</p>
+    <button class="btn-begin" onclick="startGenerator()" id="btnBegin">Begin Your Foundation</button>
+  </div>
+</div>
+
+<!-- ═══════════ GENERATOR ═══════════ -->
+<div class="generator" id="generator">
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+  <!-- SECTION 1: MISSION -->
+  <div class="section active" data-section="1">
+    <div class="step-indicator">Section 1 of 9</div>
+    <div class="section-number">01</div>
+    <h2 class="section-title">Mission</h2>
+    <p class="section-subtitle">Your mission is the reason your brand exists today. It's not aspirational  - it's operational. What do you do, for whom, and why does it matter?</p>
+
+    <div class="tip-box">
+      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <p>A great mission statement is specific enough that it couldn't belong to anyone else. Avoid generic language like "empowering people" or "making the world better." Ground it in what you actually do every day.</p>
+      <div class="example">
+        <strong>Example</strong>
+        "We create science-backed skincare formulations for melanin-rich skin, because every skin tone deserves evidence  - not guesswork."
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">What does your brand do?</label>
+      <span class="field-hint">Describe your core product or service in plain language.</span>
+      <textarea id="mission_what" placeholder="e.g., We design sustainable packaging for direct-to-consumer food brands..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">I'm building a brand foundation. Help me describe what my brand does in plain, specific language. My business is in the [YOUR INDUSTRY] space. Ask me 5 quick questions about what I actually do day-to-day, then write 3 different versions of a "what we do" statement  - one blunt, one polished, one poetic. Each should be 1–2 sentences max.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Who do you do it for?</label>
+      <span class="field-hint">Be as specific as possible about who you serve.</span>
+      <textarea id="mission_who" class="short" placeholder="e.g., Emerging CPG founders who want their unboxing moment to match their values..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">I need to define who my brand serves. My business does: [PASTE YOUR ANSWER FROM THE FIELD ABOVE]. Help me get specific  - ask me who my last 3 favorite customers were and what they had in common. Then write a "who we serve" description that's specific enough that my ideal customer would read it and think "that's me." Avoid demographic-only descriptions.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Why does this work matter?</label>
+      <span class="field-hint">What would be missing from the world if your brand didn't exist?</span>
+      <textarea id="mission_why" class="short" placeholder="e.g., Because 90% of food packaging ends up in landfill, and consumers deserve better options..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">I'm trying to articulate why my brand's work matters. Here's what we do: [PASTE YOUR "WHAT" ANSWER] for [PASTE YOUR "WHO" ANSWER]. Ask me: what happens when people don't have access to what I offer? What's the status quo I'm pushing against? Then help me write a "why it matters" statement that's emotional but grounded in reality  - not fluffy.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Your Mission Statement</label>
+      <span class="field-hint">Now pull it together. One to three sentences that capture the essence of what you do, for whom, and why.</span>
+      <textarea id="mission_statement" placeholder="Write your mission statement here..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">Here are my draft answers for my brand's mission:
+- What we do: [PASTE]
+- Who we serve: [PASTE]
+- Why it matters: [PASTE]
+
+Combine these into 3 versions of a mission statement (1–3 sentences each). Version 1: straightforward and clear. Version 2: warm and human. Version 3: bold and punchy. For each, run the "swap test"  - could a competitor use this exact same statement? If yes, flag what needs to be more specific.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back hidden">← Back</button>
+      <button class="btn-next" onclick="nextSection()">Continue →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 2: VISION -->
+  <div class="section" data-section="2">
+    <div class="step-indicator">Section 2 of 9</div>
+    <div class="section-number">02</div>
+    <h2 class="section-title">Vision</h2>
+    <p class="section-subtitle">Your vision is where you're headed. If your mission is today, your vision is 5–10 years from now. What future are you building toward?</p>
+
+    <div class="tip-box">
+      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <p>Your vision should feel ambitious but believable. It's the North Star that guides big decisions  - should we launch this product? Enter this market? Partner with this company? If the answer moves you closer to your vision, it's a yes.</p>
+      <div class="example">
+        <strong>Example</strong>
+        "A world where sustainable packaging is the default, not the premium option  - where every founder can ship their product without shipping guilt."
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">What does the future look like if your brand fully succeeds?</label>
+      <span class="field-hint">Think 5–10 years out. What has changed in your industry or for your audience?</span>
+      <textarea id="vision_future" placeholder="e.g., Every DTC brand has access to beautiful, compostable packaging at the same cost as plastic..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">I'm imagining the future my brand is building toward. My mission is: [PASTE YOUR MISSION]. Help me think 5–10 years ahead. Ask me: if my brand fully succeeds, what headline would I want to see in my industry's top publication? What would change for my customers? Write 3 future-state descriptions  - each starting with "A world where..."  - ranging from realistic to wildly ambitious.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">What role does your brand play in creating that future?</label>
+      <textarea id="vision_role" class="short" placeholder="e.g., We're the bridge between sustainable materials science and beautiful consumer design..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">Here's the future I'm building toward: [PASTE ABOVE]. Now help me define my brand's specific role in making that happen. Am I the pioneer? The bridge? The catalyst? The democratizer? Give me 3 options with a one-sentence explanation of each, using concrete language, not buzzwords.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Your Vision Statement</label>
+      <span class="field-hint">Distill this into a compelling, forward-looking statement.</span>
+      <textarea id="vision_statement" placeholder="Write your vision statement here..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">Here's my draft:
+- Future state: [PASTE]
+- Our role: [PASTE]
+
+Distill this into a single vision statement that's ambitious but believable. Give me 3 versions. Then for each one, answer: could I use this to make a real business decision (like whether to enter a new market)? If not, it's too vague  - tighten it.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevSection()">← Back</button>
+      <button class="btn-next" onclick="nextSection()">Continue →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 3: VALUES -->
+  <div class="section" data-section="3">
+    <div class="step-indicator">Section 3 of 9</div>
+    <div class="section-number">03</div>
+    <h2 class="section-title">Values</h2>
+    <p class="section-subtitle">Your values are the non-negotiable principles that guide every decision. They should be felt in your work, not just framed on the wall.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <p>The best brand values are specific and actionable. "Innovation" is vague  - "Question the obvious" tells your team how to behave. Aim for 3–5 values that you'd actually use to make a hard decision.</p>
+      <div class="example">
+        <strong>Example</strong>
+        Instead of "Quality" → "Obsess the details" · Instead of "Transparency" → "Show our math" · Instead of "Customer-first" → "Build for the founder at 2am"
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Your Core Values</label>
+      <span class="field-hint">Add 3–5 values that genuinely guide how you operate. Make them specific enough to act on.</span>
+      <div class="chips-container" id="valuesChips"></div>
+      <div class="chip-input-row">
+        <input type="text" id="valueInput" placeholder="Type a value and press Add (e.g., Show our math)" onkeydown="if(event.key==='Enter'){addChip('values');event.preventDefault()}">
+        <button class="btn-add-chip" onclick="addChip('values')">+ Add</button>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">I need to define 3–5 core brand values that are specific and actionable  - not generic words like "innovation" or "integrity." My brand does: [PASTE MISSION]. Ask me about the last 3 hard decisions I made in my business. Based on my answers, identify the principles that guided those decisions and turn them into punchy, actionable value statements (e.g., "Show our math" instead of "Transparency").</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">What do these values look like in practice?</label>
+      <span class="field-hint">For each value, give a quick example of how it shows up in your day-to-day decisions.</span>
+      <textarea id="values_practice" placeholder="e.g., 'Show our math' means we share our pricing breakdown with every client. 'Build for the founder at 2am' means our templates work even when you're exhausted..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">Here are my brand values: [LIST THEM]. For each one, help me write a concrete, real-world example of how it shows up in daily operations. Format: "[Value]" means we [specific action]. Make them tangible enough that a new team member would know exactly what to do.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevSection()">← Back</button>
+      <button class="btn-next" onclick="nextSection()">Continue →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 4: BRAND VOICE -->
+  <div class="section" data-section="4">
+    <div class="step-indicator">Section 4 of 9</div>
+    <div class="section-number">04</div>
+    <h2 class="section-title">Brand Voice</h2>
+    <p class="section-subtitle">If your brand were a person at a dinner party, how would they talk? Your voice is the personality that comes through in every word you write.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <p>Brand voice isn't about what you say  - it's how you say it. Use the spectrums below to find where your brand sits. Most brands aren't at the extremes  - they live somewhere in the middle, and that's where the nuance lives.</p>
+      <div class="example">
+        <strong>Example</strong>
+        A luxury wellness brand might be: Warm (not cold), Refined (not casual), Calm (not urgent), Inclusive (not exclusive)
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Voice Spectrums</label>
+      <span class="field-hint">Drag each slider to where your brand naturally sits.</span>
+      <div class="voice-spectrum">
+        <div class="spectrum-row">
+          <span class="spectrum-label">Formal</span>
+          <input type="range" id="voice_formal" min="0" max="100" value="50">
+          <span class="spectrum-label right">Casual</span>
+        </div>
+        <div class="spectrum-row">
+          <span class="spectrum-label">Serious</span>
+          <input type="range" id="voice_serious" min="0" max="100" value="50">
+          <span class="spectrum-label right">Playful</span>
+        </div>
+        <div class="spectrum-row">
+          <span class="spectrum-label">Reserved</span>
+          <input type="range" id="voice_reserved" min="0" max="100" value="50">
+          <span class="spectrum-label right">Bold</span>
+        </div>
+        <div class="spectrum-row">
+          <span class="spectrum-label">Technical</span>
+          <input type="range" id="voice_technical" min="0" max="100" value="50">
+          <span class="spectrum-label right">Accessible</span>
+        </div>
+        <div class="spectrum-row">
+          <span class="spectrum-label">Aspirational</span>
+          <input type="range" id="voice_aspirational" min="0" max="100" value="50">
+          <span class="spectrum-label right">Grounded</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Three words that describe your brand's personality</label>
+      <textarea id="voice_words" class="short" placeholder="e.g., Warm, sharp, grounded"></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">I'm defining my brand's personality in 3 words. My brand is in [YOUR INDUSTRY] and our values are: [LIST VALUES]. My audience is: [DESCRIBE THEM]. Think of my brand as a person at a dinner party  - how would other guests describe their personality? Give me 10 three-word combos, ranging from warm to edgy to sophisticated. For each combo, write one example sentence my brand might post on Instagram so I can feel the difference.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">What your brand sounds like vs. what it never sounds like</label>
+      <span class="field-hint">This is one of the most useful exercises for keeping your voice consistent.</span>
+      <textarea id="voice_sounds_like" class="short" placeholder="We sound like: a knowledgeable friend who gives you honest advice over coffee..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">Help me define what my brand sounds like using vivid analogies. My 3 personality words are: [PASTE]. Complete these sentences with 3 options each:
+"We sound like..." (use a person, scenario, or feeling  - e.g., "a knowledgeable friend over coffee")
+"We never sound like..." (e.g., "a corporate press release")
+"If our brand were a podcast, it would be..."
+"If our brand wrote a text message, it would..."</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <textarea id="voice_never_sounds" class="short" placeholder="We never sound like: a corporate press release, a pushy salesperson, a textbook..."></textarea>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevSection()">← Back</button>
+      <button class="btn-next" onclick="nextSection()">Continue →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 5: MESSAGING FRAMEWORK -->
+  <div class="section" data-section="5">
+    <div class="step-indicator">Section 5 of 9</div>
+    <div class="section-number">05</div>
+    <h2 class="section-title">Messaging Framework</h2>
+    <p class="section-subtitle">Your messaging framework is the toolkit of key messages you'll use again and again. Think of it as your brand's greatest hits  - the lines that make people lean in.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <p>Great messaging ladders up from a single core message (your brand promise) into supporting pillars. Each pillar should address a different reason someone would choose you. Together, they paint a complete picture.</p>
+      <div class="example">
+        <strong>Example</strong>
+        Brand Promise: "Packaging that performs as beautifully as your product." · Pillar 1: Sustainability without compromise · Pillar 2: Design-forward, not design-last · Pillar 3: Built for scale
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Brand Promise / Tagline</label>
+      <span class="field-hint">The single most important thing you want people to remember. One sentence max.</span>
+      <input type="text" id="msg_promise" placeholder="e.g., Packaging that performs as beautifully as your product.">
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">I need a brand promise / tagline  - the single most important thing I want people to remember about my brand. Here's my mission: [PASTE] and my vision: [PASTE]. Write 10 brand promise options, each one sentence max. Mix styles: some aspirational, some clever, some dead-simple. Circle the ones that pass this test: would my ideal customer repeat this to a friend?</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Elevator Pitch</label>
+      <span class="field-hint">You have 30 seconds with your dream client. What do you say?</span>
+      <textarea id="msg_elevator" placeholder="e.g., We help DTC food brands replace their plastic packaging with beautiful, compostable alternatives  - without increasing their per-unit cost..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">I need a 30-second elevator pitch. I'm at a conference and my dream client just asked "so what do you do?" Here's my context:
+- Mission: [PASTE]
+- Who I serve: [PASTE]
+- Brand promise: [PASTE]
+Write 3 versions: one conversational (like I'm talking to a friend), one confident (like I'm on a podcast), and one hook-first (leading with the problem). Each should be speakable in under 30 seconds.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Messaging Pillar 1</label>
+      <div class="chip-input-row" style="margin-bottom:8px">
+        <input type="text" id="pillar1_title" placeholder="Pillar name (e.g., Sustainability)">
+      </div>
+      <textarea id="pillar1_desc" class="short" placeholder="Supporting message for this pillar..."></textarea>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Messaging Pillar 2</label>
+      <div class="chip-input-row" style="margin-bottom:8px">
+        <input type="text" id="pillar2_title" placeholder="Pillar name (e.g., Design)">
+      </div>
+      <textarea id="pillar2_desc" class="short" placeholder="Supporting message for this pillar..."></textarea>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Messaging Pillar 3</label>
+      <div class="chip-input-row" style="margin-bottom:8px">
+        <input type="text" id="pillar3_title" placeholder="Pillar name (e.g., Scalability)">
+      </div>
+      <textarea id="pillar3_desc" class="short" placeholder="Supporting message for this pillar..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck on pillars? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">I need to define 3 messaging pillars  - distinct reasons someone would choose my brand. Here's my context:
+- What we do: [PASTE]
+- Who we serve: [PASTE]
+- Brand promise: [PASTE]
+Think about what my ideal customer weighs when making a decision. Give me 5 potential pillar themes with a name and one-line supporting message for each. Each pillar should address a different part of the decision  - don't overlap. Then recommend which 3 are strongest.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevSection()">← Back</button>
+      <button class="btn-next" onclick="nextSection()">Continue →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 6: TARGET AUDIENCE -->
+  <div class="section" data-section="6">
+    <div class="step-indicator">Section 6 of 9</div>
+    <div class="section-number">06</div>
+    <h2 class="section-title">Target Audience</h2>
+    <p class="section-subtitle">You can't speak to everyone. The brands that win are the ones who know exactly who they're talking to  - and make that person feel seen.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <p>Go beyond demographics. The most useful audience profiles focus on psychographics: what does your ideal customer believe? What frustrates them? What does their current workaround look like? That's where your messaging hooks live.</p>
+      <div class="example">
+        <strong>Example</strong>
+        "Our primary audience is first-time DTC founders (25–40) who care deeply about sustainability but feel overwhelmed by packaging options. They're Googling 'eco-friendly packaging' at midnight, stuck between choices that are either ugly or unaffordable."
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Primary Audience</label>
+      <span class="field-hint">Who is your core customer? Describe them as a real person, not a segment.</span>
+      <textarea id="audience_primary" placeholder="e.g., Early-stage DTC founders, typically 25–40, who've just found product-market fit and are looking to level up their packaging..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">Help me define my ideal customer as a real person, not a demographic segment. My brand does: [PASTE MISSION]. Ask me about my last 3 favorite clients/customers  - what made them great to work with? What did they have in common? Based on my answers, write a vivid audience portrait that includes: who they are, what they believe, what frustrates them, and what their current workaround looks like before finding me.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">What keeps them up at night?</label>
+      <span class="field-hint">What are their biggest frustrations, fears, or unmet needs related to what you do?</span>
+      <textarea id="audience_pain" class="short" placeholder="e.g., They're terrified of looking cheap next to competitors, but can't justify $5/unit packaging when they're bootstrapped..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">My ideal customer is: [PASTE AUDIENCE]. My brand does: [PASTE MISSION]. What are the top 5 frustrations, fears, or late-night Google searches this person has related to what I do? Be specific and emotional  - not "they want quality" but "they're terrified of launching and having their product look amateur next to competitors." Write them as if you're reading their inner monologue.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">What does success look like for them?</label>
+      <span class="field-hint">When your product/service works perfectly, what does their life or business look like?</span>
+      <textarea id="audience_success" class="short" placeholder="e.g., Unboxing videos that go viral. Customers who keep the box. A brand that looks as premium as it tastes..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">When my product/service works perfectly for my ideal customer [PASTE AUDIENCE], what does their life look like? Paint 3 vivid "after" scenes  - specific moments where they feel the impact. Think: what do they screenshot? What do they brag about? What problem has vanished from their weekly stress list? Make it sensory and concrete.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Secondary Audience (optional)</label>
+      <textarea id="audience_secondary" class="short" placeholder="e.g., Established CPG brands looking to transition from plastic to sustainable without disrupting their supply chain..."></textarea>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevSection()">← Back</button>
+      <button class="btn-next" onclick="nextSection()">Continue →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 7: BRAND STORY -->
+  <div class="section" data-section="7">
+    <div class="step-indicator">Section 7 of 9</div>
+    <div class="section-number">07</div>
+    <h2 class="section-title">Brand Story</h2>
+    <p class="section-subtitle">Every brand has an origin story. Yours is the human thread that connects you to your audience  - the moment or realization that made this brand inevitable.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <p>The best brand stories follow a simple arc: there was a problem → you experienced it personally → that experience became the seed of your brand. People connect with honesty and specificity, not polish. The more real, the better.</p>
+      <div class="example">
+        <strong>Example</strong>
+        "After spending 6 months sourcing packaging for my hot sauce brand, I realized the industry was broken. Sustainable options looked terrible. Beautiful options were plastic. I started sketching what I wished existed  - and that sketch became our first product."
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">What's the origin story?</label>
+      <span class="field-hint">What moment, frustration, or realization sparked this brand?</span>
+      <textarea id="story_origin" placeholder="e.g., It started when I couldn't find packaging for my own brand that was both sustainable and beautiful..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">Help me uncover my brand's origin story. Don't let me be generic  - push me to be specific. Ask me these questions one at a time:
+1. What was the exact moment or experience that planted the seed for this brand?
+2. What was I doing before this? What frustrated me?
+3. What did I try first that didn't work?
+4. What made me think "I have to build this myself"?
+Then take my answers and write the story in a natural, honest tone  - like I'm telling it to a friend over drinks. No corporate polish.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">What makes you the right person/team to build this?</label>
+      <textarea id="story_credibility" class="short" placeholder="e.g., 8 years in packaging design + a materials science co-founder who worked at a compostables lab..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">I need to articulate why I'm the right person to build this brand. Help me see my own credibility clearly  - I tend to undersell myself. Ask me: what's my background? What's the most relevant experience I have? What do I know that most people in my space don't? Then write a 2–3 sentence "why us" statement that's confident without being boastful.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">What's the emotional core of your brand?</label>
+      <span class="field-hint">What feeling do you want people to walk away with after encountering your brand?</span>
+      <textarea id="story_emotion" class="short" placeholder="e.g., Relief. The feeling of 'finally, someone gets it'  - that they don't have to compromise anymore..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">What's the core emotion my brand creates? Not what I sell  - what people FEEL. My brand does: [PASTE MISSION] for [PASTE AUDIENCE]. Think about the moment someone discovers my brand and thinks "finally." What specific feeling is that? Give me 5 options, each as: [One word]  - [a vivid description of the feeling, like a scene]. Example: "Relief  - the exhale when you find the answer you've been Googling for 3 hours."</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevSection()">← Back</button>
+      <button class="btn-next" onclick="nextSection()">Continue →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 8: VISUAL IDENTITY DIRECTION -->
+  <div class="section" data-section="8">
+    <div class="step-indicator">Section 8 of 9</div>
+    <div class="section-number">08</div>
+    <h2 class="section-title">Visual Identity Direction</h2>
+    <p class="section-subtitle">Before logos and color palettes come direction and intention. This section captures the aesthetic feeling your brand should evoke  - the foundation a designer needs to bring it to life.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <p>Visual identity is a feeling before it's a file. Think about the brands, spaces, or experiences that feel like yours. A mood board in words is just as powerful as one in images. Focus on textures, emotions, and references  - not specific design choices yet.</p>
+      <div class="example">
+        <strong>Example</strong>
+        "Think Aesop meets Patagonia: earthy, minimal, premium but not pretentious. Natural textures, muted tones, generous white space. Nothing glossy or over-designed."
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">What brands or spaces feel like yours?</label>
+      <span class="field-hint">Name 3–5 brands, places, or experiences whose aesthetic resonates with your vision.</span>
+      <textarea id="visual_references" class="short" placeholder="e.g., Aesop, Kinfolk Magazine, the lobby of Ace Hotel, Japanese bento packaging..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">Help me find visual references for my brand. My brand values are: [PASTE VALUES]. My voice is: [PASTE 3 PERSONALITY WORDS]. My audience is: [PASTE]. Suggest 10 brands, spaces, or experiences whose aesthetic might resonate  - mix well-known brands with unexpected references (a restaurant, a hotel lobby, a magazine, a film). For each, tell me what specifically to notice about their aesthetic.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Describe the aesthetic in words</label>
+      <span class="field-hint">If you were describing your brand's look and feel to a designer sight-unseen, what would you say?</span>
+      <textarea id="visual_description" placeholder="e.g., Clean and warm, not cold and minimal. Earth tones with one bold accent. Typography-led. Feels handmade but precise..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">I need to describe my brand's visual aesthetic to a designer who's never seen my brand. My references are: [PASTE REFERENCES]. Write a "visual brief" paragraph that covers: overall feeling, color temperature (warm/cool/neutral), texture (smooth/rough/organic), typography vibe (bold/delicate/modern/classic), spacing (dense/generous), and one unexpected detail. Use "X but not Y" format where helpful (e.g., "minimal but not cold").</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">What your visual identity should never be</label>
+      <textarea id="visual_never" class="short" placeholder="e.g., Never corporate, never neon, never cluttered. No stock photos of people in blazers shaking hands..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">Based on my brand aesthetic: [PASTE DESCRIPTION], create a "never" list  - 7 specific things my visual identity should avoid. Be vivid and specific: not just "don't be corporate" but "no stock photos of people in blazers shaking hands in front of a whiteboard." Include colors, textures, photography styles, and typography choices to avoid.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevSection()">← Back</button>
+      <button class="btn-next" onclick="nextSection()">Continue →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 9: COMPETITIVE POSITIONING -->
+  <div class="section" data-section="9">
+    <div class="step-indicator">Section 9 of 9</div>
+    <div class="section-number">09</div>
+    <h2 class="section-title">Competitive Positioning</h2>
+    <p class="section-subtitle">Positioning is the space you own in your customer's mind. It's not about being better  - it's about being different in a way that matters.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-header">✦ Strategist's Tip</div>
+      <p>The positioning sweet spot sits at the intersection of three things: what your audience desperately needs, what you do exceptionally well, and what your competitors can't or won't do. Find that intersection, and you've found your lane.</p>
+      <div class="example">
+        <strong>Example</strong>
+        "Unlike generic packaging companies who treat sustainability as an add-on, we design sustainability into every layer  - from material to unboxing experience  - at a price that doesn't punish founders for doing the right thing."
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Who are your main competitors or alternatives?</label>
+      <span class="field-hint">Include direct competitors and the "do nothing" / DIY alternative.</span>
+      <textarea id="position_competitors" class="short" placeholder="e.g., noissue (eco but limited design), Packlane (custom but plastic-first), and the DIY approach (Alibaba + prayer)..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">Help me map my competitive landscape. My brand does: [PASTE MISSION] for [PASTE AUDIENCE]. Research and list: 3 direct competitors (companies that do something similar), 2 indirect competitors (different approach, same problem), and the "do nothing" alternative (what people do without any of us). For each, note their strength and their gap in one line.</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">What do you do that they can't or won't?</label>
+      <textarea id="position_advantage" class="short" placeholder="e.g., We're the only company that combines custom design, sustainable materials, AND startup-friendly MOQs..."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">Here are my competitors: [PASTE LIST]. And here's what I do: [PASTE MISSION]. Help me find my unfair advantage. Ask me: what do clients consistently compliment that they didn't expect? What do competitors charge for that I include? What's my approach that nobody else does? Then complete this sentence 3 different ways: "Only we ________."</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Your Positioning Statement</label>
+      <span class="field-hint">Use this formula: For [audience] who [need], [brand] is the [category] that [key differentiator], unlike [alternatives] who [limitation].</span>
+      <textarea id="position_statement" placeholder="e.g., For DTC food founders who refuse to compromise on sustainability or design, EcoBox is the packaging studio that makes premium compostable packaging accessible, unlike bulk suppliers who treat design as an afterthought."></textarea>
+      <button class="prompt-toggle" onclick="togglePrompt(this)"><span class="arrow">&#9654;</span> Stuck? Try this AI prompt</button>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Copy &amp; paste into ChatGPT or Claude</div>
+        <div class="prompt-text">Write my positioning statement using this formula: "For [audience] who [need], [brand] is the [category] that [key differentiator], unlike [alternatives] who [limitation]."
+
+Here's my input:
+- Audience: [PASTE]
+- What I do: [PASTE]
+- My advantage: [PASTE]
+- Competitors: [PASTE]
+
+Write 3 versions: one using the formula exactly, one more conversational, and one punchy enough for a homepage hero. For each, check: is the differentiator something competitors can't easily copy?</div>
+        <button class="btn-copy-prompt" onclick="copyPrompt(this)">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevSection()">← Back</button>
+      <button class="btn-next" onclick="generateResult()">Generate My Brand Foundation →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ UPGRADE GATE ═══════════ -->
+<div id="upgradeGate" style="display:none; max-width:600px; margin:80px auto; padding:0 24px; text-align:center; animation: fadeUp 0.6s ease;">
+  <div style="font-size:48px; margin-bottom:16px; opacity:0.3;">✦</div>
+  <h2 style="font-family:var(--serif); font-size:clamp(1.8rem,3vw,2.4rem); font-weight:300; margin-bottom:12px;">You've completed the free preview.</h2>
+  <p style="font-size:14px; color:var(--text-muted); line-height:1.8; margin-bottom:32px;">
+    Nice work on your Mission, Vision, and Values. The full kit continues with 6 more sections: Brand Voice, Messaging, Audience, Brand Story, Visual Direction, and Competitive Positioning, plus a polished PDF export and companion guide.
+  </p>
+  <div style="background:var(--dark-card); border:1px solid rgba(201,169,110,0.2); border-radius:4px; padding:40px 32px; margin-bottom:24px;">
+    <div style="font-family:var(--serif); font-size:2.5rem; font-weight:300; color:var(--gold); margin-bottom:4px;">$97</div>
+    <div style="font-size:12px; color:var(--text-muted); margin-bottom:20px;">One-time purchase. Yours forever.</div>
+    <div style="text-align:left; max-width:320px; margin:0 auto 24px;">
+      <div style="font-size:13px; color:var(--text-muted); padding:8px 0; border-bottom:1px solid var(--dark-border); display:flex; align-items:center; gap:8px;"><span style="color:var(--gold);">✦</span> All 9 sections with AI prompts</div>
+      <div style="font-size:13px; color:var(--text-muted); padding:8px 0; border-bottom:1px solid var(--dark-border); display:flex; align-items:center; gap:8px;"><span style="color:var(--gold);">✦</span> Professional PDF export</div>
+      <div style="font-size:13px; color:var(--text-muted); padding:8px 0; border-bottom:1px solid var(--dark-border); display:flex; align-items:center; gap:8px;"><span style="color:var(--gold);">✦</span> 13-page companion guide</div>
+      <div style="font-size:13px; color:var(--text-muted); padding:8px 0; display:flex; align-items:center; gap:8px;"><span style="color:var(--gold);">✦</span> Works offline, no account needed</div>
+    </div>
+    <a href="https://gumroad.com" target="_blank" style="display:inline-block; background:var(--gold); color:var(--dark); font-family:var(--sans); font-size:11px; letter-spacing:3px; text-transform:uppercase; padding:16px 48px; text-decoration:none; font-weight:500; transition:all 0.4s;">Get the Full Kit</a>
+  </div>
+  <button onclick="goToSection(currentSection); document.getElementById('upgradeGate').style.display='none';" style="background:none; border:none; color:var(--text-muted); font-family:var(--sans); font-size:12px; cursor:pointer; padding:8px;">← Back to my answers</button>
+</div>
+
+<!-- ═══════════ RESULT SCREEN ═══════════ -->
+<div class="result-screen" id="resultScreen">
+  <div class="result-header">
+    <h1>Your Brand Foundation</h1>
+    <p>Here's your complete brand foundation document. Review it, refine it, and make it yours.</p>
+  </div>
+
+  <div class="result-actions">
+    <button class="btn-download" onclick="downloadPDF()">↓ Download as PDF</button>
+    <button class="btn-restart" onclick="restart()">Start Over</button>
+  </div>
+
+  <div class="result-document" id="resultDocument">
+    <!-- Populated by JS -->
+  </div>
+
+  <div style="text-align:center; margin-top:48px; padding:32px 0; border-top:1px solid var(--dark-border);">
+    <p style="font-size:13px; color:var(--text-muted); margin-bottom:8px;">Want expert help turning this foundation into a full brand identity?</p>
+    <a href="https://maiacreativehouse.com" target="_blank" style="color:var(--gold); font-size:12px; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Explore MAIA Creative House →</a>
+  </div>
+</div>
+
+<!-- ═══════════ LOADING SCREEN ═══════════ -->
+<div id="loadingScreen" style="display:none; min-height:100vh; align-items:center; justify-content:center; padding:40px 20px; flex-direction:column; text-align:center;">
+  <div style="margin-bottom:48px;">
+    <div class="loading-icon">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="20" stroke="rgba(201,169,110,0.2)" stroke-width="2"/>
+        <path d="M24 4 a20 20 0 0 1 20 20" stroke="#c9a96e" stroke-width="2" stroke-linecap="round">
+          <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="1s" repeatCount="indefinite"/>
+        </path>
+      </svg>
+    </div>
+    <h2 style="font-family:var(--serif); font-size:clamp(1.6rem,3vw,2.2rem); font-weight:300; margin-bottom:12px; color:var(--text);">Crafting Your Brand Foundation</h2>
+    <p style="font-size:14px; color:var(--text-muted); max-width:420px; margin:0 auto 32px; line-height:1.7;">Our AI strategist is transforming your answers into a polished, strategic brand foundation document.</p>
+    <div style="max-width:300px; margin:0 auto; height:2px; background:var(--dark-border); border-radius:1px; overflow:hidden;">
+      <div id="loadingProgress" style="height:100%; width:0%; background:var(--gold); transition:width 8s ease-out; border-radius:1px;"></div>
+    </div>
+    <p style="font-size:11px; color:var(--text-muted); margin-top:12px; letter-spacing:1px;">This usually takes 10-20 seconds</p>
+  </div>
+</div>
+
+<script>
+// ─── STATE ───
+let currentSection = 1;
+const totalSections = 9;
+let valuesChips = [];
+const isPreview = new URLSearchParams(window.location.search).get('mode') === 'preview';
+const FREE_SECTIONS = 3;
+
+// ─── LOCAL STORAGE SAVE/LOAD ───
+function saveProgress() {
+  const data = {};
+  document.querySelectorAll('textarea, input[type="text"]').forEach(el => {
+    if (el.id) data[el.id] = el.value;
+  });
+  document.querySelectorAll('input[type="range"]').forEach(el => {
+    if (el.id) data[el.id] = el.value;
+  });
+  data._valuesChips = valuesChips;
+  data._currentSection = currentSection;
+  try { localStorage.setItem('maia_brand_kit', JSON.stringify(data)); } catch(e) {}
+}
+
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem('maia_brand_kit');
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    Object.keys(data).forEach(key => {
+      if (key.startsWith('_')) return;
+      const el = document.getElementById(key);
+      if (el) el.value = data[key];
+    });
+    if (data._valuesChips) {
+      valuesChips = data._valuesChips;
+      renderChips();
+    }
+  } catch(e) {}
+}
+
+// Auto-save on input
+document.addEventListener('input', () => { clearTimeout(window._saveTimeout); window._saveTimeout = setTimeout(saveProgress, 500); });
+
+// ─── PREVIEW MODE INIT ───
+if (isPreview) {
+  document.addEventListener('DOMContentLoaded', () => {
+    // Update intro text for preview
+    const desc = document.querySelector('.intro-description');
+    if (desc) desc.innerHTML = 'Try the first 3 sections free: Mission, Vision, and Values. Experience the framework, the strategist tips, and the AI prompts. Love it? Unlock all 9 sections for $97.';
+    const btn = document.getElementById('btnBegin');
+    if (btn) btn.textContent = 'Start Free Preview';
+    const time = document.querySelector('.intro-time');
+    if (time) time.innerHTML = 'Free preview: <strong>~15 minutes</strong> for 3 sections. Full kit: 9 sections, ~60 minutes.';
+    // Update section 3 "Continue" button text
+    const sec3nav = document.querySelector('.section[data-section="3"] .btn-next');
+    if (sec3nav) sec3nav.textContent = 'Complete Preview \u2192';
+  });
+}
+
+// ─── NAVIGATION ───
+function startGenerator() {
+  document.getElementById('introScreen').style.display = 'none';
+  document.getElementById('generator').classList.add('active');
+  loadProgress();
+  goToSection(currentSection);
+  window.scrollTo(0, 0);
+}
+
+function goToSection(n) {
+  currentSection = n;
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  const target = document.querySelector(`.section[data-section="${n}"]`);
+  if (target) target.classList.add('active');
+  const pct = ((n - 1) / (totalSections)) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  saveProgress();
+}
+
+function nextSection() {
+  if (isPreview && currentSection >= FREE_SECTIONS) {
+    showUpgradeGate();
+    return;
+  }
+  if (currentSection < totalSections) goToSection(currentSection + 1);
+}
+
+function showUpgradeGate() {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('upgradeGate').style.display = 'block';
+  document.getElementById('progressFill').style.width = '33%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function prevSection() {
+  if (currentSection > 1) goToSection(currentSection - 1);
+}
+
+// ─── PROMPT HELPERS ───
+function togglePrompt(btn) {
+  btn.classList.toggle('open');
+  const box = btn.nextElementSibling;
+  box.classList.toggle('open');
+}
+
+function copyPrompt(btn) {
+  const text = btn.previousElementSibling.textContent.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.style.borderColor = '#c9a96e';
+    setTimeout(() => { btn.textContent = orig; btn.style.borderColor = ''; }, 2000);
+  }).catch(() => {
+    // Fallback for older browsers
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = orig; }, 2000);
+  });
+}
+
+// ─── CHIPS (VALUES) ───
+function addChip(type) {
+  const input = document.getElementById('valueInput');
+  const val = input.value.trim();
+  if (!val) return;
+  if (valuesChips.length >= 7) return;
+  valuesChips.push(val);
+  input.value = '';
+  renderChips();
+  saveProgress();
+}
+
+function removeChip(type, index) {
+  valuesChips.splice(index, 1);
+  renderChips();
+  saveProgress();
+}
+
+function renderChips() {
+  const container = document.getElementById('valuesChips');
+  container.innerHTML = valuesChips.map((v, i) =>
+    `<div class="chip">${v}<button onclick="removeChip('values',${i})">×</button></div>`
+  ).join('');
+}
+
+// ─── HELPERS ───
+function getVal(id) {
+  const el = document.getElementById(id);
+  return el ? el.value.trim() : '';
+}
+
+function getRangeVal(id) {
+  const el = document.getElementById(id);
+  return el ? parseInt(el.value) : 50;
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function nl2br(text) {
+  return escapeHtml(text).replace(/\n/g, '<br>');
+}
+
+// ─── VOICE SPECTRUM RENDERING ───
+function voiceBarHTML(leftLabel, rightLabel, value, prefix) {
+  return `
+    <div class="${prefix}-voice-item" style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+      <span class="${prefix}-voice-left" style="width:80px;text-align:right;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:${prefix==='doc'?'var(--text-muted)':'#888'}">${leftLabel}</span>
+      <div class="${prefix}-voice-track" style="flex:1;height:${prefix==='doc'?'4':'3'}px;background:${prefix==='doc'?'var(--dark-border)':'#e0e0e0'};position:relative;border-radius:2px;">
+        <div class="${prefix}-voice-dot" style="position:absolute;top:50%;left:${value}%;transform:translate(-50%,-50%);width:${prefix==='doc'?'12':'10'}px;height:${prefix==='doc'?'12':'10'}px;background:#c9a96e;border-radius:50%;"></div>
+      </div>
+      <span class="${prefix}-voice-right" style="width:80px;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:${prefix==='doc'?'var(--text-muted)':'#888'}">${rightLabel}</span>
+    </div>
+  `;
+}
+
+// ─── API CONFIG ───
+const API_URL = '/api/generate';
+
+// ─── GENERATE RESULT (AI-POWERED) ───
+async function generateResult() {
+  saveProgress();
+
+  // Collect all answers
+  const answers = {
+    mission_what: getVal('mission_what'),
+    mission_who: getVal('mission_who'),
+    mission_why: getVal('mission_why'),
+    mission_statement: getVal('mission_statement'),
+    vision_future: getVal('vision_future'),
+    vision_role: getVal('vision_role'),
+    vision_statement: getVal('vision_statement'),
+    values_chips: valuesChips.join(', '),
+    values_practice: getVal('values_practice'),
+    voice_formal: getRangeVal('voice_formal'),
+    voice_serious: getRangeVal('voice_serious'),
+    voice_reserved: getRangeVal('voice_reserved'),
+    voice_technical: getRangeVal('voice_technical'),
+    voice_aspirational: getRangeVal('voice_aspirational'),
+    voice_words: getVal('voice_words'),
+    voice_sounds_like: getVal('voice_sounds_like'),
+    voice_never_sounds: getVal('voice_never_sounds'),
+    msg_promise: getVal('msg_promise'),
+    msg_elevator: getVal('msg_elevator'),
+    pillar1_title: getVal('pillar1_title'),
+    pillar1_desc: getVal('pillar1_desc'),
+    pillar2_title: getVal('pillar2_title'),
+    pillar2_desc: getVal('pillar2_desc'),
+    pillar3_title: getVal('pillar3_title'),
+    pillar3_desc: getVal('pillar3_desc'),
+    audience_primary: getVal('audience_primary'),
+    audience_pain: getVal('audience_pain'),
+    audience_success: getVal('audience_success'),
+    audience_secondary: getVal('audience_secondary'),
+    story_origin: getVal('story_origin'),
+    story_credibility: getVal('story_credibility'),
+    story_emotion: getVal('story_emotion'),
+    visual_references: getVal('visual_references'),
+    visual_description: getVal('visual_description'),
+    visual_never: getVal('visual_never'),
+    position_competitors: getVal('position_competitors'),
+    position_advantage: getVal('position_advantage'),
+    position_statement: getVal('position_statement'),
+  };
+
+  // Show loading state
+  document.getElementById('generator').classList.remove('active');
+  document.getElementById('loadingScreen').style.display = 'flex';
+  document.getElementById('loadingProgress').style.width = '90%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  try {
+    const resp = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ answers })
+    });
+
+    if (!resp.ok) throw new Error('Generation failed');
+
+    const data = await resp.json();
+    const r = data.result;
+
+    // Render the polished result
+    renderAIResult(r);
+
+    // Show result screen
+    document.getElementById('loadingScreen').style.display = 'none';
+    document.getElementById('resultScreen').classList.add('active');
+    document.getElementById('loadingProgress').style.width = '100%';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  } catch (err) {
+    console.error('Generation error:', err);
+    document.getElementById('loadingScreen').style.display = 'none';
+    document.getElementById('generator').classList.add('active');
+    alert('Something went wrong generating your brand foundation. Please try again.');
+  }
+}
+
+function renderAIResult(r) {
+  const promise = r.messaging?.promise || r.brand_name || 'Your Brand Foundation';
+
+  let html = `
+    <div class="doc-brand-name">${escapeHtml(r.brand_name || 'Your Brand')}</div>
+    <div class="doc-tagline">Brand Foundation - crafted by MAIA Creative House AI</div>
+  `;
+
+  // 1. Mission
+  if (r.mission?.statement) {
+    html += `<div class="doc-section">
+      <div class="doc-section-label">01 - Mission</div>
+      <h3 class="doc-section-title">Why We Exist</h3>
+      <div class="doc-section-content">${nl2br(r.mission.statement)}</div>
+      ${r.mission.note ? `<div class="strategist-note"><span class="note-label">Strategist's Note:</span> ${escapeHtml(r.mission.note)}</div>` : ''}
+    </div><hr class="doc-divider">`;
+  }
+
+  // 2. Vision
+  if (r.vision?.statement) {
+    html += `<div class="doc-section">
+      <div class="doc-section-label">02 - Vision</div>
+      <h3 class="doc-section-title">Where We're Headed</h3>
+      <div class="doc-section-content">${nl2br(r.vision.statement)}</div>
+      ${r.vision.note ? `<div class="strategist-note"><span class="note-label">Strategist's Note:</span> ${escapeHtml(r.vision.note)}</div>` : ''}
+    </div><hr class="doc-divider">`;
+  }
+
+  // 3. Values
+  if (r.values?.list?.length) {
+    let valHtml = '<div style="margin-top:8px;">';
+    r.values.list.forEach(v => {
+      valHtml += `<div style="margin-bottom:14px;">
+        <div class="doc-value" style="display:inline-block; margin-bottom:4px;">${escapeHtml(v.name)}</div>
+        <div style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-top:4px;">${escapeHtml(v.description)}</div>
+      </div>`;
+    });
+    valHtml += '</div>';
+    html += `<div class="doc-section">
+      <div class="doc-section-label">03 - Values</div>
+      <h3 class="doc-section-title">What We Stand For</h3>
+      <div class="doc-section-content">${valHtml}</div>
+      ${r.values.note ? `<div class="strategist-note"><span class="note-label">Strategist's Note:</span> ${escapeHtml(r.values.note)}</div>` : ''}
+    </div><hr class="doc-divider">`;
+  }
+
+  // 4. Voice
+  if (r.voice) {
+    let voiceHtml = '';
+    if (r.voice.personality) voiceHtml += `<p style="margin-bottom:16px;"><strong style="color:var(--gold);font-size:11px;letter-spacing:1px;text-transform:uppercase">Personality:</strong> ${escapeHtml(r.voice.personality)}</p>`;
+    if (r.voice.spectrums) {
+      const s = r.voice.spectrums;
+      voiceHtml += voiceBarHTML('Formal', 'Casual', s.formal_casual || 50, 'doc');
+      voiceHtml += voiceBarHTML('Serious', 'Playful', s.serious_playful || 50, 'doc');
+      voiceHtml += voiceBarHTML('Reserved', 'Bold', s.reserved_bold || 50, 'doc');
+      voiceHtml += voiceBarHTML('Technical', 'Accessible', s.technical_accessible || 50, 'doc');
+      voiceHtml += voiceBarHTML('Aspirational', 'Grounded', s.aspirational_grounded || 50, 'doc');
+    }
+    if (r.voice.sounds_like) voiceHtml += `<div style="margin-top:16px;"><strong style="color:var(--gold);font-size:11px;letter-spacing:1px;text-transform:uppercase">We sound like:</strong><br>${nl2br(r.voice.sounds_like)}</div>`;
+    if (r.voice.never_sounds_like) voiceHtml += `<div style="margin-top:12px;"><strong style="color:var(--gold);font-size:11px;letter-spacing:1px;text-transform:uppercase">We never sound like:</strong><br>${nl2br(r.voice.never_sounds_like)}</div>`;
+    html += `<div class="doc-section">
+      <div class="doc-section-label">04 - Brand Voice</div>
+      <h3 class="doc-section-title">How We Speak</h3>
+      <div class="doc-section-content">${voiceHtml}</div>
+      ${r.voice.note ? `<div class="strategist-note"><span class="note-label">Strategist's Note:</span> ${escapeHtml(r.voice.note)}</div>` : ''}
+    </div><hr class="doc-divider">`;
+  }
+
+  // 5. Messaging
+  if (r.messaging) {
+    let msgHtml = '';
+    if (r.messaging.promise) msgHtml += `<p style="font-family:var(--serif);font-size:1.3rem;color:var(--gold);margin-bottom:16px;font-style:italic;">"${escapeHtml(r.messaging.promise)}"</p>`;
+    if (r.messaging.elevator_pitch) msgHtml += `<p style="margin-bottom:20px;">${nl2br(r.messaging.elevator_pitch)}</p>`;
+    if (r.messaging.pillars?.length) {
+      msgHtml += '<div class="doc-pillars">';
+      r.messaging.pillars.forEach(p => {
+        msgHtml += `<div class="doc-pillar"><h4>${escapeHtml(p.name)}</h4><p>${nl2br(p.message)}</p></div>`;
+      });
+      msgHtml += '</div>';
+    }
+    html += `<div class="doc-section">
+      <div class="doc-section-label">05 - Messaging</div>
+      <h3 class="doc-section-title">What We Say</h3>
+      <div class="doc-section-content">${msgHtml}</div>
+      ${r.messaging.note ? `<div class="strategist-note"><span class="note-label">Strategist's Note:</span> ${escapeHtml(r.messaging.note)}</div>` : ''}
+    </div><hr class="doc-divider">`;
+  }
+
+  // 6. Audience
+  if (r.audience) {
+    let audHtml = '';
+    if (r.audience.primary) audHtml += `<p style="margin-bottom:12px;">${nl2br(r.audience.primary)}</p>`;
+    if (r.audience.pain_points) audHtml += `<p style="margin-bottom:12px;"><strong style="color:var(--gold);font-size:11px;letter-spacing:1px;text-transform:uppercase">Pain Points:</strong><br>${nl2br(r.audience.pain_points)}</p>`;
+    if (r.audience.success) audHtml += `<p style="margin-bottom:12px;"><strong style="color:var(--gold);font-size:11px;letter-spacing:1px;text-transform:uppercase">Success Looks Like:</strong><br>${nl2br(r.audience.success)}</p>`;
+    if (r.audience.secondary) audHtml += `<p><strong style="color:var(--gold);font-size:11px;letter-spacing:1px;text-transform:uppercase">Secondary Audience:</strong><br>${nl2br(r.audience.secondary)}</p>`;
+    html += `<div class="doc-section">
+      <div class="doc-section-label">06 - Audience</div>
+      <h3 class="doc-section-title">Who We Serve</h3>
+      <div class="doc-section-content">${audHtml}</div>
+      ${r.audience.note ? `<div class="strategist-note"><span class="note-label">Strategist's Note:</span> ${escapeHtml(r.audience.note)}</div>` : ''}
+    </div><hr class="doc-divider">`;
+  }
+
+  // 7. Story
+  if (r.story) {
+    let storyHtml = '';
+    if (r.story.origin) storyHtml += `<p style="margin-bottom:12px;">${nl2br(r.story.origin)}</p>`;
+    if (r.story.credibility) storyHtml += `<p style="margin-bottom:12px;"><strong style="color:var(--gold);font-size:11px;letter-spacing:1px;text-transform:uppercase">Why Us:</strong><br>${nl2br(r.story.credibility)}</p>`;
+    if (r.story.emotion) storyHtml += `<p><strong style="color:var(--gold);font-size:11px;letter-spacing:1px;text-transform:uppercase">The Feeling:</strong><br>${nl2br(r.story.emotion)}</p>`;
+    html += `<div class="doc-section">
+      <div class="doc-section-label">07 - Brand Story</div>
+      <h3 class="doc-section-title">Where It Started</h3>
+      <div class="doc-section-content">${storyHtml}</div>
+      ${r.story.note ? `<div class="strategist-note"><span class="note-label">Strategist's Note:</span> ${escapeHtml(r.story.note)}</div>` : ''}
+    </div><hr class="doc-divider">`;
+  }
+
+  // 8. Visual
+  if (r.visual) {
+    let visHtml = '';
+    if (r.visual.references) visHtml += `<p style="margin-bottom:12px;"><strong style="color:var(--gold);font-size:11px;letter-spacing:1px;text-transform:uppercase">References:</strong><br>${nl2br(r.visual.references)}</p>`;
+    if (r.visual.description) visHtml += `<p style="margin-bottom:12px;">${nl2br(r.visual.description)}</p>`;
+    if (r.visual.never) visHtml += `<p><strong style="color:var(--gold);font-size:11px;letter-spacing:1px;text-transform:uppercase">Never:</strong><br>${nl2br(r.visual.never)}</p>`;
+    html += `<div class="doc-section">
+      <div class="doc-section-label">08 - Visual Direction</div>
+      <h3 class="doc-section-title">How We Look</h3>
+      <div class="doc-section-content">${visHtml}</div>
+      ${r.visual.note ? `<div class="strategist-note"><span class="note-label">Strategist's Note:</span> ${escapeHtml(r.visual.note)}</div>` : ''}
+    </div><hr class="doc-divider">`;
+  }
+
+  // 9. Positioning
+  if (r.positioning) {
+    let posHtml = '';
+    if (r.positioning.statement) posHtml += `<p style="font-family:var(--serif);font-size:1.1rem;color:var(--gold);margin-bottom:16px;font-style:italic;">"${escapeHtml(r.positioning.statement)}"</p>`;
+    if (r.positioning.competitors) posHtml += `<p style="margin-bottom:12px;"><strong style="color:var(--gold);font-size:11px;letter-spacing:1px;text-transform:uppercase">Competitive Landscape:</strong><br>${nl2br(r.positioning.competitors)}</p>`;
+    if (r.positioning.advantage) posHtml += `<p><strong style="color:var(--gold);font-size:11px;letter-spacing:1px;text-transform:uppercase">Our Advantage:</strong><br>${nl2br(r.positioning.advantage)}</p>`;
+    html += `<div class="doc-section">
+      <div class="doc-section-label">09 - Positioning</div>
+      <h3 class="doc-section-title">Where We Stand</h3>
+      <div class="doc-section-content">${posHtml}</div>
+      ${r.positioning.note ? `<div class="strategist-note"><span class="note-label">Strategist's Note:</span> ${escapeHtml(r.positioning.note)}</div>` : ''}
+    </div>`;
+  }
+
+  // Footer
+  html += `
+    <div class="doc-footer">
+      <p>Generated with</p>
+      <p class="maia-credit">MAIA Creative House - Brand Foundation Kit</p>
+    </div>
+  `;
+
+  document.getElementById('resultDocument').innerHTML = html;
+
+  // Store result for PDF
+  window._aiResult = r;
+}
+
+// ─── PDF DOWNLOAD ───
+function downloadPDF() {
+  const el = document.getElementById('resultDocument');
+  const opt = {
+    margin: [0.5, 0.5, 0.5, 0.5],
+    filename: 'Brand-Foundation.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, backgroundColor: '#111111' },
+    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
+    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+  };
+  html2pdf().set(opt).from(el).save();
+}
+
+// ─── RESTART ───
+function restart() {
+  if (!confirm('Start over? This will clear all your answers.')) return;
+  try { localStorage.removeItem('maia_brand_kit'); } catch(e) {}
+  document.querySelectorAll('textarea, input[type="text"]').forEach(el => el.value = '');
+  document.querySelectorAll('input[type="range"]').forEach(el => el.value = 50);
+  valuesChips = [];
+  renderChips();
+  currentSection = 1;
+  document.getElementById('resultScreen').classList.remove('active');
+  document.getElementById('loadingScreen').style.display = 'none';
+  document.getElementById('loadingProgress').style.width = '0%';
+  document.getElementById('generator').classList.add('active');
+  goToSection(1);
+}
+</script>
+</body>
+</html>
