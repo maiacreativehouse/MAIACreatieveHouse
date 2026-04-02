@@ -264,20 +264,28 @@ li { font-size: 12px; color: var(--grey); line-height: 2; margin-bottom: 8px; }
 
 /* ── SECTION DIVIDERS ── */
 .section-divider {
-  min-height: 50vh; display: flex; flex-direction: column;
+  display: flex; flex-direction: column;
   justify-content: center; align-items: center; text-align: center;
-  padding: 100px 80px;
-  background: linear-gradient(160deg, var(--dark2) 0%, var(--black) 60%, var(--warm-black) 100%);
-  position: relative; overflow: hidden;
-  border-bottom: 0.5px solid rgba(201,169,110,0.08);
+  padding: 48px 80px;
+  position: relative;
+  border-bottom: 0.5px solid rgba(201,169,110,0.1);
 }
-.section-divider::before {
+.section-divider:empty {
+  min-height: 0; padding: 0; margin: 40px 0;
+  border-bottom: 0.5px solid rgba(201,169,110,0.1);
+}
+.section-divider:not(:empty) {
+  min-height: 50vh;
+  background: linear-gradient(160deg, var(--dark2) 0%, var(--black) 60%, var(--warm-black) 100%);
+  overflow: hidden; padding: 100px 80px;
+}
+.section-divider:not(:empty)::before {
   content: ''; position: absolute; top: 50%; right: -100px;
   width: 600px; height: 600px; border-radius: 50%;
   border: 0.5px solid rgba(201,169,110,0.06);
   transform: translateY(-50%);
 }
-.section-divider::after {
+.section-divider:not(:empty)::after {
   content: ''; position: absolute; top: 50%; right: -40px;
   width: 400px; height: 400px; border-radius: 50%;
   border: 0.5px solid rgba(201,169,110,0.04);
@@ -522,7 +530,7 @@ hr {
     <main>
         <!-- Cover Section -->
         <section id="cover" class="cover">
-            <div class="brand-name">MAIA <span class="house">House</span></div>
+            <div class="brand-name">MAIA <span class="house">Creative House</span></div>
             <div class="product-label">30-Day Social Kickstart Playbook</div>
             <p class="tagline">Your proven blueprint for launching brand authority in 30 days</p>
             <div class="cover-divider"></div>
