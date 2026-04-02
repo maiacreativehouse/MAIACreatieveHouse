@@ -6,7 +6,7 @@
     <meta name="description" content="30-Day Social Kickstart Playbook - Launch your brand on social media with proven prompts, hooks, and strategies.">
     <title>30-Day Social Kickstart Playbook | MAIA Creative House</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23c9a96e'/%3E%3Ctext x='50' y='55' font-size='50' font-family='serif' fill='%230a0a08' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23170A0C'/%3E%3Ctext x='50%25' y='54%25' font-size='18' fill='%23c9a96e' text-anchor='middle' dominant-baseline='middle'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
     <style>
 :root {
   --black: #0a0a08;
@@ -425,9 +425,21 @@ hr {
 }
 .fill-section p { margin-bottom: 4px; }
 .fill-line {
+  width: 100%;
+  background: transparent;
+  border: none;
   border-bottom: 0.5px dashed rgba(201,169,110,0.25);
-  min-height: 28px;
+  padding: 8px 0;
   margin-bottom: 16px;
+  color: var(--cream);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.fill-line:focus {
+  border-bottom-color: var(--gold);
 }
 .fill-line:last-child { margin-bottom: 0; }
 
@@ -451,19 +463,19 @@ hr {
 }
 .save-pdf-btn:hover { background: var(--gold-light); }
 
-@media print {
-  .save-pdf-bar { display: none !important; }
-}
-
 /* ── PRINT ── */
 @media print {
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
-  .brand-nav, .nav-toggle { display: none !important; }
-  main { margin-left: 0 !important; }
+  html, body { background: var(--black) !important; margin: 0 !important; padding: 0 !important; }
+  @page { margin: 0; size: auto; }
+  .brand-nav, .nav-toggle, .save-pdf-bar { display: none !important; }
+  main { margin-left: 0 !important; padding-bottom: 0 !important; }
   .cover { page-break-after: always; }
   .section-divider { page-break-after: always; }
   .day-card { page-break-inside: avoid; }
-  .card { page-break-inside: avoid; }
+  .card { page-break-inside: avoid; border-radius: 0 !important; }
+  .fill-section { border-radius: 0 !important; }
+  .fill-line { border-bottom: 1px dashed rgba(201,169,110,0.4) !important; }
 }
 
 /* ── RESPONSIVE ── */
@@ -578,13 +590,13 @@ hr {
                 <h5>Your Content Pillars</h5>
                 <div class="fill-section">
                     <p><strong>Pillar 1:</strong></p>
-                    <div class="fill-line"></div>
+                    <input type="text" class="fill-line" placeholder="Type here...">
                     <p><strong>Pillar 2:</strong></p>
-                    <div class="fill-line"></div>
+                    <input type="text" class="fill-line" placeholder="Type here...">
                     <p><strong>Pillar 3:</strong></p>
-                    <div class="fill-line"></div>
+                    <input type="text" class="fill-line" placeholder="Type here...">
                     <p><strong>Pillar 4 (Optional):</strong></p>
-                    <div class="fill-line"></div>
+                    <input type="text" class="fill-line" placeholder="Type here...">
                 </div>
 
                 <!-- Step 2: Platform & Schedule -->
@@ -641,13 +653,13 @@ hr {
                 <h5>Your Platform Strategy</h5>
                 <div class="fill-section">
                     <p><strong>Primary Platform:</strong></p>
-                    <div class="fill-line"></div>
+                    <input type="text" class="fill-line" placeholder="Type here...">
                     <p><strong>Secondary Platform (Optional):</strong></p>
-                    <div class="fill-line"></div>
+                    <input type="text" class="fill-line" placeholder="Type here...">
                     <p><strong>Posting Schedule:</strong></p>
-                    <div class="fill-line"></div>
+                    <input type="text" class="fill-line" placeholder="Type here...">
                     <p><strong>Best Time to Post (when your audience is active):</strong></p>
-                    <div class="fill-line"></div>
+                    <input type="text" class="fill-line" placeholder="Type here...">
                 </div>
 
                 <!-- Step 3: Brand Quick Reference -->
@@ -658,17 +670,17 @@ hr {
                 <h5>Brand Quick Reference</h5>
                 <div class="fill-section">
                     <p><strong>Brand Name:</strong></p>
-                    <div class="fill-line"></div>
+                    <input type="text" class="fill-line" placeholder="Type here...">
                     <p><strong>Your One-Sentence Brand Promise:</strong></p>
-                    <div class="fill-line"></div>
+                    <input type="text" class="fill-line" placeholder="Type here...">
                     <p><strong>Your Brand Voice (how you talk):</strong></p>
-                    <div class="fill-line"></div>
+                    <input type="text" class="fill-line" placeholder="Type here...">
                     <p><strong>Your Ideal Client/Audience:</strong></p>
-                    <div class="fill-line"></div>
+                    <input type="text" class="fill-line" placeholder="Type here...">
                     <p><strong>Top 3 Problems You Solve:</strong></p>
-                    <div class="fill-line"></div>
+                    <input type="text" class="fill-line" placeholder="Type here...">
                     <p><strong>Your #1 Differentiator (what makes you unique):</strong></p>
-                    <div class="fill-line"></div>
+                    <input type="text" class="fill-line" placeholder="Type here...">
                 </div>
 
                 <div class="tip-box">
