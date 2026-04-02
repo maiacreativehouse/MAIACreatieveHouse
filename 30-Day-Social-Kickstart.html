@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="30-Day Social Kickstart Playbook - Launch your brand on social media with proven prompts, hooks, and strategies.">
+    <title>30-Day Social Kickstart Playbook | MAIA Creative House</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23c9a96e'/%3E%3Ctext x='50' y='55' font-size='50' font-family='serif' fill='%230a0a08' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+    <style>
+:root {
+  --black: #0a0a08;
+  --dark2: #170A0C;
+  --dark3: #0f0a06;
+  --cream: #f5f0e8;
+  --cream2: #e8e0d4;
+  --gold: #c9a96e;
+  --gold-light: #e8d5b0;
+  --gold-dark: #a8893e;
+  --grey: #888880;
+  --grey2: #555550;
+  --grey3: #333330;
+  --mid: #2e2e28;
+  --burgundy: #170A0C;
+  --warm-black: #111008;
+  --rose: #8c4a52;
+  --ivory: #faf6ef;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 2rem; scrollbar-width: thin; scrollbar-color: var(--grey3) var(--black); }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--grey3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--grey2); }
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAVIGATION ── */
+.brand-nav {
+  position: fixed; top: 0; left: 0; width: 280px; height: 100vh;
+  background: rgba(10,10,8,0.96); backdrop-filter: blur(12px);
+  border-right: 0.5px solid rgba(201,169,110,0.1);
+  z-index: 100; padding: 48px 32px;
+  display: flex; flex-direction: column;
+  transition: transform 0.4s ease;
+  overflow-y: auto;
+  scrollbar-width: thin; scrollbar-color: var(--grey3) transparent;
+}
+.brand-nav::-webkit-scrollbar { width: 4px; }
+.brand-nav::-webkit-scrollbar-track { background: transparent; }
+.brand-nav::-webkit-scrollbar-thumb { background: var(--grey3); border-radius: 2px; }
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; letter-spacing: 6px; text-transform: uppercase;
+  color: var(--cream); margin-bottom: 8px;
+}
+.nav-sub {
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.6; margin-bottom: 48px;
+}
+.nav-section {
+  font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--grey2); margin-bottom: 12px; margin-top: 28px;
+}
+.nav-section:first-of-type { margin-top: 0; }
+.nav-link {
+  display: block; padding: 8px 0;
+  font-size: 11px; letter-spacing: 1px; color: var(--grey);
+  text-decoration: none; transition: color 0.25s, padding-left 0.25s;
+  cursor: pointer; border: none;
+}
+.nav-link:hover { color: var(--gold); padding-left: 8px; }
+.nav-link.active { color: var(--gold); padding-left: 12px; border-left: 1px solid var(--gold); }
+.nav-footer {
+  margin-top: auto;
+  font-size: 9px; color: var(--grey2); letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+.nav-toggle {
+  display: none; position: fixed; top: 20px; left: 20px; z-index: 200;
+  background: rgba(10,10,8,0.9); border: 0.5px solid rgba(201,169,110,0.2);
+  color: var(--gold); padding: 10px 14px; font-size: 11px;
+  letter-spacing: 2px; cursor: pointer; backdrop-filter: blur(8px);
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ── MAIN CONTENT ── */
+main {
+  margin-left: 280px; min-height: 100vh; padding-bottom: 64px;
+}
+
+/* ── SECTIONS ── */
+.section {
+  padding: 100px 80px;
+  border-bottom: 0.5px solid rgba(201,169,110,0.08);
+  position: relative;
+}
+
+.content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.eyebrow {
+  font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.7; margin-bottom: 24px;
+  display: flex; align-items: center; gap: 14px;
+}
+.eyebrow::before { content: ''; width: 28px; height: 0.5px; background: var(--gold); }
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4.5vw, 64px); font-weight: 300;
+  line-height: 1.1; color: var(--cream); margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; color: var(--cream); line-height: 1.2;
+  margin-top: 0; margin-bottom: 16px;
+}
+h1 { font-size: clamp(36px, 4.5vw, 64px); letter-spacing: -0.5px; }
+h2 { font-size: clamp(24px, 2.5vw, 36px); }
+h3 { font-size: clamp(20px, 2vw, 28px); }
+h4 { font-size: 22px; font-weight: 400; }
+h5 { font-size: 11px; font-weight: 400; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); opacity: 0.5; }
+
+p {
+  font-size: 12px; color: var(--grey); line-height: 2;
+  max-width: 640px; margin-bottom: 20px;
+}
+
+strong { color: var(--cream); font-weight: 400; }
+em { font-style: italic; color: var(--gold); }
+a { color: var(--gold); text-decoration: none; border: none; }
+a:hover { opacity: 0.8; }
+
+ul, ol { margin-left: 1.5rem; margin-bottom: 1.5rem; }
+li { font-size: 12px; color: var(--grey); line-height: 2; margin-bottom: 8px; }
+
+.highlight-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.2vw, 30px); font-weight: 300;
+  color: var(--cream); line-height: 1.5; max-width: 680px;
+  margin: 40px 0; padding-left: 24px;
+  border-left: 1px solid rgba(201,169,110,0.3);
+}
+
+/* ── COVER ── */
+.cover {
+  text-align: center; padding: 80px 40px 60px;
+  border-bottom: 0.5px solid rgba(201,169,110,0.08);
+}
+.cover .stars {
+  color: var(--gold); opacity: 0.3; font-size: 11px;
+  letter-spacing: 8px; margin-bottom: 32px;
+}
+.brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 56px); font-weight: 300;
+  color: var(--cream); margin-bottom: 8px; line-height: 1.1;
+}
+.brand-name .house { font-style: italic; color: var(--gold); }
+.product-label {
+  font-size: 9px; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.6; margin-bottom: 24px;
+}
+.tagline {
+  font-size: 12px; color: var(--grey); font-weight: 300;
+  line-height: 1.9; max-width: 520px; margin: 0 auto 24px;
+}
+.cover-divider {
+  width: 48px; height: 0.5px; background: rgba(201,169,110,0.3);
+  margin: 32px auto;
+}
+.cover-body {
+  max-width: 680px; margin: 0 auto; text-align: left;
+}
+.cover-label {
+  font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.5; margin-bottom: 20px; margin-top: 40px;
+}
+.cover-label:first-child { margin-top: 0; }
+.qs-items { display: flex; flex-direction: column; gap: 0; }
+.qs-item {
+  display: flex; align-items: flex-start; gap: 20px;
+  padding: 16px 0;
+  border-bottom: 0.5px solid rgba(201,169,110,0.05);
+}
+.qs-item:last-child { border-bottom: none; }
+.qs-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; color: var(--gold); font-weight: 300;
+  opacity: 0.4; min-width: 36px;
+}
+.qs-title {
+  font-size: 12px; color: var(--cream); font-weight: 400;
+  margin-bottom: 4px;
+}
+.qs-desc {
+  font-size: 11px; color: var(--grey); font-weight: 300; line-height: 1.7;
+}
+.cover-cta {
+  background: rgba(201,169,110,0.03);
+  border: 0.5px solid rgba(201,169,110,0.1);
+  border-left: none; padding: 32px;
+  margin-top: 40px; border-top: 2px solid var(--gold);
+}
+.cover-cta .cover-label { margin-top: 0; }
+.bottom-line {
+  width: 100%; height: 0.5px;
+  background: rgba(201,169,110,0.08); margin-top: 60px;
+}
+
+/* ── CARDS ── */
+.card {
+  background: rgba(201,169,110,0.03);
+  border: 0.5px solid rgba(201,169,110,0.1);
+  padding: 40px 36px; margin-bottom: 24px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.card:hover {
+  border-color: rgba(201,169,110,0.25);
+  background: rgba(201,169,110,0.05);
+}
+.card h3 { margin-top: 0; }
+.card p { margin-bottom: 12px; }
+
+.tip-box {
+  background: rgba(201,169,110,0.03);
+  border: 0.5px solid rgba(201,169,110,0.1);
+  padding: 24px 28px; margin: 32px 0;
+}
+.tip-box p { margin-bottom: 0; }
+
+.upsell-box {
+  background: rgba(201,169,110,0.05);
+  border-left: 2px solid var(--gold);
+  padding: 24px 28px; margin: 32px 0;
+}
+.upsell-box h4 { margin-top: 0; margin-bottom: 12px; }
+.upsell-box p { margin-bottom: 0; }
+
+.cta-box {
+  background: var(--gold); color: var(--black);
+  padding: 40px; text-align: center; margin: 40px 0;
+}
+.cta-box h3 { color: var(--black); margin-bottom: 12px; }
+.cta-box p { color: var(--grey3); max-width: none; margin: 0; }
+
+/* ── SECTION DIVIDERS ── */
+.section-divider {
+  min-height: 50vh; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  padding: 100px 80px;
+  background: linear-gradient(160deg, var(--dark2) 0%, var(--black) 60%, var(--warm-black) 100%);
+  position: relative; overflow: hidden;
+  border-bottom: 0.5px solid rgba(201,169,110,0.08);
+}
+.section-divider::before {
+  content: ''; position: absolute; top: 50%; right: -100px;
+  width: 600px; height: 600px; border-radius: 50%;
+  border: 0.5px solid rgba(201,169,110,0.06);
+  transform: translateY(-50%);
+}
+.section-divider::after {
+  content: ''; position: absolute; top: 50%; right: -40px;
+  width: 400px; height: 400px; border-radius: 50%;
+  border: 0.5px solid rgba(201,169,110,0.04);
+  transform: translateY(-50%);
+}
+.section-divider h2 { margin-bottom: 16px; }
+.section-divider p { color: var(--grey); max-width: 560px; }
+.section-divider .star-deco {
+  color: var(--gold); opacity: 0.3; font-size: 11px;
+  letter-spacing: 8px; margin-bottom: 32px;
+}
+
+/* ── DAY CARDS ── */
+.day-card {
+  background: rgba(201,169,110,0.03);
+  border: 0.5px solid rgba(201,169,110,0.1);
+  padding: 36px; margin-bottom: 24px;
+  transition: border-color 0.3s;
+}
+.day-card:hover { border-color: rgba(201,169,110,0.25); }
+.day-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; color: var(--gold); font-weight: 300;
+  margin-bottom: 4px; opacity: 0.6;
+}
+.day-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 400; color: var(--cream);
+  margin-bottom: 12px; line-height: 1.2;
+}
+.day-meta {
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.5; margin-bottom: 20px;
+}
+.day-label {
+  font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.5; margin-top: 16px; margin-bottom: 6px;
+}
+.day-text {
+  font-size: 12px; color: var(--grey); line-height: 1.9;
+}
+
+/* ── HOOK CATEGORIES ── */
+.hook-category {
+  margin-bottom: 48px; padding-bottom: 48px;
+  border-bottom: 0.5px solid rgba(201,169,110,0.08);
+}
+.hook-category:last-child { border-bottom: none; }
+.hook-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; color: var(--gold); font-weight: 300;
+  opacity: 0.4; margin-bottom: 4px;
+}
+.hook-cat-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 400; color: var(--cream);
+  margin-bottom: 20px;
+}
+.hook-formula { margin-bottom: 20px; }
+.hook-text {
+  font-size: 12px; color: var(--cream); font-weight: 400;
+  line-height: 1.8; margin-bottom: 6px;
+}
+.hook-example {
+  font-size: 11px; font-style: italic; color: var(--grey);
+  padding-left: 16px; border-left: 0.5px solid rgba(201,169,110,0.2);
+  line-height: 1.7;
+}
+
+/* ── TABLES ── */
+table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+th {
+  text-align: left; padding: 12px 16px;
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.5;
+  border-bottom: 0.5px solid rgba(201,169,110,0.15);
+  font-family: 'Montserrat', sans-serif; font-weight: 500;
+}
+td {
+  padding: 14px 16px; font-size: 11px; color: var(--grey);
+  line-height: 1.7;
+  border-bottom: 0.5px solid rgba(201,169,110,0.06);
+}
+tr:hover td { color: var(--cream); }
+
+/* ── FILL-IN AREAS ── */
+input[type="text"], textarea {
+  width: 100%; background: transparent;
+  border: none; border-bottom: 0.5px solid rgba(201,169,110,0.3);
+  color: var(--cream); font-family: 'Montserrat', sans-serif;
+  font-size: 12px; font-weight: 300; padding: 8px 0;
+  margin-bottom: 16px; outline: none;
+}
+input:focus, textarea:focus { border-bottom-color: var(--gold); }
+textarea { min-height: 60px; resize: vertical; }
+
+/* ── HASHTAGS ── */
+.hashtag-bank { margin-bottom: 32px; }
+.hashtag-bank h5 { margin-bottom: 12px; }
+.hashtag-list {
+  font-size: 11px; color: var(--grey); line-height: 1.9;
+  word-break: break-word;
+}
+
+/* ── DIVIDERS ── */
+hr {
+  border: none; height: 0.5px;
+  background: rgba(201,169,110,0.08); margin: 40px 0;
+}
+.divider { width: 48px; height: 0.5px; background: rgba(201,169,110,0.3); margin: 32px 0; }
+
+/* ── PILLAR ITEMS ── */
+.pillar-item { margin-bottom: 20px; }
+.pillar-name {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cream); font-weight: 400; margin-bottom: 4px;
+}
+.pillar-desc {
+  font-size: 11px; color: var(--grey); line-height: 1.8;
+}
+
+/* ── STRUCTURE ITEMS ── */
+.structure-item { margin-bottom: 16px; }
+.structure-label {
+  font-size: 11px; color: var(--cream); font-weight: 400;
+}
+.structure-desc {
+  font-size: 11px; color: var(--grey); line-height: 1.8; margin-top: 2px;
+}
+
+/* ── FILL-IN SECTIONS ── */
+.fill-section {
+  background: rgba(201,169,110,0.04);
+  border: 0.5px solid rgba(201,169,110,0.15);
+  padding: 24px 28px;
+  margin: 20px 0 32px;
+}
+.fill-section p { margin-bottom: 4px; }
+.fill-line {
+  border-bottom: 0.5px dashed rgba(201,169,110,0.25);
+  min-height: 28px;
+  margin-bottom: 16px;
+}
+.fill-line:last-child { margin-bottom: 0; }
+
+/* ── SAVE AS PDF ── */
+.save-pdf-bar {
+  position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999;
+  background: rgba(10,10,8,0.95); backdrop-filter: blur(12px);
+  border-top: 0.5px solid rgba(201,169,110,0.15);
+  padding: 12px 24px;
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+}
+.save-pdf-bar span {
+  font-size: 12px; color: var(--grey); letter-spacing: 1px;
+}
+.save-pdf-btn {
+  background: var(--gold); color: var(--black);
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 10px 28px; border: none; cursor: pointer;
+  transition: all 0.3s;
+}
+.save-pdf-btn:hover { background: var(--gold-light); }
+
+@media print {
+  .save-pdf-bar { display: none !important; }
+}
+
+/* ── PRINT ── */
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+  .brand-nav, .nav-toggle { display: none !important; }
+  main { margin-left: 0 !important; }
+  .cover { page-break-after: always; }
+  .section-divider { page-break-after: always; }
+  .day-card { page-break-inside: avoid; }
+  .card { page-break-inside: avoid; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .brand-nav { transform: translateX(-100%); }
+  .brand-nav.open { transform: translateX(0); }
+  .nav-toggle { display: block; }
+  main { margin-left: 0; }
+  .section { padding: 64px 32px; }
+  .content-wrapper { padding: 64px 24px; }
+  .section-divider { padding: 64px 32px; }
+}
+@media (max-width: 600px) {
+  .cover { padding: 48px 24px 40px; }
+  .day-card { padding: 24px; }
+  .card { padding: 24px; }
+  h1 { font-size: 32px; }
+  h2 { font-size: 24px; }
+}
+    </style>
+</head>
+<body>
+    <button class="nav-toggle" onclick="document.querySelector('.brand-nav').classList.toggle('open')">MENU</button>
+    <nav class="brand-nav">
+      <div class="nav-logo">MAIA</div>
+      <div class="nav-sub">30-Day Social Kickstart</div>
+
+      <div class="nav-section">Start Here</div>
+      <a class="nav-link" href="#cover">Cover</a>
+      <a class="nav-link" href="#welcome">Welcome</a>
+      <a class="nav-link" href="#contents">Contents</a>
+
+      <div class="nav-section">Part 1: Quick Setup</div>
+      <a class="nav-link" href="#content-pillars">Content Pillars</a>
+      <a class="nav-link" href="#platforms">Platform & Schedule</a>
+      <a class="nav-link" href="#brand-ref">Brand Reference</a>
+
+      <div class="nav-section">Part 2: Toolkit</div>
+      <a class="nav-link" href="#caption-formula">Caption Formula</a>
+      <a class="nav-link" href="#hook-categories">Hook Categories</a>
+      <a class="nav-link" href="#hashtag-strategy">Hashtag Strategy</a>
+      <a class="nav-link" href="#repurposing">Repurposing Guide</a>
+
+      <div class="nav-section">Part 3: 30-Day Plan</div>
+      <a class="nav-link" href="#days1-5">Days 1 - 5</a>
+      <a class="nav-link" href="#days6-10">Days 6 - 10</a>
+      <a class="nav-link" href="#days11-15">Days 11 - 15</a>
+      <a class="nav-link" href="#days16-20">Days 16 - 20</a>
+      <a class="nav-link" href="#days21-25">Days 21 - 25</a>
+      <a class="nav-link" href="#days26-30">Days 26 - 30</a>
+
+      <div class="nav-section">Wrap Up</div>
+      <a class="nav-link" href="#review">30-Day Review</a>
+      <a class="nav-link" href="#next">What's Next</a>
+
+      <div class="nav-footer">
+        MAIA Creative House<br>
+        30-Day Social Kickstart<br>
+        Free Edition
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Cover Section -->
+        <section id="cover" class="cover">
+            <div class="brand-name">MAIA <span class="house">House</span></div>
+            <div class="product-label">30-Day Social Kickstart Playbook</div>
+            <p class="tagline">Your proven blueprint for launching brand authority in 30 days</p>
+            <div class="cover-divider"></div>
+            <div class="cover-body">
+                <div class="cover-label">Quick Start</div>
+                <div class="qs-items">
+                    <div class="qs-item">
+                        <div class="qs-item-num">1</div>
+                        <div class="qs-item-text">Define Your Content Pillars</div>
+                    </div>
+                    <div class="qs-item">
+                        <div class="qs-item-num">2</div>
+                        <div class="qs-item-text">Choose Your Platform & Schedule</div>
+                    </div>
+                    <div class="qs-item">
+                        <div class="qs-item-num">3</div>
+                        <div class="qs-item-text">Build Your Brand Quick Reference</div>
+                    </div>
+                    <div class="qs-item">
+                        <div class="qs-item-num">4</div>
+                        <div class="qs-item-text">Follow 30 Daily Prompts</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="content-wrapper">
+            <!-- Part 1: Quick Setup -->
+            <section id="quick-setup">
+                <div class="eyebrow">Part 1: Quick Setup</div>
+                <h2>Get Ready in 3 Steps</h2>
+                <p>Before you start the 30-day challenge, take 15 minutes to establish your foundation. These three steps will clarify your content strategy and keep you consistent throughout the month.</p>
+
+                <!-- Step 1: Content Pillars -->
+                <div class="section-divider"></div>
+                <h3>Step 1: Define Your Content Pillars</h3>
+                <p>Content pillars are the 3–5 core themes you'll talk about repeatedly. They showcase your expertise, tell your story, and build trust with your audience.</p>
+
+                <div class="card">
+                    <h4>What are Content Pillars?</h4>
+                    <p>Content pillars are the foundational topics that represent your brand. They align with your expertise and what your audience cares about. By staying in these pillars, you'll develop a cohesive brand voice that your audience recognizes and trusts.</p>
+                    <p><strong>Example:</strong> A leadership coach might have pillars like "Confidence Building," "Decision-Making," and "Work-Life Balance."</p>
+                </div>
+
+                <h5>Your Content Pillars</h5>
+                <div class="fill-section">
+                    <p><strong>Pillar 1:</strong></p>
+                    <div class="fill-line"></div>
+                    <p><strong>Pillar 2:</strong></p>
+                    <div class="fill-line"></div>
+                    <p><strong>Pillar 3:</strong></p>
+                    <div class="fill-line"></div>
+                    <p><strong>Pillar 4 (Optional):</strong></p>
+                    <div class="fill-line"></div>
+                </div>
+
+                <!-- Step 2: Platform & Schedule -->
+                <div class="section-divider"></div>
+                <h3>Step 2: Choose Your Platform & Schedule</h3>
+                <p>You don't need to be everywhere. Choose the 1–2 platforms where your audience is most active and where you feel most confident.</p>
+
+                <div class="card">
+                    <h4>Platform Decision Matrix</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Platform</th>
+                                <th>Best For</th>
+                                <th>Post Frequency</th>
+                                <th>Time Investment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Instagram</strong></td>
+                                <td>Visual storytelling, lifestyle, design</td>
+                                <td>3–5x/week</td>
+                                <td>Moderate</td>
+                            </tr>
+                            <tr>
+                                <td><strong>LinkedIn</strong></td>
+                                <td>Professional authority, B2B, thought leadership</td>
+                                <td>3–5x/week</td>
+                                <td>Moderate</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TikTok</strong></td>
+                                <td>Entertainment, behind-the-scenes, trending</td>
+                                <td>5–7x/week</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td><strong>YouTube Shorts</strong></td>
+                                <td>Educational, detailed explanations</td>
+                                <td>3–5x/week</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Twitter/X</strong></td>
+                                <td>News, ideas, conversations, industry takes</td>
+                                <td>5–7x/week</td>
+                                <td>Low-Moderate</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5>Your Platform Strategy</h5>
+                <div class="fill-section">
+                    <p><strong>Primary Platform:</strong></p>
+                    <div class="fill-line"></div>
+                    <p><strong>Secondary Platform (Optional):</strong></p>
+                    <div class="fill-line"></div>
+                    <p><strong>Posting Schedule:</strong></p>
+                    <div class="fill-line"></div>
+                    <p><strong>Best Time to Post (when your audience is active):</strong></p>
+                    <div class="fill-line"></div>
+                </div>
+
+                <!-- Step 3: Brand Quick Reference -->
+                <div class="section-divider"></div>
+                <h3>Step 3: Build Your Brand Quick Reference Card</h3>
+                <p>Create a one-page cheat sheet of your brand so you stay consistent when writing captions. Reference this every time you post.</p>
+
+                <h5>Brand Quick Reference</h5>
+                <div class="fill-section">
+                    <p><strong>Brand Name:</strong></p>
+                    <div class="fill-line"></div>
+                    <p><strong>Your One-Sentence Brand Promise:</strong></p>
+                    <div class="fill-line"></div>
+                    <p><strong>Your Brand Voice (how you talk):</strong></p>
+                    <div class="fill-line"></div>
+                    <p><strong>Your Ideal Client/Audience:</strong></p>
+                    <div class="fill-line"></div>
+                    <p><strong>Top 3 Problems You Solve:</strong></p>
+                    <div class="fill-line"></div>
+                    <p><strong>Your #1 Differentiator (what makes you unique):</strong></p>
+                    <div class="fill-line"></div>
+                </div>
+
+                <div class="tip-box">
+                    <strong>Pro Tip:</strong> Return to this card whenever you feel stuck or unsure about what to post. It's your north star for brand consistency.
+                </div>
+            </section>
+
+            <!-- Part 2: Toolkit -->
+            <section id="toolkit">
+                <div class="section-divider"></div>
+                <div class="eyebrow">Part 2: Your Social Toolkit</div>
+                <h2>Master Caption Writing & Hook Strategy</h2>
+                <p>Every great post starts with a great hook. Learn the formula and formulas used by top creators to stop the scroll and start conversations.</p>
+
+                <!-- Caption Formula Section -->
+                <div class="section-divider"></div>
+                <h3 id="caption-formula">The Caption Formula: Hook → Body → CTA</h3>
+                <p>Every caption has three parts working together. Master this structure and your engagement will skyrocket.</p>
+
+                <div class="card">
+                    <h4>1. Hook (First 1–2 Lines)</h4>
+                    <p>The hook is the first thing people see. It needs to make them <em>stop scrolling</em> and <em>want to keep reading</em>. Your hook can be a surprising statement, a relatable question, a bold claim, or a curiosity gap.</p>
+                </div>
+
+                <div class="card">
+                    <h4>2. Body (The Middle)</h4>
+                    <p>Once you've caught attention, deliver value or story. The body should feel natural and conversational—like you're talking to a friend.</p>
+                    <p><strong>5 Body Structure Types:</strong></p>
+                    <ol style="color: var(--cream); margin-left: 1.5rem;">
+                        <li style="margin-bottom: 0.8rem;"><strong>Story:</strong> Share a personal experience, transformation, or "before/after." People connect with stories more than facts.</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>List/Value:</strong> Share 3–5 actionable tips, ideas, or insights. Keep each one short and scannable.</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>Question-Answer:</strong> Ask a question and answer it. This creates dialogue and encourages comments.</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>Mindset Shift:</strong> Challenge a common belief or help people think differently about something.</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>Contrarian/Myth:</strong> Bust a myth or present an unpopular opinion that makes people think.</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>3. Call-to-Action (CTA) — The Closing</h4>
+                    <p>End with a clear ask. Guide your audience toward the next step. Don't be shy—ask for engagement.</p>
+                    <p><strong>4 CTA Types:</strong></p>
+                    <ol style="color: var(--cream); margin-left: 1.5rem;">
+                        <li style="margin-bottom: 0.8rem;"><strong>Engagement CTA:</strong> "What would you do? Comment below." — Builds community and algorithm signals.</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>Share CTA:</strong> "Send this to someone who needs to hear this." — Extends reach through shares.</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>Save CTA:</strong> "Save this for later." — Signals value and increases post longevity.</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>Link CTA:</strong> "Link in bio." — Directs traffic to your website, email list, or offer.</li>
+                    </ol>
+                </div>
+
+                <!-- Hook Categories Section -->
+                <div class="section-divider"></div>
+                <h3 id="hook-categories">50 Proven Hook Formulas</h3>
+                <p>Use these 50 hooks across 10 categories. Pick the hook that feels most natural to your brand voice and the message you want to share.</p>
+
+                <!-- Authority Hooks -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Authority Hooks</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1.5rem;">Position yourself as an expert and trusted guide in your field.</p>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Authority Hook</div>
+                    <div class="hook-num">1</div>
+                    <div class="hook-title">The Credential</div>
+                    <div class="hook-text">After [X years/clients/results], I've learned...</div>
+                    <div class="hook-example">Example: "After 7 years of building 6-figure brands, I've learned that 90% of creators are making this one mistake."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Authority Hook</div>
+                    <div class="hook-num">2</div>
+                    <div class="hook-title">The Insider Secret</div>
+                    <div class="hook-text">What most people don't know about [topic]...</div>
+                    <div class="hook-example">Example: "What most people don't know about Instagram algorithms is that engagement in the first 3 minutes determines everything."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Authority Hook</div>
+                    <div class="hook-num">3</div>
+                    <div class="hook-title">The Pattern I've Noticed</div>
+                    <div class="hook-text">I've noticed a pattern with [audience]...</div>
+                    <div class="hook-example">Example: "I've noticed a pattern with female entrepreneurs—they're amazing at delivering value but terrible at charging premium prices."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Authority Hook</div>
+                    <div class="hook-num">4</div>
+                    <div class="hook-title">The Mistake Everyone Makes</div>
+                    <div class="hook-text">[X%] of people make this mistake with [topic]...</div>
+                    <div class="hook-example">Example: "95% of course creators make this mistake when launching—and it costs them $10K+ in lost sales."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Authority Hook</div>
+                    <div class="hook-num">5</div>
+                    <div class="hook-title">The Counterintuitive Truth</div>
+                    <div class="hook-text">Everyone tells you to [common advice]. Here's why that's wrong...</div>
+                    <div class="hook-example">Example: "Everyone tells you to post daily on Instagram. Here's why that's wrong for most creators."</div>
+                </div>
+
+                <!-- Curiosity Hooks -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Curiosity Hooks</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1.5rem;">Create a gap in knowledge that makes people NEED to keep reading.</p>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Curiosity Hook</div>
+                    <div class="hook-num">6</div>
+                    <div class="hook-title">The Cliffhanger</div>
+                    <div class="hook-text">I never thought [X] was possible until...</div>
+                    <div class="hook-example">Example: "I never thought I could build a 7-figure business in a niche market until I discovered this one simple shift."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Curiosity Hook</div>
+                    <div class="hook-num">7</div>
+                    <div class="hook-title">The Unexpected Number</div>
+                    <div class="hook-text">[Surprising %] of [audience] don't know...</div>
+                    <div class="hook-example">Example: "72% of content creators don't know the real reason why their posts aren't getting engagement."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Curiosity Hook</div>
+                    <div class="hook-num">8</div>
+                    <div class="hook-title">The Question Mark</div>
+                    <div class="hook-text">What if [opposite of common belief]?</div>
+                    <div class="hook-example">Example: "What if everything you've been taught about networking is actually slowing you down?"</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Curiosity Hook</div>
+                    <div class="hook-num">9</div>
+                    <div class="hook-title">The Knowledge Gap</div>
+                    <div class="hook-text">Most people think [belief], but it's actually...</div>
+                    <div class="hook-example">Example: "Most people think viral posts are random. But it's actually a science."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Curiosity Hook</div>
+                    <div class="hook-num">10</div>
+                    <div class="hook-title">The Open Loop</div>
+                    <div class="hook-text">Here's something I learned that changed everything...</div>
+                    <div class="hook-example">Example: "Here's something I learned at 2 AM that changed everything about how I approach my business."</div>
+                </div>
+
+                <!-- Story Hooks -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Story Hooks</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1.5rem;">Pull people in with a relatable narrative that builds emotional connection.</p>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Story Hook</div>
+                    <div class="hook-num">11</div>
+                    <div class="hook-title">The Transformation Arc</div>
+                    <div class="hook-text">Three years ago, I was [past situation]. Today, I [present situation].</div>
+                    <div class="hook-example">Example: "Three years ago, I was broke and stuck in a 9-to-5. Today, I run a 6-figure brand. Here's what changed."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Story Hook</div>
+                    <div class="hook-num">12</div>
+                    <div class="hook-title">The Moment Everything Changed</div>
+                    <div class="hook-text">I'll never forget the moment when...</div>
+                    <div class="hook-example">Example: "I'll never forget the moment when my biggest client left—it forced me to reinvent my entire business model."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Story Hook</div>
+                    <div class="hook-num">13</div>
+                    <div class="hook-title">The Relatable Struggle</div>
+                    <div class="hook-text">[X] years ago, I couldn't...</div>
+                    <div class="hook-example">Example: "5 years ago, I couldn't record a video without cringing at my own voice. Now I post daily."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Story Hook</div>
+                    <div class="hook-num">14</div>
+                    <div class="hook-title">The Embarrassing Admission</div>
+                    <div class="hook-text">I'm embarrassed to admit that I used to...</div>
+                    <div class="hook-example">Example: "I'm embarrassed to admit that I used to think I needed to have everything figured out before starting."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Story Hook</div>
+                    <div class="hook-num">15</div>
+                    <div class="hook-title">The Unexpected Turn</div>
+                    <div class="hook-text">What started as [simple thing] became...</div>
+                    <div class="hook-example">Example: "What started as a side hustle became a 7-figure business in 18 months."</div>
+                </div>
+
+                <!-- Value & Lists Hooks -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Value & Lists Hooks</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1.5rem;">Lead with immediate value and actionable insights.</p>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Value Hook</div>
+                    <div class="hook-num">16</div>
+                    <div class="hook-title">The Quick Win</div>
+                    <div class="hook-text">Save this. You can use [tactic] in your next post to...</div>
+                    <div class="hook-example">Example: "Save this. You can use this 3-word formula in your next caption to instantly boost engagement."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Value Hook</div>
+                    <div class="hook-num">17</div>
+                    <div class="hook-title">The Top List</div>
+                    <div class="hook-text">Here are the [X] things that...</div>
+                    <div class="hook-example">Example: "Here are the 5 things that separate successful creators from the rest."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Value Hook</div>
+                    <div class="hook-num">18</div>
+                    <div class="hook-title">The Framework</div>
+                    <div class="hook-text">Use this [framework name] to...</div>
+                    <div class="hook-example">Example: "Use this 'Hook-Body-CTA' framework to write captions that convert."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Value Hook</div>
+                    <div class="hook-num">19</div>
+                    <div class="hook-title">The Free Resource</div>
+                    <div class="hook-text">I created [resource] to help you...</div>
+                    <div class="hook-example">Example: "I created this free 30-day playbook to help you launch your brand."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Value Hook</div>
+                    <div class="hook-num">20</div>
+                    <div class="hook-title">The Reverse List</div>
+                    <div class="hook-text">Don't do these [X] things if you want to [goal]...</div>
+                    <div class="hook-example">Example: "Don't do these 5 things if you want to grow your audience."</div>
+                </div>
+
+                <!-- Community Hooks -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Community Hooks</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1.5rem;">Build conversation and engagement by inviting participation.</p>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Community Hook</div>
+                    <div class="hook-num">21</div>
+                    <div class="hook-title">The Interactive Poll</div>
+                    <div class="hook-text">Team [A] or Team [B]?</div>
+                    <div class="hook-example">Example: "Team consistency or team spontaneity? Comment below."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Community Hook</div>
+                    <div class="hook-num">22</div>
+                    <div class="hook-title">The Community Ask</div>
+                    <div class="hook-text">I want to hear from you... [question]</div>
+                    <div class="hook-example">Example: "I want to hear from you: What's the biggest challenge you're facing right now?"</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Community Hook</div>
+                    <div class="hook-num">23</div>
+                    <div class="hook-title">The Shared Experience</div>
+                    <div class="hook-text">If you've ever [relatable situation], you know...</div>
+                    <div class="hook-example">Example: "If you've ever hit publish and immediately wanted to delete it, this is for you."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Community Hook</div>
+                    <div class="hook-num">24</div>
+                    <div class="hook-title">The Raise Your Hand</div>
+                    <div class="hook-text">Raise your hand if...</div>
+                    <div class="hook-example">Example: "Raise your hand if you've ghosted a project because you got scared."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Community Hook</div>
+                    <div class="hook-num">25</div>
+                    <div class="hook-title">The Empathy Bridge</div>
+                    <div class="hook-text">I used to think [limiting belief] too...</div>
+                    <div class="hook-example">Example: "I used to think I wasn't creative enough too. Here's how I changed that mindset."</div>
+                </div>
+
+                <!-- Promotional Hooks -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Promotional Hooks</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1.5rem;">Sell without being salesy by leading with transformation or outcome.</p>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Promotional Hook</div>
+                    <div class="hook-num">26</div>
+                    <div class="hook-title">The Transformation Promise</div>
+                    <div class="hook-text">Imagine if you could [desired outcome]...</div>
+                    <div class="hook-example">Example: "Imagine if you could write captions that stop the scroll and convert. You can."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Promotional Hook</div>
+                    <div class="hook-num">27</div>
+                    <div class="hook-title">The Application Launch</div>
+                    <div class="hook-text">[Announcement]: Applications are officially open for...</div>
+                    <div class="hook-example">Example: "Announcement: Applications are officially open for our Brand Foundation Accelerator."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Promotional Hook</div>
+                    <div class="hook-num">28</div>
+                    <div class="hook-title">The Exclusive Access</div>
+                    <div class="hook-text">Only [X] spots left for [offer]...</div>
+                    <div class="hook-example">Example: "Only 3 spots left for our intensive Brand Launch program."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Promotional Hook</div>
+                    <div class="hook-num">29</div>
+                    <div class="hook-title">The Case Study</div>
+                    <div class="hook-text">My client went from [before] to [after] in [timeframe]...</div>
+                    <div class="hook-example">Example: "My client went from 0 followers to 50K in 90 days. Here's exactly how."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Promotional Hook</div>
+                    <div class="hook-num">30</div>
+                    <div class="hook-title">The Time-Sensitive Offer</div>
+                    <div class="hook-text">This [offer] closes [date]...</div>
+                    <div class="hook-example">Example: "This early-bird rate closes Friday at midnight."</div>
+                </div>
+
+                <!-- Mindset Hooks -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Mindset Hooks</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1.5rem;">Shift beliefs and inspire with perspective and encouragement.</p>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Mindset Hook</div>
+                    <div class="hook-num">31</div>
+                    <div class="hook-title">The Permission Giver</div>
+                    <div class="hook-text">You don't need [common blocker] to...</div>
+                    <div class="hook-example">Example: "You don't need a huge following to build a 6-figure business."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Mindset Hook</div>
+                    <div class="hook-num">32</div>
+                    <div class="hook-title">The Reassurance</div>
+                    <div class="hook-text">You are not behind. You are...</div>
+                    <div class="hook-example">Example: "You are not behind. You are building something that lasts."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Mindset Hook</div>
+                    <div class="hook-num">33</div>
+                    <div class="hook-title">The Reframe</div>
+                    <div class="hook-text">What if [struggle] is actually [opportunity]?</div>
+                    <div class="hook-example">Example: "What if your 'no followers' starting point is actually your biggest advantage?"</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Mindset Hook</div>
+                    <div class="hook-num">34</div>
+                    <div class="hook-title">The Uncomfortable Truth</div>
+                    <div class="hook-text">The real reason you're stuck is...</div>
+                    <div class="hook-example">Example: "The real reason you're stuck is not lack of ideas—it's lack of action."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Mindset Hook</div>
+                    <div class="hook-num">35</div>
+                    <div class="hook-title">The Perspective Shift</div>
+                    <div class="hook-text">Stop thinking about [old perspective]. Start thinking about [new perspective].</div>
+                    <div class="hook-example">Example: "Stop thinking about followers as vanity. Start thinking about them as your community."</div>
+                </div>
+
+                <!-- Contrast & Myth Hooks -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Contrast & Myth Hooks</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1.5rem;">Bust myths and present contrarian takes that challenge thinking.</p>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Myth Hook</div>
+                    <div class="hook-num">36</div>
+                    <div class="hook-title">The Myth Buster</div>
+                    <div class="hook-text">Myth: [common belief]. Reality: [truth]</div>
+                    <div class="hook-example">Example: "Myth: You need to post daily to grow. Reality: Consistency matters way more than frequency."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Myth Hook</div>
+                    <div class="hook-num">37</div>
+                    <div class="hook-title">The Opposites</div>
+                    <div class="hook-text">Everyone says [advice]. The opposite is true.</div>
+                    <div class="hook-example">Example: "Everyone says 'fake it till you make it.' The opposite is true—authenticity beats perfection."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Myth Hook</div>
+                    <div class="hook-num">38</div>
+                    <div class="hook-title">The Contrarian Take</div>
+                    <div class="hook-text">Unpopular opinion: [hot take]</div>
+                    <div class="hook-example">Example: "Unpopular opinion: Going viral is overrated. Building a tribe is underrated."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Myth Hook</div>
+                    <div class="hook-num">39</div>
+                    <div class="hook-title">The False Dichotomy Break</div>
+                    <div class="hook-text">You don't have to choose between [A] and [B]. You can do both.</div>
+                    <div class="hook-example">Example: "You don't have to choose between staying authentic and selling your offer. You can do both."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Myth Hook</div>
+                    <div class="hook-num">40</div>
+                    <div class="hook-title">The Industry Challenge</div>
+                    <div class="hook-text">[Industry standard] is broken. Here's what works instead.</div>
+                    <div class="hook-example">Example: "The whole 'personal branding' industry standard is broken. Here's what works instead."</div>
+                </div>
+
+                <!-- Results & Proof Hooks -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Results & Proof Hooks</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1.5rem;">Show concrete results and proof that builds credibility and desire.</p>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Results Hook</div>
+                    <div class="hook-num">41</div>
+                    <div class="hook-title">The Numbers</div>
+                    <div class="hook-text">[X]% increase in [metric] after we started...</div>
+                    <div class="hook-example">Example: "340% increase in engagement after we switched to this caption formula."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Results Hook</div>
+                    <div class="hook-num">42</div>
+                    <div class="hook-title">The Before & After</div>
+                    <div class="hook-text">Before: [situation]. After: [result]</div>
+                    <div class="hook-example">Example: "Before: Struggling to hit 1K followers. After: Hit 100K in 8 months."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Results Hook</div>
+                    <div class="hook-num">43</div>
+                    <div class="hook-title">The Social Proof</div>
+                    <div class="hook-text">[X] people have used [method] to [result]</div>
+                    <div class="hook-example">Example: "500+ creators have used this hook system to dramatically improve their engagement."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Results Hook</div>
+                    <div class="hook-num">44</div>
+                    <div class="hook-title">The Proof Video/Screenshot</div>
+                    <div class="hook-text">See for yourself [in the screenshot/video]...</div>
+                    <div class="hook-example">Example: "See for yourself in the screenshot—this post got 10K likes with zero paid promotion."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Results Hook</div>
+                    <div class="hook-num">45</div>
+                    <div class="hook-title">The Benchmark</div>
+                    <div class="hook-text">We hit [milestone] in [timeframe]—here's how</div>
+                    <div class="hook-example">Example: "We hit 6-figures in revenue in 6 months—here's how you can too."</div>
+                </div>
+
+                <!-- Timely & Trending Hooks -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Timely & Trending Hooks</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1.5rem;">Leverage current events, seasons, and trends for relevance and reach.</p>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Trending Hook</div>
+                    <div class="hook-num">46</div>
+                    <div class="hook-title">The Seasonal Angle</div>
+                    <div class="hook-text">It's [season/holiday/time], which means [opportunity]</div>
+                    <div class="hook-example">Example: "It's Q1, which means everyone's thinking about goals and new starts. Here's how to use that."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Trending Hook</div>
+                    <div class="hook-num">47</div>
+                    <div class="hook-title">The Trending Topic</div>
+                    <div class="hook-text">Everyone's talking about [trend]. Here's my take...</div>
+                    <div class="hook-example">Example: "Everyone's talking about AI. Here's how it's changing personal branding."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Trending Hook</div>
+                    <div class="hook-num">48</div>
+                    <div class="hook-title">The Hot Take</div>
+                    <div class="hook-text">[Current event] proves that [insight]</div>
+                    <div class="hook-example">Example: "The creator economy shift proves that authenticity is the new currency."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Trending Hook</div>
+                    <div class="hook-num">49</div>
+                    <div class="hook-title">The News Angle</div>
+                    <div class="hook-text">Did you see [news]? This is what it means for [audience]...</div>
+                    <div class="hook-example">Example: "Did you see Instagram's latest algorithm update? Here's what it means for creators."</div>
+                </div>
+
+                <div class="hook-formula">
+                    <div class="hook-category">Trending Hook</div>
+                    <div class="hook-num">50</div>
+                    <div class="hook-title">The Countdown</div>
+                    <div class="hook-text">[Event] is in [timeframe]—are you ready?</div>
+                    <div class="hook-example">Example: "Q4 is in 6 months—are you ready to hit your annual goals?"</div>
+                </div>
+
+                <!-- Hashtag Strategy Section -->
+                <div class="section-divider"></div>
+                <h3 id="hashtag-strategy">Hashtag Strategy: The 5 Niche Banks</h3>
+                <p>Choose hashtags that match your niche and audience. Use a mix of popular (1M+ posts), mid-range (100K–1M), and niche (under 100K) hashtags for best results.</p>
+
+                <!-- Hashtag Bank 1 -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Hashtag Bank 1: Brand Strategy & Marketing</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1rem;">Perfect for content coaches, brand strategists, and marketing experts.</p>
+                <div class="card">
+                    <p style="word-break: break-word; white-space: normal;">#brandstrategy #branddevelopment #brandbuilding #personalbranding #brandidentity #marketingstrategy #contentmarketing #creatoreconomy #entrepreneurship #smallbusiness #solopreneur #businesstips #marketingtips #socialmediamarketing #digitalmarketing #socialmediagrowth #contentcreator #creatorlife #buildinginpublic #brandvoice #audiencebuilding #communitybuilding #thoughtleadership #expertpositioning #brandauthority</p>
+                </div>
+
+                <!-- Hashtag Bank 2 -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Hashtag Bank 2: Wellness & Self-Care</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1rem;">Perfect for wellness coaches, therapists, and mindfulness creators.</p>
+                <div class="card">
+                    <p style="word-break: break-word; white-space: normal;">#wellness #selfcare #mentalhealth #mindfulness #personalgrowth #selflove #healthcoach #wellnesscoach #meditationapp #yogapractice #stressrelief #anxietyrelief #mentalhealthmatters #wellnessjourney #healthylifestyle #holistichealth #spiritualgrowth #lifecoach #therapist #counseling #emotionalhealth #boundarywork #innerpeace #healing #empowerment</p>
+                </div>
+
+                <!-- Hashtag Bank 3 -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Hashtag Bank 3: Creative & Design</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1rem;">Perfect for designers, artists, and creative entrepreneurs.</p>
+                <div class="card">
+                    <p style="word-break: break-word; white-space: normal;">#design #creativity #artistsupport #creativedesign #designwork #graphicdesign #illustrator #artistlife #creativeentrepreneur #independentartist #artistcommunity #designinspiration #creativity #artisanal #designbusiness #portfoliowork #designprocess #artistjourney #creativejobs #freelancer #designfreak #designblog #uxdesign #webdesign #branding</p>
+                </div>
+
+                <!-- Hashtag Bank 4 -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Hashtag Bank 4: Coaching & Consulting</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1rem;">Perfect for coaches, consultants, and service providers.</p>
+                <div class="card">
+                    <p style="word-break: break-word; white-space: normal;">#coach #coaching #businesscoach #careercoach #lifecoach #executivecoach #consultant #consulting #oneonone #clientsuccess #mastermind #entrepreneurcoach #businessconsulting #servicesbusiness #expertcoach #coachtraining #coachingcertified #coachlife #highticketservices #consultantlife #profitableservices #scaleablebusiness #businessgrowth #clientacquisition #coachingbusiness</p>
+                </div>
+
+                <!-- Hashtag Bank 5 -->
+                <h4 style="color: var(--gold); margin-top: 2rem;">Hashtag Bank 5: E-commerce & Product</h4>
+                <p style="color: var(--grey2); font-style: italic; margin-bottom: 1rem;">Perfect for product entrepreneurs, makers, and online businesses.</p>
+                <div class="card">
+                    <p style="word-break: break-word; white-space: normal;">#ecommerce #smallbusiness #productbased #etsyshop #etsy #handmade #madeinamerica #shopsmall #onlinebusiness #passiveincome #productlaunch #productsales #customerservice #onlinestore #shopifystore #entrepreneur #smallbusinessowner #businessideas #makemoney #profitableonline #sideproject #entrepreneurship #sellingonline #creatoreconomy #monetize</p>
+                </div>
+
+                <!-- Repurposing Guide Section -->
+                <div class="section-divider"></div>
+                <h3 id="repurposing">Repurposing Guide: Turn 1 Idea Into 5 Posts</h3>
+                <p>Create one piece of core content and repurpose it across 5 different formats. This multiplies your reach without multiplying your effort.</p>
+
+                <h4 style="color: var(--gold); margin-top: 2rem;">Format 1: The Original Post</h4>
+                <div class="card">
+                    <p><strong>What it is:</strong> Your main post in whatever format makes most sense for your primary platform (Reel, carousel, static post, thread, etc.).</p>
+                    <p><strong>Time investment:</strong> High (1–3 hours)</p>
+                    <p><strong>Engagement potential:</strong> High</p>
+                    <p><strong>Best practices:</strong> This is where you put your full energy. Make it polished, valuable, and share-worthy.</p>
+                </div>
+
+                <h4 style="color: var(--gold); margin-top: 2rem;">Format 2: The Story Series</h4>
+                <div class="card">
+                    <p><strong>What it is:</strong> Break down the core content into 3–5 short, snappy Instagram Stories or TikTok clips. Each slide/clip focuses on one key point.</p>
+                    <p><strong>Time investment:</strong> Low (15–30 minutes)</p>
+                    <p><strong>Engagement potential:</strong> Medium (good for top-of-funnel awareness)</p>
+                    <p><strong>Best practices:</strong> Use text overlays, questions, stickers, and CTAs. Stories feel more casual—don't overthink them.</p>
+                </div>
+
+                <h4 style="color: var(--gold); margin-top: 2rem;">Format 3: The Reel/TikTok</h4>
+                <div class="card">
+                    <p><strong>What it is:</strong> A 15–60 second short-form video version of your idea. Could be a tutorial, explainer, story, or transformation.</p>
+                    <p><strong>Time investment:</strong> Medium (30 minutes–1 hour)</p>
+                    <p><strong>Engagement potential:</strong> Very high (algorithms favor video)</p>
+                    <p><strong>Best practices:</strong> Hook in the first 3 seconds, keep the pacing fast, use trending sounds when relevant, and end with a clear CTA.</p>
+                </div>
+
+                <h4 style="color: var(--gold); margin-top: 2rem;">Format 4: The Thread/Carousel</h4>
+                <div class="card">
+                    <p><strong>What it is:</strong> A multi-part post (carousel on Instagram, thread on LinkedIn/Twitter) that breaks down your idea step-by-step or idea-by-idea.</p>
+                    <p><strong>Time investment:</strong> Medium (45 minutes–1.5 hours)</p>
+                    <p><strong>Engagement potential:</strong> High (algorithms favor longer engagement time)</p>
+                    <p><strong>Best practices:</strong> Hook on the first slide. End on a thought-provoking slide. Use design that's clean and easy to read.</p>
+                </div>
+
+                <h4 style="color: var(--gold); margin-top: 2rem;">Format 5: The Newsletter/Email</h4>
+                <div class="card">
+                    <p><strong>What it is:</strong> A longer-form written version sent to your email list. Can be 300–1000+ words.</p>
+                    <p><strong>Time investment:</strong> Medium (1–2 hours)</p>
+                    <p><strong>Engagement potential:</strong> Medium (but higher conversion to customers since they're on your list)</p>
+                    <p><strong>Best practices:</strong> Write conversationally. Segment stories and value into digestible sections. Include a link to your offer or next step.</p>
+                </div>
+
+                <div class="tip-box">
+                    <strong>Pro tip:</strong> Batch create your repurposing. Spend 2–3 hours creating all 5 formats at once, then schedule them over the next 2 weeks. This keeps your content calendar full without daily creation stress.
+                </div>
+            </section>
+
+            <!-- Part 3: 30-Day Plan -->
+            <section id="30-day-plan">
+                <div class="section-divider"></div>
+                <div class="eyebrow">Part 3: Your 30-Day Social Kickstart Plan</div>
+                <h2>Follow These Daily Prompts</h2>
+                <p>Each day has a specific prompt, hook category, post format, and hashtag set. Follow the plan, and you'll build momentum, establish your voice, and grow your audience. No guessing, no overthinking—just follow the prompt and post.</p>
+
+                <!-- Days 1-5 -->
+                <div id="days1-5">
+                    <h3 style="color: var(--gold); margin-top: 2rem; margin-bottom: 1.5rem;">Days 1–5: Foundation Week</h3>
+
+                    <div class="day-card">
+                        <div class="day-number">Day 1</div>
+                        <div class="day-title">Introduce Yourself</div>
+                        <div class="day-meta">
+                            <div>
+                                <div class="day-label">Hook Category</div>
+                                <div class="day-label-value">Story</div>
+                            </div>
+                            <div>
+                                <div class="day-label">Format</div>
+                                <div class="day-label-value">Carousel or Reel</div>
+                            </div>
+                        </div>
+                        <div class="day-content">
+                            <h5>Hook Formula</h5>
+                            <p><em>Three years ago, I was [past situation]. Today, I [present situation].</em></p>
+                            <h5>Your Story</h5>
+                            <p>Tell the transformation story of how you got to where you are. Include: What you were like before → The turning point moment → What you're doing now. Make it personal, vulnerable, and relatable.</p>
+                            <h5>Hashtag Set</h5>
+                            <p>Use <strong>Brand Strategy & Marketing</strong> hashtags</p>
+                        </div>
+                    </div>
+
+                    <div class="day-card">
+                        <div class="day-number">Day 2</div>
+                        <div class="day-title">Share Your Why</div>
+                        <div class="day-meta">
+                            <div>
+                                <div class="day-label">Hook Category</div>
+                                <div class="day-label-value">Mindset</div>
+                            </div>
+                            <div>
+                                <div class="day-label">Format</div>
+                                <div class="day-label-value">Static Post or Story Series</div>
+                            </div>
+                        </div>
+                        <div class="day-content">
+                            <h5>Hook Formula</h5>
+                            <p><em>The real reason I do this work is...</em></p>
+                            <h5>Your Purpose</h5>
+                            <p>Go deep into WHY you do what you do. What problem are you solving? Who are you serving? What change do you want to create? This builds connection and differentiates you.</p>
+                            <h5>Hashtag Set</h5>
+                            <p>Use <strong>Brand Strategy & Marketing</strong> hashtags</p>
+                        </div>
+                    </div>
+
+                    <div class="day-card">
+                        <div class="day-number">Day 3</div>
+                        <div class="day-title">Share Your Secret Weapon</div>
+                        <div class="day-meta">
+                            <div>
+                                <div class="day-label">Hook Category</div>
+                                <div class="day-label-value">Authority</div>
+                            </div>
+                            <div>
+                                <div class="day-label">Format</div>
+                                <div class="day-label-value">Carousel or Reel</div>
+                            </div>
+                        </div>
+                        <div class="day-content">
+                            <h5>Hook Formula</h5>
+                            <p><em>After [X years/clients], I've learned the one thing that makes all the difference is...</em></p>
+                            <h5>Your Insight</h5>
+                            <p>Share one piece of advice, framework, or insight that you've learned from experience. This positions you as an expert and gives immediate value.</p>
+                            <h5>Hashtag Set</h5>
+                            <p>Use <strong>Brand Strategy & Marketing</strong> hashtags</p>
+                        </div>
+                    </div>
+
+                    <div class="day-card">
+                        <div class="day-number">Day 4</div>
+                        <div class="day-title">Teach Something Small</div>
+                        <div class="day-meta">
+                            <div>
+                                <div class="day-label">Hook Category</div>
+                                <div class="day-label-value">Value & Lists</div>
+                            </div>
+                            <div>
+                                <div class="day-label">Format</div>
+                                <div class="day-label-value">Thread/Carousel</div>
+                            </div>
+                        </div>
+                        <div class="day-content">
+                            <h5>Hook Formula</h5>
+                            <p><em>Save this. Here are [X] things that...</em></p>
+                            <h5>Quick Tutorial</h5>
+                            <p>Share 3–5 actionable tips on something in your zone of genius. Keep it practical and immediately useful. This showcases your knowledge.</p>
+                            <h5>Hashtag Set</h5>
+                            <p>Use <strong>Brand Strategy & Marketing</strong> hashtags</p>
+                        </div>
+                    </div>
+
+                    <div class="day-card">
+                        <div class="day-number">Day 5</div>
+                        <div class="day-title">Bust a Myth</div>
+                        <div class="day-meta">
+                            <div>
+                                <div class="day-label">Hook Category</div>
+                                <div class="day-label-value">Contrast & Myth</div>
+                            </div>
+                            <div>
+                                <div class="day-label">Format</div>
+                                <div class="day-label-value">Reel or Static Post</div>
+                            </div>
+                        </div>
+                        <div class="day-content">
+                            <h5>Hook Formula</h5>
+                            <p><em>Myth: [common belief]. Reality: [truth]</em></p>
+                            <h5>Challenge a Belief</h5>
+                            <p>Pick one myth in your industry and bust it. Explain why people believe it and what's actually true. This sparks conversation and shows critical thinking.</p>
+                            <h5>Hashtag Set</h5>
+                            <p>Use <strong>Brand Strategy & Marketing</strong> hashtags</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Days 6-10 -->
+                <div id="days6-10">
+                    <h3 style="color: var(--gold); margin-top: 2rem; margin-bottom: 1.5rem;">Days 6–10: Building Momentum</h3>
+
+                    <div class="day-card">
+                        <div class="day-number">Day 6</div>
+                        <div class="day-title">Share a Lesson From Failure</div>
+                        <div class="day-meta">
+                            <div>
+                                <div class="day-label">Hook Category</div>
+                                <div class="day-label-value">Story</div>
+                            </div>
+                            <div>
+                                <div class="day-label">Format</div>
+                                <div class="day-label-value">Reel or Carousel</div>
+                            </div>
+                        </div>
+                        <div class="day-content">
+                            <h5>Hook Formula</h5>
+                            <p><em>I made this mistake and it taught me...</em></p>
+                            <h5>Failure as Teacher</h5>
+                            <p>Share a failure, mistake, or lesson learned the hard way. Explain what happened, what you learned, and how it changed your approach. Vulnerability builds trust.</p>
+                            <h5>Hashtag Set</h5>
+                            <p>Use <strong>Brand Strategy & Marketing</strong> hashtags</p>
+                        </div>
+                    </div>
+
+                    <div class="day-card">
+                        <div class="day-number">Day 7</div>
+                        <div class="day-title">Ask Your Audience</div>
+                        <div class="day-meta">
+                            <div>
+                                <div class="day-label">Hook Category</div>
+                                <div class="day-label-value">Community</div>
+                            </div>
+                            <div>
+                                <div class="day-label">Format</div>
+                                <div class="day-label-value">Story or Static Post</div>
+                            </div>
+                        </div>
+                        <div class="day-content">
+                            <h5>Hook Formula</h5>
+                            <p><em>I want to hear from you: [question]</em></p>
+                            <h5>Start a Conversation</h5>
+                            <p>Ask your audience something meaningful related to your niche. It can be a challenge they face, a choice they're making, or their experience. Respond to every comment.</p>
+                            <h5>Hashtag Set</h5>
+                            <p>Use <strong>Brand Strategy & Marketing</strong> hashtags</p>
+                        </div>
+                    </div>
+
+                    <div class="day-card">
+                        <div class="day-number">Day 8</div>
+                        <div class="day-title">Share a Surprising Fact</div>
+                        <div class="day-meta">
+                            <div>
+                                <div class="day-label">Hook Category</div>
+                                <div class="day-label-value">Curiosity</div>
+                            </div>
+                            <div>
+                                <div class="day-label">Format</div>
+                                <div class="day-label-value">Carousel or Reel</div>
+                            </div>
+                        </div>
+                        <div class="day-content">
+                            <h5>Hook Formula</h5>
+                            <p><em>[X%] of [audience] don't know...</em></p>
+                            <h5>Surprising Insight</h5>
+                            <p>Share a surprising statistic, fact, or insight related to your industry. Include the source if you have one. Explain why it matters to your audience.</p>
+                            <h5>Hashtag Set</h5>
+                            <p>Use <strong>Brand Strategy & Marketing</strong> hashtags</p>
+                        </div>
+                    </div>
+
+                    <div class="day-card">
+                        <div class="day-number">Day 9</div>
+                        <div class="day-title">Behind-the-Scenes Day</div>
+                        <div class="day-meta">
+                            <div>
+                                <div class="day-label">Hook Category</div>
+                                <div class="day-label-value">Story</div>
+                            </div>
+                            <div>
+                                <div class="day-label">Format</div>
+                                <div class="day-label-value">Reel or Story Series</div>
+                            </div>
+                        </div>
+                        <div class="day-content">
+                            <h5>Hook Formula</h5>
+                            <p><em>This is what [process] really looks like...</em></p>
+                            <h5>Raw Access</h5>
+                            <p>Show people what a day in your life looks like, your work process, or how you create. Messy, real, unfiltered. People love behind-the-scenes content.</p>
+                            <h5>Hashtag Set</h5>
+                            <p>Use <strong>Brand Strategy & Marketing</strong> hashtags</p>
+                        </div>
+                    </div>
+
+                    <div class="day-card">
+                        <div class="day-number">Day 10</div>
+                        <div class="day-title">Share Your Best Resource</div>
+                        <div class="day-meta">
+                            <div>
+                                <div class="day-label">Hook Category</div>
+                                <div class="day-label-value">Value & Lists</div>
+                            </div>
+                            <div>
+                                <div class="day-label">Format</div>
+                                <div class="day-label-value">Carousel or Thread</div>
+                            </div>
+                        </div>
+                        <div class="day-content">
+                            <h5>Hook Formula</h5>
+                            <p><em>Save this. My best resource for [topic] is...</em></p>
+                            <h5>Recommend Something</h5>
+                            <p>Share a tool, book, course, template, person, or resource you genuinely use and love. Explain why you recommend it and who it's for.</p>
+                            <h5>Hashtag Set</h5>
+
+    <!-- Scroll Spy JavaScript -->
+    <script>
+        // Navigation Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const brandNav = document.querySelector('.brand-nav');
+
+        navToggle.addEventListener('click', () => {
+            brandNav.classList.toggle('open');
+        });
+
+        // Close nav when link clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                brandNav.classList.remove('open');
+            });
+        });
+
+        // Scroll Spy
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('main > div.content-wrapper > section, main > .cover');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+    </script>
+
+<div class="save-pdf-bar">
+    <span>Keep this playbook forever</span>
+    <button class="save-pdf-btn" onclick="window.print()">Save as PDF</button>
+</div>
+</body>
+</html>
