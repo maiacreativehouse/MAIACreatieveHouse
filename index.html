@@ -364,30 +364,23 @@
       <div class="tmpl-card">
         <div class="tmpl-icon">✦</div>
         <div class="tmpl-name">Brand Foundation Kit</div>
-        <p class="tmpl-desc">An AI-powered generator that transforms your answers into a polished brand foundation - mission, vision, values, voice, messaging, and more. Built-in AI prompts at every step.</p>
+        <p class="tmpl-desc">An AI-powered generator that transforms your answers into a polished brand foundation — mission, vision, values, voice, messaging, and more. Built-in AI prompts at every step.</p>
         <div class="tmpl-price">$97</div>
         <a href="brand-foundation-kit.html" class="btn-pkg">Try Free Preview</a>
       </div>
       <div class="tmpl-card">
         <div class="tmpl-icon">◈</div>
-        <div class="tmpl-name">90-Day Social Playbook</div>
-        <p class="tmpl-desc">A plug-and-play content strategy system with content pillars, caption templates, hashtag banks, and a scheduling framework.</p>
-        <div class="tmpl-price">$67</div>
-        <a href="https://gumroad.com" target="_blank" class="btn-pkg">Buy Now</a>
+        <div class="tmpl-name">30-Day Social Kickstart</div>
+        <p class="tmpl-desc">A complete content strategy system with content pillars, caption formulas, 30 hook templates, hashtag banks, and daily prompts for 30 days of posts.</p>
+        <div class="tmpl-price" style="color:var(--cream);">Free</div>
+        <a href="#" onclick="openSocialGateModal(); return false;" class="btn-pkg">Download Now</a>
       </div>
       <div class="tmpl-card">
         <div class="tmpl-icon">◇</div>
         <div class="tmpl-name">Launch Strategy Template</div>
-        <p class="tmpl-desc">The complete go-to-market framework for launching a product, service, or brand, from pre-launch to post-launch growth.</p>
-        <div class="tmpl-price">$127</div>
-        <a href="https://gumroad.com" target="_blank" class="btn-pkg">Buy Now</a>
-      </div>
-      <div class="tmpl-card">
-        <div class="tmpl-icon">○</div>
-        <div class="tmpl-name">Email Marketing Starter Pack</div>
-        <p class="tmpl-desc">10 proven email templates including welcome sequence, nurture series, launch emails, and a content newsletter framework.</p>
-        <div class="tmpl-price">$57</div>
-        <a href="https://gumroad.com" target="_blank" class="btn-pkg">Buy Now</a>
+        <p class="tmpl-desc">The complete go-to-market framework for launching a product, service, or brand — built with AI-powered strategy tools, from pre-launch to post-launch growth.</p>
+        <div class="tmpl-price" style="color:var(--grey);">Coming Soon</div>
+        <a href="#" onclick="openWaitlistModal(); return false;" class="btn-pkg">Join the Waitlist</a>
       </div>
     </div>
   </div>
@@ -635,6 +628,45 @@
       <button type="submit" class="btn-primary form-submit">Send →</button>
       <p id="form-msg" style="display:none;margin-top:16px;font-size:11px;color:var(--gold);letter-spacing:2px;"></p>
     </form>
+  </div>
+</div>
+
+<!-- ══════════ WAITLIST MODAL ══════════ -->
+<div id="waitlist-modal" class="modal-overlay" onclick="handleWaitlistClick(event)">
+  <div class="modal-box" style="max-width:440px;text-align:center;">
+    <button class="modal-close" onclick="closeWaitlistModal()" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/></svg>
+    </button>
+    <div class="modal-eyebrow">Coming Soon</div>
+    <h3 class="modal-title" style="margin-bottom:12px;">Launch Strategy<br><em>Template</em></h3>
+    <p style="font-size:13px;color:var(--grey);line-height:1.8;margin-bottom:28px;">Be the first to know when this drops. The complete go-to-market framework, built with AI-powered strategy tools.</p>
+    <form id="waitlist-form" action="https://formspree.io/f/maqlodng" method="POST" style="display:flex;flex-direction:column;gap:10px;">
+      <input type="hidden" name="_subject" value="Waitlist: Launch Strategy Template">
+      <input type="hidden" name="source" value="launch-strategy-waitlist">
+      <input type="email" name="email" placeholder="Your email address" required style="width:100%;padding:14px 18px;background:transparent;border:0.5px solid rgba(201,169,110,0.25);color:var(--cream);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;outline:none;">
+      <button type="submit" class="btn-primary form-submit" style="width:100%;margin-top:4px;">Join the Waitlist →</button>
+    </form>
+    <p id="waitlist-msg" style="display:none;margin-top:16px;font-size:11px;color:var(--gold);letter-spacing:2px;"></p>
+  </div>
+</div>
+
+<!-- ══════════ EMAIL GATE: 30-Day Social Kickstart ══════════ -->
+<div id="social-gate-modal" class="modal-overlay" onclick="handleSocialGateClick(event)">
+  <div class="modal-box" style="max-width:440px;text-align:center;">
+    <button class="modal-close" onclick="closeSocialGateModal()" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/></svg>
+    </button>
+    <div class="modal-eyebrow">Free Download</div>
+    <h3 class="modal-title" style="margin-bottom:12px;">30-Day Social<br><em>Kickstart</em></h3>
+    <p style="font-size:13px;color:var(--grey);line-height:1.8;margin-bottom:28px;">Content pillars, caption formulas, 30 hook templates, hashtag banks, and daily prompts — all yours, instantly.</p>
+    <form id="social-gate-form" action="https://formspree.io/f/maqlodng" method="POST" style="display:flex;flex-direction:column;gap:10px;">
+      <input type="hidden" name="_subject" value="Download: 30-Day Social Kickstart">
+      <input type="hidden" name="source" value="social-kickstart-download">
+      <input type="text" name="name" placeholder="Your first name" required style="width:100%;padding:14px 18px;background:transparent;border:0.5px solid rgba(201,169,110,0.25);color:var(--cream);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;outline:none;">
+      <input type="email" name="email" placeholder="Your email address" required style="width:100%;padding:14px 18px;background:transparent;border:0.5px solid rgba(201,169,110,0.25);color:var(--cream);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;outline:none;">
+      <button type="submit" class="btn-primary form-submit" style="width:100%;margin-top:4px;">Get Your Free Playbook →</button>
+    </form>
+    <p id="social-gate-msg" style="display:none;margin-top:16px;font-size:11px;color:var(--gold);letter-spacing:2px;"></p>
   </div>
 </div>
 

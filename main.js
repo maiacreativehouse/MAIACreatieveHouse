@@ -215,5 +215,99 @@ function handleModalClick(e){
   if(e.target === document.getElementById('contact-modal')) closeContactModal();
 }
 document.addEventListener('keydown', e => {
-  if(e.key === 'Escape') closeContactModal();
+  if(e.key === 'Escape') { closeContactModal(); closeWaitlistModal(); closeSocialGateModal(); }
+});
+
+/* ── Waitlist modal ── */
+function openWaitlistModal(){
+  document.getElementById('waitlist-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeWaitlistModal(){
+  document.getElementById('waitlist-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleWaitlistClick(e){
+  if(e.target === document.getElementById('waitlist-modal')) closeWaitlistModal();
+}
+
+/* ── Waitlist form submit ── */
+document.addEventListener('DOMContentLoaded', function(){
+  const wf = document.getElementById('waitlist-form');
+  if(wf) wf.addEventListener('submit', function(e){
+    e.preventDefault();
+    const form = e.target;
+    const msg = document.getElementById('waitlist-msg');
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    fetch(form.action, {
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    }).then(r => {
+      if(r.ok){
+        msg.textContent = "You're on the list. We'll be in touch.";
+        msg.style.display = 'block';
+        form.style.display = 'none';
+      } else {
+        msg.textContent = 'Something went wrong. Please try again.';
+        msg.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Join the Waitlist →';
+      }
+    }).catch(() => {
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Join the Waitlist →';
+    });
+  });
+});
+
+/* ── Social Kickstart email gate modal ── */
+function openSocialGateModal(){
+  document.getElementById('social-gate-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSocialGateModal(){
+  document.getElementById('social-gate-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleSocialGateClick(e){
+  if(e.target === document.getElementById('social-gate-modal')) closeSocialGateModal();
+}
+
+/* ── Social Kickstart form submit ── */
+document.addEventListener('DOMContentLoaded', function(){
+  const sf = document.getElementById('social-gate-form');
+  if(sf) sf.addEventListener('submit', function(e){
+    e.preventDefault();
+    const form = e.target;
+    const msg = document.getElementById('social-gate-msg');
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    fetch(form.action, {
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    }).then(r => {
+      if(r.ok){
+        msg.innerHTML = "You're in! <a href='social-kickstart.html' style='color:var(--gold);text-decoration:underline;'>Access your playbook here →</a>";
+        msg.style.display = 'block';
+        form.style.display = 'none';
+      } else {
+        msg.textContent = 'Something went wrong. Please try again.';
+        msg.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Get Your Free Playbook →';
+      }
+    }).catch(() => {
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Get Your Free Playbook →';
+    });
+  });
 });
