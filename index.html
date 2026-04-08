@@ -9,18 +9,20 @@
 <meta property="og:description" content="Premium brand strategy and AI marketing consultancy for founders and high-growth brands. San Francisco · New York · Global.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:url" content="https://maiacreativehouse.com">
-<meta property="og:image" content="https://maiacreativehouse.com/og-image.jpg">
+<meta property="og:url" content="https://www.maiacreativehouse.com">
+<meta property="og:image" content="https://www.maiacreativehouse.com/og-image.png">
 <meta name="twitter:title" content="MAIA Creative House | Brand Strategy &amp; AI Marketing">
 <meta name="twitter:description" content="Premium brand strategy and AI marketing consultancy for founders and high-growth brands.">
-<link rel="canonical" href="https://maiacreativehouse.com">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23170A0C'/%3E%3Ctext x='50%25' y='54%25' font-size='18' fill='%23c9a96e' text-anchor='middle' dominant-baseline='middle'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://www.maiacreativehouse.com">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": ["ProfessionalService", "Organization"],
   "name": "MAIA Creative House",
   "description": "Premium brand strategy and AI marketing consultancy for founders and high-growth brands. We build brands that are felt, not just seen.",
   "url": "https://maiacreativehouse.com",
@@ -30,9 +32,98 @@
   },
   "areaServed": ["San Francisco", "New York", "Global"],
   "serviceType": ["Brand Strategy", "AI Marketing", "Digital Growth", "Brand Identity"],
-  "sameAs": []
+  "logo": "https://maiacreativehouse.com/favicon.png",
+  "image": "https://maiacreativehouse.com/favicon.png",
+  "sameAs": [
+    "https://www.linkedin.com/company/maiacreativehouse",
+    "https://www.instagram.com/maiacreativehouse"
+  ]
 }
 </script>
+
+<!-- Google Analytics: loads only after cookie consent (GDPR) -->
+<script>
+window.GA_ID = "G-8312GT7ZJS";
+function loadGA() {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-8312GT7ZJS';
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', 'G-8312GT7ZJS', {'anonymize_ip': true});
+}
+(function() {
+  if (localStorage.getItem('maia_cookie_consent') === 'accepted') { loadGA(); }
+})();
+</script>
+
+<!-- Cookie Consent Banner -->
+<style>
+#maia-cookie-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 99999;
+  background: #170A0C; border-top: 1px solid rgba(201,169,110,0.3);
+  padding: 20px 40px; display: flex; align-items: center;
+  justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.4);
+}
+#maia-cookie-banner p {
+  color: rgba(255,255,255,0.75); font-size: 13px; font-weight: 300;
+  letter-spacing: 0.03em; margin: 0; line-height: 1.6;
+  flex: 1; min-width: 200px;
+}
+#maia-cookie-banner a { color: #c9a96e; text-decoration: underline; text-underline-offset: 3px; }
+.maia-cookie-btn {
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; padding: 10px 24px;
+  cursor: pointer; border: 1px solid #c9a96e; transition: all 0.3s ease;
+  white-space: nowrap;
+}
+#maia-cookie-accept { background: #c9a96e; color: #170A0C; }
+#maia-cookie-accept:hover { background: #d4b87a; }
+#maia-cookie-decline { background: transparent; color: #c9a96e; margin-left: 8px; }
+#maia-cookie-decline:hover { background: rgba(201,169,110,0.1); }
+@media (max-width: 600px) {
+  #maia-cookie-banner { padding: 16px 20px; flex-direction: column; align-items: flex-start; }
+  .maia-cookie-btn { width: 100%; text-align: center; margin: 4px 0; }
+  #maia-cookie-decline { margin-left: 0; }
+}
+</style>
+<div id="maia-cookie-banner" style="display:none;">
+  <p>We use cookies to understand how visitors engage with our site.
+     Read our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+    <button class="maia-cookie-btn" id="maia-cookie-accept">Accept</button>
+    <button class="maia-cookie-btn" id="maia-cookie-decline">Decline</button>
+  </div>
+</div>
+<script>
+(function() {
+  var consent = localStorage.getItem('maia_cookie_consent');
+  if (!consent) {
+    var banner = document.getElementById('maia-cookie-banner');
+    if (banner) banner.style.display = 'flex';
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    var acc = document.getElementById('maia-cookie-accept');
+    var dec = document.getElementById('maia-cookie-decline');
+    var ban = document.getElementById('maia-cookie-banner');
+    if (acc) acc.addEventListener('click', function() {
+      localStorage.setItem('maia_cookie_consent', 'accepted');
+      if (ban) ban.style.display = 'none';
+      loadGA();
+    });
+    if (dec) dec.addEventListener('click', function() {
+      localStorage.setItem('maia_cookie_consent', 'declined');
+      if (ban) ban.style.display = 'none';
+    });
+  });
+})();
+</script>
+
 </head>
 <body>
 
