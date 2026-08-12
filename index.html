@@ -226,6 +226,7 @@
     <button class="tab-btn" onclick="showTab('packages',this)">Fixed Projects</button>
     <button class="tab-btn" onclick="showTab('retainer',this)">Retainers</button>
     <button class="tab-btn" onclick="showTab('templates',this)">Brand Playbooks</button>
+    <button class="tab-btn" onclick="showTab('freeguides',this)">Free Guides</button>
   </div>
 
   <!-- PACKAGES -->
@@ -370,6 +371,21 @@
         <a href="brand-foundation-kit.html" class="btn-pkg">Try Free Preview</a>
       </div>
       <div class="tmpl-card">
+        <div class="tmpl-icon">◇</div>
+        <div class="tmpl-name">Launch Strategy Template</div>
+        <p class="tmpl-desc">The complete go-to-market framework for launching a product, service, or brand, built with AI-powered strategy tools, from pre-launch to post-launch growth.</p>
+        <div class="tmpl-price"><em>Coming Soon</em></div>
+        <a href="#" onclick="openWaitlistModal(); return false;" class="btn-pkg">Join the Waitlist</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FREE GUIDES -->
+  <div class="tab-pane" id="tab-freeguides">
+    <p style="font-size:14px;color:var(--grey);max-width:560px;line-height:1.9;margin-bottom:40px;">Free resources from real client work and my own systems. Enter your email and they're yours. New guides drop as I build them, usually alongside whatever I'm sharing on LinkedIn and Instagram that week.</p>
+    <div class="templates-grid">
+      <div class="tmpl-card">
         <div class="tmpl-icon">◈</div>
         <div class="tmpl-name">30-Day Social Kickstart</div>
         <p class="tmpl-desc">A complete content strategy system with content pillars, caption formulas, 30 hook templates, hashtag banks, and daily prompts for 30 days of posts.</p>
@@ -377,9 +393,16 @@
         <a href="#" onclick="openSocialGateModal(); return false;" class="btn-pkg">Download Now</a>
       </div>
       <div class="tmpl-card">
-        <div class="tmpl-icon">◇</div>
-        <div class="tmpl-name">Launch Strategy Template</div>
-        <p class="tmpl-desc">The complete go-to-market framework for launching a product, service, or brand, built with AI-powered strategy tools, from pre-launch to post-launch growth.</p>
+        <div class="tmpl-icon">✧</div>
+        <div class="tmpl-name">Weekly Claude Automations</div>
+        <p class="tmpl-desc">The AI workflows I actually run every week to operate my own brand and consultancy: research, content, reporting, and outreach, with the exact prompts included.</p>
+        <div class="tmpl-price"><em>Coming Soon</em></div>
+        <a href="#" onclick="openWaitlistModal(); return false;" class="btn-pkg">Join the Waitlist</a>
+      </div>
+      <div class="tmpl-card">
+        <div class="tmpl-icon">◎</div>
+        <div class="tmpl-name">5 Claude Prompts for Brand Strategy</div>
+        <p class="tmpl-desc">The five prompts I use most in real strategy work: positioning audits, voice definition, competitor teardowns, messaging tests, and content angles.</p>
         <div class="tmpl-price"><em>Coming Soon</em></div>
         <a href="#" onclick="openWaitlistModal(); return false;" class="btn-pkg">Join the Waitlist</a>
       </div>
@@ -572,7 +595,8 @@
   </div>
 </section>
 
-<!-- ══════════ TESTIMONIALS ══════════ -->
+<!-- TESTIMONIALS held back until real client quotes with specifics exist.
+ ══════════ TESTIMONIALS ══════════ 
 <section class="s-testimonials" id="testimonials" style="padding:100px 8vw;background:linear-gradient(to bottom, var(--black) 0%, #0f0e0b 100%);position:relative;z-index:1;">
   <div class="section-label reveal">What clients say</div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;margin-top:48px;">
@@ -580,19 +604,20 @@
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(18px,1.8vw,22px);font-style:italic;color:var(--cream);line-height:1.7;margin-bottom:24px;">"We came in thinking we needed a logo. We left with a strategy that's driven every decision since."</p>
       <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Daniel R., CEO, Wellness Brand</div>
     </div>
-    <!-- Held back until real client quotes with specifics can replace them.
+     Held back until real client quotes with specifics can replace them.
          When collecting quotes ask two questions: what were you stuck on before, and what specifically changed.
     <div class="reveal" style="border-left:1px solid rgba(201,169,110,0.25);padding-left:32px;transition-delay:.08s;">
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(18px,1.8vw,22px);font-style:italic;color:var(--cream);line-height:1.7;margin-bottom:24px;">"Güneş didn't just give us a brand. She gave us a language for what we were already building. That clarity changed everything."</p>
       <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Sarah M., Founder, SaaS Startup</div>
     </div>
-    -->
+    
     <div class="reveal" style="border-left:1px solid rgba(201,169,110,0.25);padding-left:32px;transition-delay:.08s;">
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(18px,1.8vw,22px);font-style:italic;color:var(--cream);line-height:1.7;margin-bottom:24px;">"Working with MAIA felt like having a cofounder who only thinks about brand. The attention to detail was unreal."</p>
       <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Priya K., Entrepreneur, Consumer Tech</div>
     </div>
   </div>
 </section>
+-->
 
 <!-- ══════════ S10: CTA ══════════ -->
 <section class="s-contact" id="contact">
@@ -719,6 +744,7 @@
         <li><a href="#products">Signal · Momentum · Authority</a></li>
         <li><a href="#products">Retainers</a></li>
         <li><a href="#products">Brand Playbooks</a></li>
+        <li><a href="#products">Free Guides</a></li>
       </ul>
     </div>
     <div class="f-col">
