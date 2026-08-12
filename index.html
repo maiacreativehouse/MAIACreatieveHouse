@@ -394,10 +394,10 @@
       </div>
       <div class="tmpl-card">
         <div class="tmpl-icon">✧</div>
-        <div class="tmpl-name">Weekly Claude Automations</div>
-        <p class="tmpl-desc">The AI workflows I actually run every week to operate my own brand and consultancy: research, content, reporting, and outreach, with the exact prompts included.</p>
-        <div class="tmpl-price"><em>Coming Soon</em></div>
-        <a href="#" onclick="openWaitlistModal(); return false;" class="btn-pkg">Join the Waitlist</a>
+        <div class="tmpl-name">The Weekly Automation Stack</div>
+        <p class="tmpl-desc">Ten scheduled automations, each with the exact prompt to paste in: inbox triage, meeting briefs, client research, work logs, expense tracking, and content repurposing. Works with Claude or ChatGPT.</p>
+        <div class="tmpl-price"><em>Free</em></div>
+        <a href="#" onclick="openAutomationGateModal(); return false;" class="btn-pkg">Download Now</a>
       </div>
       <div class="tmpl-card">
         <div class="tmpl-icon">◎</div>
@@ -715,6 +715,26 @@
       <button type="submit" class="btn-primary form-submit" style="width:100%;margin-top:4px;">Get Your Free Playbook →</button>
     </form>
     <p id="social-gate-msg" style="display:none;margin-top:16px;font-size:11px;color:var(--gold);letter-spacing:2px;"></p>
+  </div>
+</div>
+
+<!-- ══════════ EMAIL GATE: The Weekly Automation Stack ══════════ -->
+<div id="automation-gate-modal" class="modal-overlay" onclick="handleAutomationGateClick(event)">
+  <div class="modal-box" style="max-width:440px;text-align:center;">
+    <button class="modal-close" onclick="closeAutomationGateModal()" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/></svg>
+    </button>
+    <div class="modal-eyebrow">Free Download</div>
+    <h3 class="modal-title" style="margin-bottom:12px;">The Weekly<br><em>Automation Stack</em></h3>
+    <p style="font-size:13px;color:var(--grey);line-height:1.8;margin-bottom:28px;">Ten scheduled automations, the exact prompts, and the setup order for Claude or ChatGPT. All yours, instantly.</p>
+    <form id="automation-gate-form" action="https://formspree.io/f/maqlodng" method="POST" style="display:flex;flex-direction:column;gap:10px;">
+      <input type="hidden" name="_subject" value="Download: The Weekly Automation Stack">
+      <input type="hidden" name="source" value="automation-stack-download">
+      <input type="text" name="name" placeholder="Your first name" required style="width:100%;padding:14px 18px;background:transparent;border:0.5px solid rgba(201,169,110,0.25);color:var(--cream);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;outline:none;">
+      <input type="email" name="email" placeholder="Your email address" required style="width:100%;padding:14px 18px;background:transparent;border:0.5px solid rgba(201,169,110,0.25);color:var(--cream);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;outline:none;">
+      <button type="submit" class="btn-primary form-submit" style="width:100%;margin-top:4px;">Get Your Free Stack →</button>
+    </form>
+    <p id="automation-gate-msg" style="display:none;margin-top:16px;font-size:11px;color:var(--gold);letter-spacing:2px;"></p>
   </div>
 </div>
 

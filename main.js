@@ -215,7 +215,7 @@ function handleModalClick(e){
   if(e.target === document.getElementById('contact-modal')) closeContactModal();
 }
 document.addEventListener('keydown', e => {
-  if(e.key === 'Escape') { closeContactModal(); closeWaitlistModal(); closeSocialGateModal(); }
+  if(e.key === 'Escape') { closeContactModal(); closeWaitlistModal(); closeSocialGateModal(); closeAutomationGateModal(); }
 });
 
 /* ── Waitlist modal ── */
@@ -308,6 +308,53 @@ document.addEventListener('DOMContentLoaded', function(){
       msg.style.display = 'block';
       btn.disabled = false;
       btn.textContent = 'Get Your Free Playbook →';
+    });
+  });
+});
+
+/* ── Automation Stack email gate modal ── */
+function openAutomationGateModal(){
+  document.getElementById('automation-gate-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeAutomationGateModal(){
+  document.getElementById('automation-gate-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleAutomationGateClick(e){
+  if(e.target === document.getElementById('automation-gate-modal')) closeAutomationGateModal();
+}
+
+/* ── Automation Stack form submit ── */
+document.addEventListener('DOMContentLoaded', function(){
+  const af = document.getElementById('automation-gate-form');
+  if(af) af.addEventListener('submit', function(e){
+    e.preventDefault();
+    const form = e.target;
+    const msg = document.getElementById('automation-gate-msg');
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    fetch(form.action, {
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    }).then(r => {
+      if(r.ok){
+        msg.innerHTML = "You're in! <a href='automation-stack.html' style='color:var(--gold);text-decoration:underline;'>Access your guide here →</a>";
+        msg.style.display = 'block';
+        form.style.display = 'none';
+      } else {
+        msg.textContent = 'Something went wrong. Please try again.';
+        msg.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Get Your Free Stack →';
+      }
+    }).catch(() => {
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Get Your Free Stack →';
     });
   });
 });

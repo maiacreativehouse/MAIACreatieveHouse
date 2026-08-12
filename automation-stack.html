@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 Things to Automate This Week · MAIA Creative House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a08;
+  --sb-bg:#0d0b09;
+  --paper:rgba(255,255,255,.04);
+  --line:rgba(255,255,255,.07);
+  --ink:#e8e4dd;
+  --ink-soft:#b6ada2;
+  --ink-faint:#6e665e;
+  --gold:#c9a96e;
+  --gold-soft:rgba(201,169,110,.10);
+  --gold-line:rgba(201,169,110,.30);
+  --mono-bg:#100a08;
+  --mono-ink:#e0d8c8;
+  --good:#8ec19a;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  margin:0;
+  font-family:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.65;
+  position:relative;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 70% 10%, rgba(201,169,110,.06), transparent 42%),
+    radial-gradient(circle at 90% 80%, rgba(201,169,110,.04), transparent 40%);
+  pointer-events:none;
+}
+
+/* ── SIDEBAR ───────────────────────────────────────────── */
+.sidebar{
+  position:fixed;
+  top:0;left:0;
+  width:260px;
+  height:100vh;
+  background:var(--sb-bg);
+  border-right:1px solid var(--line);
+  overflow-y:auto;
+  z-index:100;
+  scrollbar-width:none;
+}
+.sidebar::-webkit-scrollbar{display:none;}
+
+.sb-brand{
+  padding:28px 28px 24px;
+  border-bottom:1px solid var(--line);
+}
+.sb-brand .mark{
+  font-family:'Montserrat',sans-serif;
+  font-weight:300;
+  font-size:17px;
+  letter-spacing:.38em;
+  text-transform:uppercase;
+  color:var(--ink);
+}
+.sb-brand .sub{
+  font-size:9px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin-top:6px;
+  line-height:1.5;
+}
+
+.nav-group{padding:20px 0 4px;}
+.nav-group-label{
+  padding:0 28px 10px;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  opacity:.65;
+}
+.nav-link{
+  display:block;
+  padding:7px 28px;
+  font-size:12px;
+  color:var(--ink-faint);
+  text-decoration:none;
+  border-left:2px solid transparent;
+  transition:all .15s ease;
+  letter-spacing:.01em;
+  line-height:1.4;
+}
+.nav-link:hover{color:var(--ink-soft);border-left-color:rgba(201,169,110,.2);}
+.nav-link.active{color:var(--ink);border-left-color:var(--gold);}
+
+/* ── MAIN CONTENT ──────────────────────────────────────── */
+.content{
+  margin-left:260px;
+  padding:0 72px 120px;
+  max-width:1060px;
+}
+
+/* ── HERO ──────────────────────────────────────────────── */
+.hero{
+  padding:80px 0 72px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:72px;
+  text-align:center;
+}
+.hero-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(34px,4vw,52px);
+  letter-spacing:.04em;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.hero-brand em{
+  font-style:italic;
+  font-weight:400;
+  color:var(--gold);
+}
+.hero-kicker{
+  font-size:9.5px;
+  font-weight:600;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin-bottom:36px;
+}
+.hero-rule{
+  width:44px;
+  height:1px;
+  background:var(--gold-line);
+  margin:0 auto 36px;
+}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(36px,5vw,60px);
+  line-height:1.08;
+  margin:0 0 24px;
+  color:var(--ink);
+  letter-spacing:-.01em;
+}
+.hero-title .num{
+  font-family:'Montserrat',sans-serif;
+  font-weight:300;
+  color:var(--gold);
+}
+.hero-title em{
+  font-style:italic;
+  font-weight:500;
+  color:var(--gold);
+}
+.hero-lede{
+  font-size:15px;
+  color:var(--ink-soft);
+  max-width:560px;
+  margin:0 auto 10px;
+  line-height:1.75;
+}
+.byline{
+  margin-top:36px;
+  font-size:11.5px;
+  letter-spacing:.04em;
+  color:var(--ink-faint);
+}
+.byline b{color:var(--gold);font-weight:600;}
+
+/* sec-label removed */
+
+/* ── SECTIONS ──────────────────────────────────────────── */
+section.block{
+  margin-bottom:72px;
+  scroll-margin-top:32px;
+}
+
+h2.sh{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:500;
+  font-style:italic;
+  font-size:clamp(24px,2.8vw,32px);
+  line-height:1.15;
+  color:var(--gold);
+  margin:0 0 20px;
+  letter-spacing:-.01em;
+}
+
+p{color:var(--ink-soft);font-size:14.5px;margin:0 0 14px;}
+p:last-child{margin-bottom:0;}
+
+/* ── CONTENT BOX ───────────────────────────────────────── */
+.content-box{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:24px 28px;
+  margin-bottom:20px;
+}
+
+/* fine list */
+.fine-list{margin:0;padding:0;list-style:none;}
+.fine-list li{
+  padding:13px 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  font-size:13.5px;
+  color:var(--ink-soft);
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  line-height:1.6;
+}
+.fine-list li:last-child{border-bottom:none;}
+.fine-list li::before{
+  content:"✦";
+  color:var(--gold);
+  font-size:9px;
+  flex:0 0 auto;
+  margin-top:5px;
+}
+
+/* grid */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px;}
+@media(max-width:680px){.grid2{grid-template-columns:1fr;}}
+
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:22px 26px;
+}
+.card h4{
+  margin:0 0 10px;
+  font-size:9.5px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+.card p{font-size:13px;margin:0;}
+.card code{
+  background:var(--gold-soft);
+  color:var(--gold);
+  padding:1px 5px;
+  border-radius:3px;
+  font-size:11.5px;
+}
+
+.callout{
+  background:var(--gold-soft);
+  border-left:2px solid var(--gold-line);
+  border-radius:0 4px 4px 0;
+  padding:14px 18px;
+  font-size:13.5px;
+  color:var(--ink-soft);
+  margin-bottom:16px;
+}
+.callout b{color:var(--gold);}
+
+/* timeline */
+.timeline{
+  border-left:1px solid var(--line);
+  padding-left:24px;
+  margin-left:4px;
+}
+.tl-item{position:relative;padding-bottom:20px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{
+  content:"";
+  position:absolute;left:-28px;top:6px;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--gold);
+  border:2px solid var(--sb-bg);
+}
+.tl-item .tl-time{font-weight:700;font-size:13px;color:var(--ink);}
+.tl-item .tl-desc{font-size:13px;color:var(--ink-soft);margin-top:3px;}
+
+/* rules */
+.rules-wrap{margin:0;}
+.rule{
+  display:flex;
+  gap:18px;
+  padding:18px 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.rule:last-child{border-bottom:none;}
+.rule .rn{
+  flex:0 0 auto;
+  width:28px;height:28px;
+  border-radius:50%;
+  border:1px solid var(--gold-line);
+  color:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;
+  margin-top:2px;
+}
+.rule p{margin:0;font-size:13.5px;line-height:1.65;}
+.rule b{color:var(--ink);font-weight:600;}
+
+/* ── AUTOMATION CARDS ──────────────────────────────────── */
+.auto-card{
+  scroll-margin-top:32px;
+  margin-bottom:64px;
+  padding-bottom:64px;
+  border-bottom:1px solid var(--line);
+}
+.auto-card:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+
+.auto-head{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:12px;
+}
+.auto-index{
+  flex:0 0 auto;
+  width:34px;height:34px;
+  border-radius:50%;
+  border:1px solid var(--gold-line);
+  color:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;
+  margin-top:4px;
+}
+.auto-head h3{
+  margin:2px 0 0;
+  font-family:'Cormorant Garamond',serif;
+  font-weight:500;
+  font-style:italic;
+  font-size:clamp(20px,2.2vw,26px);
+  letter-spacing:-.01em;
+  color:var(--gold);
+  line-height:1.2;
+}
+
+.tags{display:flex;flex-wrap:wrap;gap:0;margin:12px 0 18px;}
+.tag{
+  font-size:10px;font-weight:500;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+}
+.tag+.tag::before{content:"·";margin:0 10px;color:var(--gold-line);}
+.tag.tool{color:var(--gold);}
+
+.lands{
+  font-size:13.5px;
+  color:var(--ink);
+  background:var(--gold-soft);
+  border-left:2px solid var(--gold);
+  padding:12px 16px;
+  border-radius:0 4px 4px 0;
+  margin-bottom:14px;
+  line-height:1.65;
+}
+
+.note{
+  font-size:12.5px;
+  color:var(--ink-soft);
+  background:var(--paper);
+  border:1px dashed var(--gold-line);
+  border-radius:4px;
+  padding:12px 16px;
+  margin-bottom:14px;
+  line-height:1.6;
+}
+
+.prompt-wrap{
+  margin-top:16px;
+  background:var(--mono-bg);
+  border:1px solid var(--line);
+  border-radius:4px;
+  overflow:hidden;
+}
+.prompt-label{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  padding:8px 12px;
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.copy-btn{
+  font-size:9.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;
+  color:var(--gold);
+  border:1px solid var(--gold-line);
+  padding:4px 11px;
+  border-radius:2px;
+  cursor:pointer;
+  transition:all .15s ease;
+}
+.copy-btn:hover{background:var(--gold);color:#1b0a0e;border-color:var(--gold);}
+.copy-btn.copied{background:var(--good);border-color:var(--good);color:#12241a;}
+
+pre.prompt{
+  background:var(--mono-bg);
+  color:var(--mono-ink);
+  border:none;
+  border-radius:0;
+  padding:16px 18px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:11.5px;
+  line-height:1.65;
+  white-space:pre-wrap;
+  word-break:break-word;
+  max-height:280px;
+  overflow-y:auto;
+  margin:0;
+}
+pre.prompt::-webkit-scrollbar{width:4px;}
+pre.prompt::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:4px;}
+
+/* ── FOOTER ────────────────────────────────────────────── */
+footer{
+  padding:40px 0 20px;
+  border-top:1px solid var(--line);
+  margin-top:40px;
+}
+.footer-mark{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:14px;
+  letter-spacing:.38em;
+  text-transform:uppercase;
+  color:var(--ink);
+  opacity:.4;
+}
+
+/* ── BOTTOM BAR ────────────────────────────────────────── */
+.bottom-bar{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  background:rgba(10,10,8,.92);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border-top:1px solid var(--line);
+  padding:13px 32px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:16px;
+  z-index:200;
+}
+.bottom-bar span{
+  font-size:11.5px;
+  color:var(--ink-faint);
+  letter-spacing:.03em;
+}
+.save-btn{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  background:var(--ink);
+  color:var(--bg);
+  border:none;
+  padding:10px 22px;
+  border-radius:2px;
+  cursor:pointer;
+  transition:background .15s ease;
+}
+.save-btn:hover{background:var(--gold);}
+
+/* ── RESPONSIVE ────────────────────────────────────────── */
+@media(max-width:860px){
+  .sidebar{display:none;}
+  .content{margin-left:0;padding:0 24px 100px;}
+  .hero{padding:60px 0 56px;}
+}
+
+/* ── PRINT ─────────────────────────────────────────────── */
+@media print{
+  .sidebar,.bottom-bar,.copy-btn{display:none;}
+  .content{margin-left:0;padding:0 32px 40px;}
+  pre.prompt{max-height:none;overflow:visible;}
+  .auto-card{break-inside:avoid;}
+  body::before{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <div class="mark">MAIA</div>
+    <div class="sub">10 Things to Automate</div>
+  </div>
+  <nav>
+    <div class="nav-group">
+      <div class="nav-group-label">Start Here</div>
+      <a href="#before-you-start" class="nav-link">Before You Start</a>
+      <a href="#setup" class="nav-link">Setup Guide</a>
+      <a href="#which-tool" class="nav-link">Which Tool</a>
+      <a href="#schedule" class="nav-link">Week Setup</a>
+      <a href="#rules" class="nav-link">The Four Rules</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">The Automations</div>
+      <div id="nav-autos"></div>
+    </div>
+  </nav>
+</aside>
+
+<!-- ── CONTENT ── -->
+<div class="content">
+
+  <header class="hero">
+    <div class="hero-brand">MAIA <em>Creative House</em></div>
+    <div class="hero-kicker">A Weekly System, Built Once</div>
+    <div class="hero-rule"></div>
+    <h1 class="hero-title"><span class="num">10</span> Things to <em>Automate</em> This Week</h1>
+    <p class="hero-lede">Ten scheduled automations, each with a prompt you can paste in and go. Pick Claude or ChatGPT, whichever one you already pay for, and let the setup run itself once Monday hits.</p>
+    <p class="hero-lede" style="font-size:13px;opacity:.75;">This isn't a list of ideas to think about later. It's the order to build them in, the prompts written out in full, and a straight answer on what each tool can and can't do yet. Both platforms now run scheduled tasks on their own servers, so once these are on, they keep running even after you shut your laptop.</p>
+    <div class="byline">By <b>Güneş Ferah Yıldızoğlu</b></div>
+  </header>
+
+  <main>
+
+    <div class="callout"><b>New to this?</b> Set up automation 1 and stop there. Let it run for a week, and once checking it feels like a habit, come back for the rest. Ten at once is how people quit by week two. One at a time is how these stick.</div>
+
+    <section class="block" id="before-you-start">
+<h2 class="sh">A Few Things Worth Knowing</h2>
+      <div class="content-box">
+        <ul class="fine-list">
+          <li>Both Claude and ChatGPT run scheduled tasks on their own servers now, so everything below keeps firing whether or not your laptop is open.</li>
+          <li>Claude's scheduling lives inside Cowork, on the desktop app only. As of this writing, it can create new files in your Drive but can't edit, append to, move, or rename an existing one.</li>
+          <li>ChatGPT is the only one of the two offering a monthly cadence. Claude covers hourly, daily, weekdays and weekly.</li>
+          <li>ChatGPT limits how many tasks you can keep active at once, roughly 5 on a Plus plan and 15 on Pro when this was written. Claude doesn't cap you, at least for now.</li>
+          <li>These tools change fast. Everything here was accurate when this guide was written, but treat the details as a starting point and let rule one below catch anything that's shifted.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block" id="setup">
+<h2 class="sh">Getting It Running</h2>
+      <div class="grid2">
+        <div class="card">
+          <h4>In Claude</h4>
+          <p>You'll need a paid plan and the desktop app, since Cowork doesn't run anywhere else. Open Cowork, start a new task, and type <code>/schedule</code>. Connect Gmail, Calendar, Drive and Slack through Connectors. One setting trips almost everyone up: turn on file creation and code execution first, or Claude has nowhere to save its output. Expect an .xlsx or .docx file to land in Drive, not a native Google Sheet.</p>
+        </div>
+        <div class="card">
+          <h4>In ChatGPT</h4>
+          <p>Any paid plan works. Open the Scheduled tab, paste in your prompt, and choose how often it runs. Connect Gmail, Drive and Calendar. As of this writing, ChatGPT can read and write directly to your Drive, so it can update a spreadsheet you already use. Claude can't do that yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="which-tool">
+<h2 class="sh">Which Tool Handles Which Job</h2>
+      <p>Send anything that updates a file you already keep to ChatGPT. Send anything that needs to touch files sitting on your own computer to Claude, since Cowork can reach your local folders and ChatGPT can't. Everything else runs fine either way, and each automation below tells you which one it needs.</p>
+    </section>
+
+    <section class="block" id="schedule">
+<h2 class="sh">Your Week Setup Schedule</h2>
+      <p style="margin-bottom:20px;">Four sittings, roughly two hours total. Slot them in wherever they fit.</p>
+      <div class="content-box">
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-time">Session 1 · 45 min</div><div class="tl-desc">Automations 1, 2, 3: the daily ones that pay off first</div></div>
+          <div class="tl-item"><div class="tl-time">Session 2 · 30 min</div><div class="tl-desc">Automations 4, 5: meeting prep</div></div>
+          <div class="tl-item"><div class="tl-time">Session 3 · 40 min</div><div class="tl-desc">Automations 6, 7, 8: the weekly and monthly upkeep</div></div>
+          <div class="tl-item"><div class="tl-time">Session 4 · 30 min</div><div class="tl-desc">Automations 9, 10: your content system</div></div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:16px;"><b>Only have ChatGPT Plus?</b> You're capped around 5 active tasks, so stick to 1, 2, 4, 8 and 10.</div>
+    </section>
+
+    <section class="block" id="rules">
+<h2 class="sh">The Four Rules That Make These Survive</h2>
+      <p style="margin-bottom:22px;">Most people abandon this by week three, and it's the same four reasons every time. Every prompt below is built around them.</p>
+      <div class="content-box">
+        <div class="rules-wrap">
+          <div class="rule"><div class="rn">1</div><p><b>Run it once, by hand, first.</b> Paste the prompt into a regular chat before scheduling it. See what comes back, fix anything off, and only then set it live. An untested prompt on a schedule just means thirty days of getting it wrong on repeat.</p></div>
+          <div class="rule"><div class="rn">2</div><p><b>Give it permission to say nothing.</b> A task that only speaks up when something's actually worth flagging is one you'll keep reading. One that reports in every single day, empty or not, is one you'll mute by Thursday.</p></div>
+          <div class="rule"><div class="rn">3</div><p><b>It forgets everything between runs.</b> There's no memory carried from one run to the next, so it can't reference "like I said yesterday." Every run has to reconstruct the full picture from your calendar, inbox and files, which is exactly why each prompt tells it where to look, every time.</p></div>
+          <div class="rule"><div class="rn">4</div><p><b>Put an expiration date on it.</b> If you haven't opened what a task sends you in five runs straight, that's your answer: turn it off. You'll free up a slot for something you'll actually read.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="automations">
+<h2 class="sh">The 10 Automations</h2>
+      <div id="auto-list"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-mark">Maia Creative House</div>
+  </footer>
+
+</div>
+
+<!-- ── BOTTOM BAR ── -->
+<div class="bottom-bar">
+  <span>Keep this guide forever</span>
+  <button class="save-btn" onclick="window.print()">Save as PDF</button>
+</div>
+
+<script>
+function escapeHtml(str){
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+const AUTOMATIONS = [
+{
+  id:1,
+  title:"Daily 7am Inbox Triage",
+  day:"Session 1", setup:"15 min setup", cadence:"Daily 7am", tool:"Claude or ChatGPT",
+  lands:"By 7am, your inbox is already sorted, replies are sitting in Gmail as drafts ready to send, and you've got a summary that takes under a minute to read.",
+  prompt:`Daily 7am
+Triage every unread email in my Gmail from the last 24 hours.
+
+STEP 1: SORT
+Put each one in exactly one bucket:
+URGENT (needs a reply today) / NEEDS REPLY (2-3 days) / FYI (read only) / NOISE (newsletter, promo, receipt).
+Judge urgency by what happens if I don't reply today, not by whether the sender used the word "urgent."
+
+STEP 2: DRAFT
+For every URGENT and NEEDS REPLY item, write a reply in my voice (concise, warm, gets to the point in the first line) and save it as a Gmail draft. Never send anything.
+Do NOT draft a reply if the email involves money I'd owe, a contract, a legal matter, a hiring or firing decision, or a hard no to someone. For those, write one line telling me what the decision is and leave the drafting to me.
+
+STEP 3: REPORT
+Give me this, and keep the whole thing readable in 60 seconds:
+
+URGENT TODAY
+- [Sender] | [subject] | [why it's actually urgent] | draft ready: yes/no
+
+NEEDS REPLY
+- [Sender] | [subject] | draft ready: yes/no
+
+WAITING ON ME
+Threads where I'm the bottleneck, oldest first, with how many days it's been. This section matters more than the rest.
+
+BY THE NUMBERS
+Total unread, urgent, needs reply, noise.
+
+RULES
+- If nothing is urgent and nothing needs a reply, respond with only: "Inbox is clear. [X] items of noise." Nothing else.
+- Never invent context you don't have. If you can't tell why something matters, say "unclear, flagging."
+- Before you deliver, reread your URGENT list and remove anything that would still be fine if I got to it tomorrow. Be strict. A list of eight urgent things is a list of zero urgent things.`
+},
+{
+  id:2,
+  title:"Daily 6pm Work Log",
+  day:"Session 1", setup:"15 min setup", cadence:"Weekdays 6pm", tool:"ChatGPT preferred",
+  lands:"Every evening, a real record of what you actually got done that day. Keep it running for six months and you'll walk into your next review with receipts instead of vague memories.",
+  note:"This one's smoother in ChatGPT, since it can keep adding to the same running document. Claude starts a new file each time instead, but the prompt below works either way.",
+  prompt:`Weekdays 6pm
+Build my work log entry for today.
+
+WHERE TO PUT IT
+If you can append to an existing file, append to "Work Log/[YYYY-MM] Work Log". If you can only create new files, create "Work Log/[YYYY-MM-DD] Work Log" instead. Never overwrite a previous day.
+
+PULL FROM
+- Calendar: meetings I actually attended today (skip declined and cancelled)
+- Gmail: threads I sent on or drove today
+- Slack: what I posted in DMs and channels, topics only
+- Drive: files I created or changed today
+
+WRITE THIS
+[YYYY-MM-DD] · [Day]
+
+WHAT I SHIPPED
+3 to 5 bullets. Specific, past tense, with the thing named. "Sent the Q3 proposal to Acme" not "worked on Acme stuff." If you can't name the deliverable, it doesn't go in this section.
+
+WHERE MY TIME WENT
+Meeting hours vs focused work hours vs reactive time. One line. Don't editorialize.
+
+STILL IN PROGRESS
+Half-finished things still on my plate.
+
+BLOCKED, AND ON WHO
+Only things where someone else owes me something. Name them and how long it's been.
+
+TOMORROW'S TOP 3
+The three things to attack first. Be opinionated, don't just list what's on the calendar.
+
+WORTH REMEMBERING
+One decision, quote, insight or moment from today. The thing I'd want when I write my year in review. Skip it if today genuinely didn't have one.
+
+RULES
+- Quiet day, short entry. Do not pad. A three-line entry is a correct entry on a quiet day.
+- Never invent an accomplishment. If the data doesn't show it, it didn't happen.
+- Before delivering, check every bullet in WHAT I SHIPPED against real evidence from calendar, email, Slack or Drive. Cut any bullet you can't point to a source for.`
+},
+{
+  id:3,
+  title:"Daily 8am Slack Digest",
+  day:"Session 1", setup:"15 min setup", cadence:"Daily 8am", tool:"Claude or ChatGPT",
+  lands:"By 8am, you already know what got decided overnight, what actually needs you, and what's quietly stalling, all in the time it takes to read a few lines instead of scrolling for twenty minutes.",
+  prompt:`Daily 8am
+Read every Slack thread from the last 24 hours that I'm in, tagged in, or following, and that has 5 or more messages.
+
+LEAD WITH THIS
+AIMED AT ME
+Every commitment I made or that someone assigned me, with who asked, what exactly, and the deadline if one was said out loud. If I committed to something without a deadline, say so. That's the stuff that rots.
+
+THEN THE THREADS
+For each one:
+[#channel] | [what it's about in one line]
+- DECIDED: the actual decision, or "nothing decided"
+- STILL OPEN: questions raised and never answered
+- TEMPERATURE: aligned / debating / frustrated / blocked / drifting
+
+THEN
+ABOUT TO FALL THROUGH
+Threads where someone asked a direct question two or more days ago and nobody answered, a deadline got mentioned and then dropped, or the same disagreement resurfaced without resolution. Name the thread and say what's rotting. Be specific.
+
+SAFE TO IGNORE
+One line listing threads I can skip entirely.
+
+RULES
+- If nothing needs me and nothing is rotting, respond with only: "Nothing needs you today." Do not write a digest just to have written one.
+- Skip banter, reactions, GIFs and social threads entirely.
+- Never guess at what someone meant. If a thread is ambiguous, say "ambiguous" and quote the line.
+- Whole digest readable in 90 seconds. If it's longer, you included things that didn't matter.`
+},
+{
+  id:4,
+  title:"Nightly Meeting Briefs",
+  day:"Session 2", setup:"15 min setup", cadence:"Daily 6pm", tool:"Claude or ChatGPT",
+  lands:"A one-pager waiting for every meeting on tomorrow's calendar: who's showing up, what you still owe them, what pushback to expect, and what you actually want out of the room.",
+  prompt:`Daily 6pm
+Look at tomorrow's calendar. Write a brief for every external meeting and every internal meeting with 4 or more people. Skip recurring 1:1s and standups.
+Save each as its own file: "Meeting Briefs/[YYYY-MM-DD] [Meeting Name]".
+
+EACH BRIEF
+
+THE MEETING
+Title, time, length, who called it.
+
+WHAT THIS IS ACTUALLY ABOUT
+One sentence on the real goal. If the invite doesn't make it clear, say: "Goal unclear from invite, ask for an agenda before this starts." Do not guess a goal and present it as fact.
+
+WHO'S IN THE ROOM
+For each attendee other than me: name, role, company, and one line on what they probably want out of this. Use web search for external people. If you find nothing credible, write "no public info found". Never fill the gap with a plausible-sounding guess.
+
+WHERE WE LEFT OFF
+The most recent email thread with these people. What was discussed, what's still open, and specifically what I promised and haven't delivered. This section is the whole reason the brief exists, so dig.
+
+THREE QUESTIONS WORTH ASKING
+Specific to these people and this topic. Not "what are your goals." Questions that only make sense in this room.
+
+WHAT THEY'LL PUSH BACK ON
+Two or three likely objections, each with a one-line response. Base these on what they've actually said before where you can.
+
+WHAT I WANT OUT OF IT
+The outcome worth having. If you genuinely can't tell, leave it blank for me.
+
+RULES
+- If tomorrow has no qualifying meetings, respond with only: "No briefs needed tomorrow."
+- More than four qualifying meetings? Brief the external ones properly and give the rest three lines each.
+- Anything you inferred rather than found, mark it "(inferred)". I need to know which parts are real.
+- One page each. If it doesn't change how I show up, cut it.`
+},
+{
+  id:5,
+  title:"Last-Minute Client Research",
+  day:"Session 2", setup:"15 min setup", cadence:"Hourly, weekdays", tool:"Claude or ChatGPT",
+  lands:"Right before a client call, a brief on who you're meeting and what's shifted in their world lately, the kind of detail that makes someone assume you spent hours preparing.",
+  note:"Hourly is the fastest either tool allows, and running full research every single hour would chew through your usage fast, so the prompt checks first and exits immediately most of the time, which keeps it nearly free to run.",
+  prompt:`Hourly, weekdays 8am to 5pm
+
+EXIT CHECK: DO THIS FIRST, BEFORE ANYTHING ELSE
+Check my calendar for a meeting with someone outside my company starting in the next 30 to 90 minutes. If there isn't one, reply with exactly "none" and stop. Do not research, do not summarize, do not explain. Stop.
+If a brief already exists in "Client Research/" for that meeting today, reply "already briefed" and stop.
+
+OTHERWISE, RESEARCH IT
+Save to "Client Research/[Meeting Name] [YYYY-MM-DD]".
+
+WHO I'M MEETING
+Role, company, how long they've been there, what they did before.
+
+WHAT THEIR COMPANY IS DEALING WITH
+What the company does in one line, then anything real from the last 60 days: funding, launches, leadership changes, layoffs, a pivot, a bad quarter. Recent and specific only. "They're a leader in their space" is worthless, cut it.
+
+WHAT THEY'RE PROBABLY WORRIED ABOUT
+Given their role and what just happened at their company, what's actually on this person's mind this week?
+
+OUR HISTORY
+Every past email or doc with this person. What's open, what I promised, what they're still waiting on. If I owe them something, put it at the top in bold.
+
+THE ONE QUESTION
+A single question tied to something specific and recent in their world. It should be impossible to ask without having done the reading.
+
+DON'T BRING UP
+Anything sensitive given recent news. Layoffs, a public stumble, a departure.
+
+RULES
+- Every claim about them or their company needs a source link. No link, no claim.
+- Found nothing? Write "no useful public information" and say so plainly. A short honest brief beats a padded one, and inventing a detail here is worse than showing up cold.
+- Readable in two minutes standing up.`
+},
+{
+  id:6,
+  title:"Friday Desktop Cleanup",
+  day:"Session 3", setup:"10 min setup", cadence:"Friday 5pm", tool:"Claude only",
+  lands:"Every Friday afternoon, Downloads gets sorted and receipts get filed, so you start the next week with a clean slate.",
+  note:"One thing to know first: this only works in Claude. ChatGPT has no way to reach files on your computer, and cloud-based tasks can't touch local folders either. Running it through Cowork with Downloads connected means your machine has to be on for this one. It never deletes on its own. It only moves things and leaves you a list to approve.",
+  prompt:`Friday 5pm, local
+Clean up my Downloads folder.
+
+STEP 1: LOOK
+List everything in Downloads with name, type, size and age. Don't move anything yet.
+
+STEP 2: FILE IT
+Move files to:
+- Images → Pictures/Inbox/
+- PDFs that are receipts, invoices or bills → Documents/Receipts/[YYYY]/
+- Other PDFs and work docs → Documents/Work/Inbox/
+- Spreadsheets → Documents/Sheets/
+- Video → Movies/Inbox/
+- Audio → Music/Inbox/
+- Zips → Documents/Zips/
+- Anything older than 60 days that didn't match above → Archive/Downloads-[YYYY-MM]/
+
+STEP 3: PROPOSE, DON'T DELETE
+Write a file called DELETE-CANDIDATES.md listing what I could safely remove and why:
+- Installers (.dmg, .exe, .pkg) older than 14 days
+- Screenshots older than 30 days
+- Files that look like duplicates, same name or near-identical size
+List them with sizes and a running total of space I'd get back. Do not delete a single one. I'll read the list and decide.
+
+STEP 4: LOG IT
+Write a short log: what moved and where, what got archived, what's waiting in DELETE-CANDIDATES, total space recoverable.
+
+HARD RULES: DO NOT BREAK THESE
+- Never delete anything. Ever. Moving and archiving only.
+- Never touch a file created or modified in the last 48 hours.
+- Never touch a folder with "keep", "save", "active" or "working" in the name.
+- Unsure what a file is? Leave it exactly where it is and list it under "left alone, unclear."
+- If Downloads has fewer than 5 files, reply "Downloads is already clean" and stop.`
+},
+{
+  id:7,
+  title:"Monthly Expense Roundup",
+  day:"Session 3", setup:"15 min setup", cadence:"1st of the month", tool:"ChatGPT for monthly",
+  lands:"On the 1st, last month's receipts are already read, sorted and totalled, so tax time becomes a five-minute export instead of a lost weekend.",
+  note:"ChatGPT is the better fit here if you have it: it's the only one that runs monthly, and the only one that can add to a spreadsheet you already keep. In Claude, run it weekly instead and let it start a fresh sheet each time.",
+  prompt:`Monthly on the 1st, or weekly in Claude
+Process every receipt sitting in "Receipts/Inbox/" (PDFs, images, screenshots, forwarded emails).
+
+STEP 1: READ EACH ONE
+Pull out: vendor, date, total, tax, payment method, and category (Software / Travel / Food / Office / Contractors / Advertising / Utilities / Other).
+Can't read one clearly? Do not guess the amount. List it under NEEDS MY EYES with the filename and what you couldn't make out.
+
+STEP 2: RECORD IT
+If you can update an existing spreadsheet, add rows to "Receipts/[YYYY] Expenses". If you can only create new files, make "Receipts/[YYYY-MM] Expenses" fresh.
+Columns: Date | Vendor | Amount | Tax | Category | Payment | Business or Personal | Receipt filename
+
+STEP 3: TELL ME WHAT I'M LOOKING AT
+TOTAL: $X across [N] receipts
+
+BY CATEGORY
+Each category with amount and percentage, biggest first.
+
+WHAT CHANGED
+Any category up or down more than 20% versus the month before. This is the section I actually read.
+
+WORTH A SECOND LOOK
+- Anything over $500
+- Vendors that never appeared before
+- Two charges from the same vendor that look like a duplicate
+- Subscriptions that went up in price
+- Subscriptions I'm paying for twice in different tools
+
+NEEDS MY EYES
+Receipts you couldn't read, and anything you weren't sure how to categorize.
+
+RULES
+- Never delete or move a receipt out of Inbox until it's recorded in the sheet.
+- Never invent an amount. An unreadable receipt goes on the list, it does not get a best guess.
+- Don't tell me what's tax deductible. Flag likely business expenses as "possible business" and leave the call to me and my accountant.
+- Nothing in Inbox? Reply "No receipts to process" and stop.`
+},
+{
+  id:8,
+  title:"Monday 7:30am Planning Brief",
+  day:"Session 3", setup:"10 min setup", cadence:"Monday 7:30am", tool:"Claude or ChatGPT",
+  lands:"By 7:30am Monday, your whole week is already framed: the three things that actually matter, where your real free time is, and what's quietly about to slip.",
+  prompt:`Monday 7:30am
+Build my Monday planning brief. Save as "Weekly Briefs/[YYYY-MM-DD] Monday Brief".
+
+PULL FROM
+- Calendar, Monday through Friday
+- Gmail: threads from the last 14 days where I owe the next move
+- Slack: anything from the last 7 days I said I'd do
+- My work log files from last week if they exist
+
+WRITE THIS
+THE WEEK
+One line per day: meeting count, total hours, the one that matters. Then total meeting hours for the week and every free block longer than 90 minutes, with the day and time.
+
+THE THREE THINGS
+The three highest-leverage things on my plate this week. Be opinionated and rank them. For each: what it is, why it's top three, which specific free block to do it in, and what it costs me if it slips. Do not give me five. Three.
+
+I'M THE BOTTLENECK
+Threads where someone is waiting on me. Who, what, and how many days. Oldest first.
+
+DECISIONS SITTING ON ME
+Anything waiting on a call from me, with the actual options laid out so I can decide from this doc.
+
+ABOUT TO FALL THROUGH
+Commitments with deadlines this week that have had no movement. Say what happens if each one slips.
+
+WHAT I SHOULD DROP
+At least one thing on this week's calendar or list that isn't worth the time. Say which and why. If you can't find one, say "nothing obvious to cut", but look properly first.
+
+RULES
+- Readable in three minutes. Specific beats comprehensive every time.
+- Don't restate my calendar back at me. I can see my calendar. Tell me what it means.
+- The three things should be a real ranking you'd defend, not the three nearest deadlines.`
+},
+{
+  id:9,
+  title:"Sunday Content Repurposing",
+  day:"Session 4", setup:"15 min setup", cadence:"Sunday 4pm", tool:"Claude or ChatGPT",
+  lands:"One long piece from your week becomes a full week of posts, ready to schedule in about twenty minutes flat.",
+  note:"This one lives or dies on your voice. Before you turn it on, hand it three things you've actually written (through a Claude Project or ChatGPT's custom instructions) and tell it that's your voice. Skip that step and everything it writes will sound like a press release.",
+  prompt:`Sunday 4pm
+Find the long-form piece I put in "Content/This Week/": article, transcript, newsletter, or long post. If there are several, use the most recent. If the folder is empty, reply "Nothing to repurpose this week" and stop.
+
+Write everything below in my voice, using the writing samples you have for me. Every piece should be final and postable. No "consider adding" and no bracketed placeholders.
+
+8 SHORT POSTS (X, Threads)
+- 3 with one sharp claim, no hedging, under 200 characters
+- 2 as a numbered list, 5 items max
+- 1 "I used to think X, now I think Y"
+- 1 question that's genuinely hard to scroll past
+- 1 thread opener: two lines that promise something specific
+
+2 LINKEDIN POSTS
+- Long, around 250 words: hook in line one, the point by line four, ends on a real question
+- Short, around 80 words: one observation, no hashtags
+
+3 INSTAGRAM CAPTIONS
+- A list caption, 5 to 7 items
+- A story caption, around 150 words
+- A three-line punch
+
+1 NEWSLETTER TEASER
+Subject line, preview text under 90 characters, three short paragraphs.
+
+Save each platform as its own file in "Content/Repurposed/[YYYY-MM-DD]/".
+
+RULES
+- Every claim has to already exist in the source. Do not add a statistic, a story, or an example that isn't in there. If a hook needs a fact I didn't write, drop the hook.
+- Don't copy sentences straight across. Rewrite for the platform, keep the idea.
+- Before you finish, read the three strongest posts out loud in your head. Anything that sounds like a brand account instead of a person, rewrite it.
+- Then flag the two you'd bet on and say why in one line each.`
+},
+{
+  id:10,
+  title:"Sunday Newsletter Draft",
+  day:"Session 4", setup:"15 min setup", cadence:"Sunday 5pm", tool:"Claude or ChatGPT",
+  lands:"A real first draft, built from what actually happened this week: about twenty minutes of editing instead of two hours facing a blank page. It only works once automation 2 is already running, since that's where it pulls the raw material from.",
+  prompt:`Sunday 5pm
+Draft next week's newsletter. Save to "Newsletter/Drafts/[YYYY-MM-DD]".
+
+READ FIRST
+- My work log entries from the last 7 days
+- Anything I shipped this week in "Content/"
+- Email threads or Slack discussions where I made an actual argument about something
+
+Then pick ONE thing to build the issue around. The most specific, most concrete thing from the week. A real decision, a real mistake, a real number, a real change of mind. Not a theme. Not a roundup.
+
+Write it in my voice using the samples you have for me.
+
+THE DRAFT
+
+SUBJECT LINES
+Three options. Each one has to make a specific promise. Nothing that could sit on top of any newsletter ever written.
+
+PREVIEW TEXT
+Under 90 characters. Adds to the subject line, doesn't repeat it.
+
+OPENING
+Two or three lines that earn the next paragraph. Start inside the story, not with context.
+
+THE MAIN THING (300 to 500 words)
+The one thing, told properly. What happened, what I thought, what I got wrong, what I'd do now. Use the specifics from my work log: real names, real numbers, real dates. Specifics are the whole reason anyone reads this.
+
+QUICK HITS
+Three to five one-liners from the week. Link where it makes sense.
+
+ONE THING TO TRY
+Something a reader can actually do this week. Concrete enough to do on Monday.
+
+SIGN OFF
+Short. Sounds like me.
+
+RULES
+- Do not fabricate. If the week was quiet, write a shorter newsletter about one small real thing. A short honest issue beats a padded one, and readers can always tell.
+- Mark the weakest section [REVIEW] so I know where to spend my edit.
+- Then tell me in one line what this issue is actually about. If you can't say it in one line, the draft doesn't have a point yet and you should restructure it.`
+}
+];
+
+// Build sidebar automation links
+const navAutos = document.getElementById('nav-autos');
+AUTOMATIONS.forEach(a => {
+  const link = document.createElement('a');
+  link.href = '#auto-' + a.id;
+  link.className = 'nav-link';
+  link.textContent = a.id + '. ' + a.title;
+  navAutos.appendChild(link);
+});
+
+// Build automation cards
+const listEl = document.getElementById('auto-list');
+AUTOMATIONS.forEach(a => {
+  const card = document.createElement('div');
+  card.className = 'auto-card';
+  card.id = 'auto-' + a.id;
+  card.innerHTML = `
+    <div class="auto-head">
+      <div class="auto-index">${a.id}</div>
+      <h3>${a.title}</h3>
+    </div>
+    <div class="tags">
+      <span class="tag">${a.day}</span>
+      <span class="tag">${a.setup}</span>
+      <span class="tag">${a.cadence}</span>
+      <span class="tag tool">${a.tool}</span>
+    </div>
+    <div class="lands">${a.lands}</div>
+    ${a.note ? `<div class="note">${a.note}</div>` : ''}
+    <div class="prompt-wrap">
+      <div class="prompt-label">
+        <button class="copy-btn" type="button">Copy</button>
+      </div>
+      <pre class="prompt">${escapeHtml(a.prompt)}</pre>
+    </div>
+  `;
+  listEl.appendChild(card);
+
+  const btn = card.querySelector('.copy-btn');
+  btn.addEventListener('click', () => {
+    navigator.clipboard.writeText(a.prompt).then(() => {
+      btn.textContent = 'Copied';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1600);
+    }).catch(() => {
+      btn.textContent = 'Select manually';
+      setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+    });
+  });
+});
+
+// Scroll spy
+const allLinks = document.querySelectorAll('.nav-link');
+
+function setActive(id) {
+  allLinks.forEach(l => l.classList.remove('active'));
+  const a = document.querySelector(`.nav-link[href="#${id}"]`);
+  if (a) {
+    a.classList.add('active');
+    // scroll nav link into view inside sidebar
+    a.scrollIntoView({ block: 'nearest' });
+  }
+}
+
+const sections = [
+  ...document.querySelectorAll('section.block'),
+  ...document.querySelectorAll('.auto-card')
+];
+
+const observer = new IntersectionObserver(entries => {
+  const visible = entries.filter(e => e.isIntersecting);
+  if (visible.length) {
+    // use the topmost visible
+    const top = visible.sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+    setActive(top.target.id);
+  }
+}, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+
+sections.forEach(s => { if (s.id) observer.observe(s); });
+</script>
+</body>
+</html>
