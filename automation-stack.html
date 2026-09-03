@@ -578,6 +578,7 @@ footer{
     var msg = document.getElementById('gate-msg');
     btn.disabled = true;
     btn.textContent = 'Unlocking...';
+    var params = new URLSearchParams(location.search);
     fetch('https://formspree.io/f/maqlodng', {
       method:'POST',
       headers:{'Accept':'application/json','Content-Type':'application/json'},
@@ -585,7 +586,11 @@ footer{
         name: form.name.value,
         email: form.email.value,
         _subject: 'Download: The Weekly Automation Stack',
-        source: 'automation-stack-direct'
+        source: 'automation-stack-direct',
+        utm_source: params.get('utm_source') || 'direct',
+        utm_medium: params.get('utm_medium') || '',
+        utm_campaign: params.get('utm_campaign') || '',
+        utm_content: params.get('utm_content') || ''
       })
     }).then(function(r){
       if(r.ok){

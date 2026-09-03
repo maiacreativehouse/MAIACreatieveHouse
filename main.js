@@ -294,6 +294,7 @@ document.addEventListener('DOMContentLoaded', function(){
       body: JSON.stringify(Object.fromEntries(new FormData(form)))
     }).then(r => {
       if(r.ok){
+        localStorage.setItem('socialKickstartUnlocked', 'true');
         msg.innerHTML = "You're in! <a href='social-kickstart.html' style='color:var(--gold);text-decoration:underline;'>Access your playbook here →</a>";
         msg.style.display = 'block';
         form.style.display = 'none';

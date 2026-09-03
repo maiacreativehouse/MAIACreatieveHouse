@@ -495,9 +495,119 @@ hr {
   h1 { font-size: 32px; }
   h2 { font-size: 24px; }
 }
+.gate-overlay{
+  position:fixed;inset:0;z-index:2000;
+  background:var(--black);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;
+}
+.gate-overlay.hidden{display:none;}
+.gate-box{
+  max-width:420px;width:100%;
+  text-align:center;
+  background:rgba(255,255,255,.03);
+  border:0.5px solid rgba(201,169,110,0.2);
+  padding:44px 36px;
+}
+.gate-mark{
+  font-family:'Montserrat',sans-serif;font-weight:300;font-size:14px;
+  letter-spacing:.38em;text-transform:uppercase;color:var(--cream);opacity:.5;
+  margin-bottom:24px;
+}
+.gate-title{
+  font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;
+  font-size:clamp(24px,3vw,30px);color:var(--gold);margin:0 0 14px;line-height:1.2;
+}
+.gate-desc{font-size:13.5px;color:var(--grey);line-height:1.7;margin-bottom:28px;}
+.gate-form{display:flex;flex-direction:column;gap:10px;}
+.gate-input{
+  width:100%;padding:14px 16px;background:transparent;
+  border:0.5px solid rgba(201,169,110,0.25);
+  color:var(--cream);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;
+  outline:none;
+}
+.gate-input:focus{border-color:var(--gold);}
+.gate-btn{
+  margin-top:4px;padding:12px 16px;
+  background:var(--gold);color:var(--black);
+  border:none;
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;transition:all 0.3s;
+}
+.gate-btn:hover{background:var(--gold-light);}
+.gate-btn:disabled{opacity:.6;cursor:default;}
+.gate-msg{margin-top:16px;font-size:11.5px;color:var(--grey);display:none;}
+.gate-msg.show{display:block;}
     </style>
 </head>
 <body>
+
+<!-- ── EMAIL GATE: blocks direct-link access, not just the homepage funnel ── -->
+<div class="gate-overlay" id="gate-overlay">
+  <div class="gate-box">
+    <div class="gate-mark">MAIA</div>
+    <h2 class="gate-title">Unlock the 30-Day Kickstart</h2>
+    <p class="gate-desc">Enter your email and the full playbook, all thirty days, opens right up. No spam, just the occasional new guide when I build one.</p>
+    <form class="gate-form" id="gate-form">
+      <input type="text" name="name" class="gate-input" placeholder="Your first name" required>
+      <input type="email" name="email" class="gate-input" placeholder="Your email address" required>
+      <button type="submit" class="gate-btn">Unlock the Playbook →</button>
+    </form>
+    <p class="gate-msg" id="gate-msg"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var UNLOCK_KEY = 'socialKickstartUnlocked';
+  var overlay = document.getElementById('gate-overlay');
+  if(localStorage.getItem(UNLOCK_KEY) === 'true'){
+    overlay.classList.add('hidden');
+  } else {
+    document.body.style.overflow = 'hidden';
+  }
+  var form = document.getElementById('gate-form');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var msg = document.getElementById('gate-msg');
+    btn.disabled = true;
+    btn.textContent = 'Unlocking...';
+    var params = new URLSearchParams(location.search);
+    fetch('https://formspree.io/f/maqlodng', {
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body: JSON.stringify({
+        name: form.name.value,
+        email: form.email.value,
+        _subject: 'Download: 30-Day Social Kickstart',
+        source: 'social-kickstart-direct',
+        utm_source: params.get('utm_source') || 'direct',
+        utm_medium: params.get('utm_medium') || '',
+        utm_campaign: params.get('utm_campaign') || '',
+        utm_content: params.get('utm_content') || ''
+      })
+    }).then(function(r){
+      if(r.ok){
+        localStorage.setItem(UNLOCK_KEY, 'true');
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      } else {
+        msg.textContent = 'Something went wrong. Please try again.';
+        msg.classList.add('show');
+        btn.disabled = false;
+        btn.textContent = 'Unlock the Playbook →';
+      }
+    }).catch(function(){
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.classList.add('show');
+      btn.disabled = false;
+      btn.textContent = 'Unlock the Playbook →';
+    });
+  });
+})();
+</script>
+
     <button class="nav-toggle" onclick="document.querySelector('.brand-nav').classList.toggle('open')">MENU</button>
     <nav class="brand-nav">
       <div class="nav-logo">MAIA</div>
