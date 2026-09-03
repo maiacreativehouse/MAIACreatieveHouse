@@ -491,9 +491,121 @@ footer{
   .auto-card{break-inside:avoid;}
   body::before{display:none;}
 }
+.gate-overlay{
+  position:fixed;inset:0;z-index:500;
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;
+}
+.gate-overlay.hidden{display:none;}
+.gate-overlay::before{
+  content:"";
+  position:fixed;inset:0;z-index:-1;
+  background:
+    radial-gradient(circle at 70% 10%, rgba(201,169,110,.06), transparent 42%),
+    radial-gradient(circle at 90% 80%, rgba(201,169,110,.04), transparent 40%);
+  pointer-events:none;
+}
+.gate-box{
+  max-width:420px;width:100%;
+  text-align:center;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:44px 36px;
+}
+.gate-mark{
+  font-family:'Montserrat',sans-serif;font-weight:300;font-size:14px;
+  letter-spacing:.38em;text-transform:uppercase;color:var(--ink);opacity:.5;
+  margin-bottom:24px;
+}
+.gate-title{
+  font-family:'Cormorant Garamond',serif;font-weight:500;font-style:italic;
+  font-size:clamp(24px,3vw,30px);color:var(--gold);margin:0 0 14px;line-height:1.2;
+}
+.gate-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:28px;}
+.gate-form{display:flex;flex-direction:column;gap:10px;}
+.gate-input{
+  width:100%;padding:14px 16px;background:transparent;
+  border:1px solid var(--line);border-radius:4px;
+  color:var(--ink);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;
+  outline:none;
+}
+.gate-input:focus{border-color:var(--gold-line);}
+.gate-btn{
+  margin-top:4px;padding:14px 16px;
+  background:var(--gold);color:#1b0a0e;
+  border:none;border-radius:4px;
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;transition:background .15s ease;
+}
+.gate-btn:hover{background:#d8bb85;}
+.gate-btn:disabled{opacity:.6;cursor:default;}
+.gate-msg{margin-top:16px;font-size:11.5px;color:var(--ink-faint);display:none;}
+.gate-msg.show{display:block;}
 </style>
 </head>
 <body>
+
+<!-- ── EMAIL GATE: blocks direct-link access, not just the homepage funnel ── -->
+<div class="gate-overlay" id="gate-overlay">
+  <div class="gate-box">
+    <div class="gate-mark">MAIA</div>
+    <h2 class="gate-title">Unlock the Automation Stack</h2>
+    <p class="gate-desc">Enter your email and the full guide, all ten prompts, opens right up. No spam, just the occasional new guide when I build one.</p>
+    <form class="gate-form" id="gate-form">
+      <input type="text" name="name" class="gate-input" placeholder="Your first name" required>
+      <input type="email" name="email" class="gate-input" placeholder="Your email address" required>
+      <button type="submit" class="gate-btn">Unlock the Guide →</button>
+    </form>
+    <p class="gate-msg" id="gate-msg"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var UNLOCK_KEY = 'automationStackUnlocked';
+  var overlay = document.getElementById('gate-overlay');
+  if(localStorage.getItem(UNLOCK_KEY) === 'true'){
+    overlay.classList.add('hidden');
+  } else {
+    document.body.style.overflow = 'hidden';
+  }
+  var form = document.getElementById('gate-form');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var msg = document.getElementById('gate-msg');
+    btn.disabled = true;
+    btn.textContent = 'Unlocking...';
+    fetch('https://formspree.io/f/maqlodng', {
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body: JSON.stringify({
+        name: form.name.value,
+        email: form.email.value,
+        _subject: 'Download: The Weekly Automation Stack',
+        source: 'automation-stack-direct'
+      })
+    }).then(function(r){
+      if(r.ok){
+        localStorage.setItem(UNLOCK_KEY, 'true');
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      } else {
+        msg.textContent = 'Something went wrong. Please try again.';
+        msg.classList.add('show');
+        btn.disabled = false;
+        btn.textContent = 'Unlock the Guide →';
+      }
+    }).catch(function(){
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.classList.add('show');
+      btn.disabled = false;
+      btn.textContent = 'Unlock the Guide →';
+    });
+  });
+})();
+</script>
 
 <!-- ── SIDEBAR ── -->
 <aside class="sidebar" id="sidebar">
