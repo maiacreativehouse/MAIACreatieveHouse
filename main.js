@@ -215,7 +215,7 @@ function handleModalClick(e){
   if(e.target === document.getElementById('contact-modal')) closeContactModal();
 }
 document.addEventListener('keydown', e => {
-  if(e.key === 'Escape') { closeContactModal(); closeWaitlistModal(); closeSocialGateModal(); closeAutomationGateModal(); }
+  if(e.key === 'Escape') { closeContactModal(); closeWaitlistModal(); closeSocialGateModal(); closeAutomationGateModal(); closeBeforeLaunchGateModal(); }
 });
 
 /* ── Waitlist modal ── */
@@ -357,6 +357,64 @@ document.addEventListener('DOMContentLoaded', function(){
       msg.style.display = 'block';
       btn.disabled = false;
       btn.textContent = 'Get Your Free Stack →';
+    });
+  });
+});
+
+/* ── Pre-Launch Reality Check email gate modal ── */
+function openBeforeLaunchGateModal(){
+  document.getElementById('before-launch-gate-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeBeforeLaunchGateModal(){
+  document.getElementById('before-launch-gate-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleBeforeLaunchGateClick(e){
+  if(e.target === document.getElementById('before-launch-gate-modal')) closeBeforeLaunchGateModal();
+}
+
+/* ── Pre-Launch Reality Check form submit ── */
+document.addEventListener('DOMContentLoaded', function(){
+  var params = new URLSearchParams(window.location.search);
+  var src = document.getElementById('before-launch-utm-source');
+  var med = document.getElementById('before-launch-utm-medium');
+  var camp = document.getElementById('before-launch-utm-campaign');
+  var cont = document.getElementById('before-launch-utm-content');
+  if(src) src.value = params.get('utm_source') || 'direct';
+  if(med) med.value = params.get('utm_medium') || '';
+  if(camp) camp.value = params.get('utm_campaign') || '';
+  if(cont) cont.value = params.get('utm_content') || '';
+
+  const bf = document.getElementById('before-launch-gate-form');
+  if(bf) bf.addEventListener('submit', function(e){
+    e.preventDefault();
+    const form = e.target;
+    const msg = document.getElementById('before-launch-gate-msg');
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    fetch(form.action, {
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    }).then(r => {
+      if(r.ok){
+        localStorage.setItem('beforeYouLaunchUnlocked', 'true');
+        msg.innerHTML = "You're in! <a href='before-you-launch.html' style='color:var(--gold);text-decoration:underline;'>Access your checklist here →</a>";
+        msg.style.display = 'block';
+        form.style.display = 'none';
+      } else {
+        msg.textContent = 'Something went wrong. Please try again.';
+        msg.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Get Your Free Checklist →';
+      }
+    }).catch(() => {
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Get Your Free Checklist →';
     });
   });
 });

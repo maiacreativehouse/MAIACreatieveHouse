@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Before You Launch: 10 questions that protect brand trust when you're moving fast.">
+    <title>Before You Launch | MAIA Creative House</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23170A0C'/%3E%3Ctext x='50%25' y='54%25' font-size='18' fill='%23c9a96e' text-anchor='middle' dominant-baseline='middle'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+    <style>
+:root {
+  --black: #0a0a08;
+  --dark2: #170A0C;
+  --dark3: #0f0a06;
+  --cream: #f5f0e8;
+  --cream2: #e8e0d4;
+  --gold: #c9a96e;
+  --gold-light: #e8d5b0;
+  --gold-dark: #a8893e;
+  --grey: #888880;
+  --grey2: #555550;
+  --grey3: #333330;
+  --mid: #2e2e28;
+  --burgundy: #170A0C;
+  --warm-black: #111008;
+  --rose: #8c4a52;
+  --ivory: #faf6ef;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 2rem; scrollbar-width: thin; scrollbar-color: var(--grey3) var(--black); }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--grey3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--grey2); }
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAVIGATION ── */
+.brand-nav {
+  position: fixed; top: 0; left: 0; width: 280px; height: 100vh;
+  background: rgba(10,10,8,0.96); backdrop-filter: blur(12px);
+  border-right: 0.5px solid rgba(201,169,110,0.1);
+  z-index: 100; padding: 48px 32px;
+  display: flex; flex-direction: column;
+  transition: transform 0.4s ease;
+  overflow-y: auto;
+  scrollbar-width: thin; scrollbar-color: var(--grey3) transparent;
+}
+.brand-nav::-webkit-scrollbar { width: 4px; }
+.brand-nav::-webkit-scrollbar-track { background: transparent; }
+.brand-nav::-webkit-scrollbar-thumb { background: var(--grey3); border-radius: 2px; }
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; letter-spacing: 6px; text-transform: uppercase;
+  color: var(--cream); margin-bottom: 8px;
+}
+.nav-sub {
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.6; margin-bottom: 48px;
+}
+.nav-section {
+  font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--grey2); margin-bottom: 12px; margin-top: 28px;
+}
+.nav-section:first-of-type { margin-top: 0; }
+.nav-link {
+  display: block; padding: 8px 0;
+  font-size: 11px; letter-spacing: 1px; color: var(--grey);
+  text-decoration: none; transition: color 0.25s, padding-left 0.25s;
+  cursor: pointer; border: none;
+}
+.nav-link:hover { color: var(--gold); padding-left: 8px; }
+.nav-link.active { color: var(--gold); padding-left: 12px; border-left: 1px solid var(--gold); }
+.nav-footer {
+  margin-top: auto;
+  font-size: 9px; color: var(--grey2); letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+.nav-toggle {
+  display: none; position: fixed; top: 20px; left: 20px; z-index: 200;
+  background: rgba(10,10,8,0.9); border: 0.5px solid rgba(201,169,110,0.2);
+  color: var(--gold); padding: 10px 14px; font-size: 11px;
+  letter-spacing: 2px; cursor: pointer; backdrop-filter: blur(8px);
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ── MAIN CONTENT ── */
+main {
+  margin-left: 280px; min-height: 100vh; padding-bottom: 64px;
+}
+
+/* ── SECTIONS ── */
+.section {
+  padding: 100px 80px;
+  border-bottom: 1.5px solid rgba(201,169,110,0.25);
+  position: relative;
+}
+
+.content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.eyebrow {
+  font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.7; margin-bottom: 24px;
+  display: flex; align-items: center; gap: 14px;
+}
+.eyebrow::before { content: ''; width: 28px; height: 0.5px; background: var(--gold); }
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4.5vw, 64px); font-weight: 300;
+  line-height: 1.1; color: var(--cream); margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; color: var(--cream); line-height: 1.2;
+  margin-top: 0; margin-bottom: 16px;
+}
+h1 { font-size: clamp(36px, 4.5vw, 64px); letter-spacing: -0.5px; }
+h2 { font-size: clamp(24px, 2.5vw, 36px); }
+h3 { font-size: clamp(20px, 2vw, 28px); }
+h4 { font-size: 22px; font-weight: 400; }
+h5 { font-size: 11px; font-weight: 400; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); opacity: 0.5; }
+
+p {
+  font-size: 12px; color: var(--grey); line-height: 2;
+  max-width: 640px; margin-bottom: 20px;
+}
+
+strong { color: var(--cream); font-weight: 400; }
+em { font-style: italic; color: var(--gold); }
+a { color: var(--gold); text-decoration: none; border: none; }
+a:hover { opacity: 0.8; }
+
+ul, ol { margin-left: 1.5rem; margin-bottom: 1.5rem; }
+li { font-size: 12px; color: var(--grey); line-height: 2; margin-bottom: 8px; }
+
+.highlight-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.2vw, 30px); font-weight: 300;
+  color: var(--cream); line-height: 1.5; max-width: 680px;
+  margin: 40px 0; padding-left: 24px;
+  border-left: 1px solid rgba(201,169,110,0.3);
+}
+
+/* ── COVER ── */
+.cover {
+  text-align: center; padding: 80px 40px 60px;
+  border-bottom: 0.5px solid rgba(201,169,110,0.08);
+}
+.cover .stars {
+  color: var(--gold); opacity: 0.3; font-size: 11px;
+  letter-spacing: 8px; margin-bottom: 32px;
+}
+.brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 56px); font-weight: 300;
+  color: var(--cream); margin-bottom: 8px; line-height: 1.1;
+}
+.brand-name .house { font-style: italic; color: var(--gold); }
+.product-label {
+  font-size: 9px; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.6; margin-bottom: 24px;
+}
+.tagline {
+  font-size: 12px; color: var(--grey); font-weight: 300;
+  line-height: 1.9; max-width: 520px; margin: 0 auto 24px;
+}
+.cover-divider {
+  width: 48px; height: 2px; background: rgba(201,169,110,0.5);
+  margin: 32px auto;
+}
+.cover-body {
+  max-width: 680px; margin: 0 auto; text-align: left;
+}
+.cover-label {
+  font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.5; margin-bottom: 20px; margin-top: 40px;
+}
+.cover-label:first-child { margin-top: 0; }
+.qs-items { display: flex; flex-direction: column; gap: 0; }
+.qs-item {
+  display: flex; align-items: flex-start; gap: 20px;
+  padding: 16px 0;
+  border-bottom: 0.5px solid rgba(201,169,110,0.05);
+}
+.qs-item:last-child { border-bottom: none; }
+.qs-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; color: var(--gold); font-weight: 300;
+  opacity: 0.4; min-width: 36px;
+}
+.qs-title {
+  font-size: 12px; color: var(--cream); font-weight: 400;
+  margin-bottom: 4px;
+}
+.qs-desc {
+  font-size: 11px; color: var(--grey); font-weight: 300; line-height: 1.7;
+}
+.cover-cta {
+  background: rgba(201,169,110,0.03);
+  border: 0.5px solid rgba(201,169,110,0.1);
+  border-left: none; padding: 32px;
+  margin-top: 40px; border-top: 2px solid var(--gold);
+}
+.cover-cta .cover-label { margin-top: 0; }
+.bottom-line {
+  width: 100%; height: 2px;
+  background: rgba(201,169,110,0.3); margin-top: 60px;
+}
+
+/* ── CARDS ── */
+.card {
+  background: rgba(201,169,110,0.03);
+  border: 0.5px solid rgba(201,169,110,0.1);
+  padding: 40px 36px; margin-bottom: 24px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.card:hover {
+  border-color: rgba(201,169,110,0.25);
+  background: rgba(201,169,110,0.05);
+}
+.card h3 { margin-top: 0; }
+.card p { margin-bottom: 12px; }
+
+.tip-box {
+  background: rgba(201,169,110,0.03);
+  border: 0.5px solid rgba(201,169,110,0.1);
+  padding: 24px 28px; margin: 32px 0;
+}
+.tip-box p { margin-bottom: 0; }
+
+.upsell-box {
+  background: rgba(201,169,110,0.05);
+  border-left: 2px solid var(--gold);
+  padding: 24px 28px; margin: 32px 0;
+}
+.upsell-box h4 { margin-top: 0; margin-bottom: 12px; }
+.upsell-box p { margin-bottom: 0; }
+
+.cta-box {
+  background: var(--gold); color: var(--black);
+  padding: 40px; text-align: center; margin: 40px 0;
+}
+.cta-box h3 { color: var(--black); margin-bottom: 12px; }
+.cta-box p { color: var(--grey3); max-width: none; margin: 0; }
+
+/* ── SECTION DIVIDERS ── */
+.section-divider {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  padding: 48px 80px;
+  position: relative;
+  border-bottom: 2px solid rgba(201,169,110,0.3);
+}
+.section-divider:empty {
+  min-height: 0; padding: 0; margin: 40px 0;
+  border-bottom: 2px solid rgba(201,169,110,0.3);
+}
+.section-divider:not(:empty) {
+  min-height: 50vh;
+  background: linear-gradient(160deg, var(--dark2) 0%, var(--black) 60%, var(--warm-black) 100%);
+  overflow: hidden; padding: 100px 80px;
+}
+.section-divider:not(:empty)::before {
+  content: ''; position: absolute; top: 50%; right: -100px;
+  width: 600px; height: 600px; border-radius: 50%;
+  border: 0.5px solid rgba(201,169,110,0.06);
+  transform: translateY(-50%);
+}
+.section-divider:not(:empty)::after {
+  content: ''; position: absolute; top: 50%; right: -40px;
+  width: 400px; height: 400px; border-radius: 50%;
+  border: 0.5px solid rgba(201,169,110,0.04);
+  transform: translateY(-50%);
+}
+.section-divider h2 { margin-bottom: 16px; }
+.section-divider p { color: var(--grey); max-width: 560px; }
+.section-divider .star-deco {
+  color: var(--gold); opacity: 0.3; font-size: 11px;
+  letter-spacing: 8px; margin-bottom: 32px;
+}
+
+/* ── DAY CARDS ── */
+.day-card {
+  background: rgba(201,169,110,0.03);
+  border: 0.5px solid rgba(201,169,110,0.1);
+  padding: 36px; margin-bottom: 24px;
+  transition: border-color 0.3s;
+}
+.day-card:hover { border-color: rgba(201,169,110,0.25); }
+.day-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; color: var(--gold); font-weight: 300;
+  margin-bottom: 4px; opacity: 0.6;
+}
+.day-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 400; color: var(--cream);
+  margin-bottom: 12px; line-height: 1.2;
+}
+.day-meta {
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.5; margin-bottom: 20px;
+}
+.day-label {
+  font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.5; margin-top: 16px; margin-bottom: 6px;
+}
+.day-text {
+  font-size: 12px; color: var(--grey); line-height: 1.9;
+}
+
+/* ── HOOK CATEGORIES ── */
+.hook-category {
+  margin-bottom: 48px; padding-bottom: 48px;
+  border-bottom: 0.5px solid rgba(201,169,110,0.08);
+}
+.hook-category:last-child { border-bottom: none; }
+.hook-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; color: var(--gold); font-weight: 300;
+  opacity: 0.4; margin-bottom: 4px;
+}
+.hook-cat-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 400; color: var(--cream);
+  margin-bottom: 20px;
+}
+.hook-formula { margin-bottom: 20px; }
+.hook-text {
+  font-size: 12px; color: var(--cream); font-weight: 400;
+  line-height: 1.8; margin-bottom: 6px;
+}
+.hook-example {
+  font-size: 11px; font-style: italic; color: var(--grey);
+  padding-left: 16px; border-left: 0.5px solid rgba(201,169,110,0.2);
+  line-height: 1.7;
+}
+
+/* ── TABLES ── */
+table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+th {
+  text-align: left; padding: 12px 16px;
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.5;
+  border-bottom: 0.5px solid rgba(201,169,110,0.15);
+  font-family: 'Montserrat', sans-serif; font-weight: 500;
+}
+td {
+  padding: 14px 16px; font-size: 11px; color: var(--grey);
+  line-height: 1.7;
+  border-bottom: 0.5px solid rgba(201,169,110,0.06);
+}
+tr:hover td { color: var(--cream); }
+
+/* ── FILL-IN AREAS ── */
+input[type="text"], textarea {
+  width: 100%; background: transparent;
+  border: none; border-bottom: 0.5px solid rgba(201,169,110,0.3);
+  color: var(--cream); font-family: 'Montserrat', sans-serif;
+  font-size: 12px; font-weight: 300; padding: 8px 0;
+  margin-bottom: 16px; outline: none;
+}
+input:focus, textarea:focus { border-bottom-color: var(--gold); }
+textarea { min-height: 60px; resize: vertical; }
+
+/* ── HASHTAGS ── */
+.hashtag-bank { margin-bottom: 32px; }
+.hashtag-bank h5 { margin-bottom: 12px; }
+.hashtag-list {
+  font-size: 11px; color: var(--grey); line-height: 1.9;
+  word-break: break-word;
+}
+
+/* ── DIVIDERS ── */
+hr {
+  border: none; height: 1.5px;
+  background: rgba(201,169,110,0.25); margin: 40px 0;
+}
+.divider { width: 48px; height: 1.5px; background: rgba(201,169,110,0.5); margin: 32px 0; }
+
+/* ── PILLAR ITEMS ── */
+.pillar-item { margin-bottom: 20px; }
+.pillar-name {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cream); font-weight: 400; margin-bottom: 4px;
+}
+.pillar-desc {
+  font-size: 11px; color: var(--grey); line-height: 1.8;
+}
+
+/* ── STRUCTURE ITEMS ── */
+.structure-item { margin-bottom: 16px; }
+.structure-label {
+  font-size: 11px; color: var(--cream); font-weight: 400;
+}
+.structure-desc {
+  font-size: 11px; color: var(--grey); line-height: 1.8; margin-top: 2px;
+}
+
+/* ── FILL-IN SECTIONS ── */
+.fill-section {
+  background: rgba(201,169,110,0.04);
+  border: 0.5px solid rgba(201,169,110,0.15);
+  padding: 24px 28px;
+  margin: 20px 0 32px;
+}
+.fill-section p { margin-bottom: 4px; }
+.fill-line {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 0.5px dashed rgba(201,169,110,0.25);
+  padding: 8px 0;
+  margin-bottom: 16px;
+  color: var(--cream);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.fill-line:focus {
+  border-bottom-color: var(--gold);
+}
+.fill-line:last-child { margin-bottom: 0; }
+
+/* ── SAVE AS PDF ── */
+.save-pdf-bar {
+  position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999;
+  background: rgba(10,10,8,0.95); backdrop-filter: blur(12px);
+  border-top: 0.5px solid rgba(201,169,110,0.15);
+  padding: 12px 24px;
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+}
+.save-pdf-bar span {
+  font-size: 12px; color: var(--grey); letter-spacing: 1px;
+}
+.save-pdf-btn {
+  background: var(--gold); color: var(--black);
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 10px 28px; border: none; cursor: pointer;
+  transition: all 0.3s;
+}
+.save-pdf-btn:hover { background: var(--gold-light); }
+
+/* ── PRINT ── */
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+  html, body { background: var(--black) !important; margin: 0 !important; padding: 0 !important; }
+  @page { margin: 0; size: auto; }
+  .brand-nav, .nav-toggle, .save-pdf-bar { display: none !important; }
+  main { margin-left: 0 !important; padding-bottom: 0 !important; }
+  .cover { page-break-after: always; }
+  .section-divider { page-break-after: always; }
+  .day-card { page-break-inside: avoid; }
+  .card { page-break-inside: avoid; border-radius: 0 !important; }
+  .fill-section { border-radius: 0 !important; }
+  .fill-line { border-bottom: 1px dashed rgba(201,169,110,0.4) !important; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .brand-nav { transform: translateX(-100%); }
+  .brand-nav.open { transform: translateX(0); }
+  .nav-toggle { display: block; }
+  main { margin-left: 0; }
+  .section { padding: 64px 32px; }
+  .content-wrapper { padding: 64px 24px; }
+  .section-divider { padding: 64px 32px; }
+}
+@media (max-width: 600px) {
+  .cover { padding: 48px 24px 40px; }
+  .day-card { padding: 24px; }
+  .card { padding: 24px; }
+  h1 { font-size: 32px; }
+  h2 { font-size: 24px; }
+}
+.gate-overlay{
+  position:fixed;inset:0;z-index:2000;
+  background:var(--black);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;
+}
+.gate-overlay.hidden{display:none;}
+.gate-box{
+  max-width:420px;width:100%;
+  text-align:center;
+  background:rgba(255,255,255,.03);
+  border:0.5px solid rgba(201,169,110,0.2);
+  padding:44px 36px;
+}
+.gate-mark{
+  font-family:'Montserrat',sans-serif;font-weight:300;font-size:14px;
+  letter-spacing:.38em;text-transform:uppercase;color:var(--cream);opacity:.5;
+  margin-bottom:24px;
+}
+.gate-title{
+  font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;
+  font-size:clamp(24px,3vw,30px);color:var(--gold);margin:0 0 14px;line-height:1.2;
+}
+.gate-desc{font-size:13.5px;color:var(--grey);line-height:1.7;margin-bottom:28px;}
+.gate-form{display:flex;flex-direction:column;gap:10px;}
+.gate-overlay .gate-input{
+  width:100%;padding:14px 16px;background:transparent;
+  border:0.5px solid rgba(201,169,110,0.25);
+  color:var(--cream);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;
+  outline:none;margin-bottom:0;
+}
+.gate-overlay .gate-input:focus{border-color:var(--gold);border-bottom-color:var(--gold);}
+.gate-btn{
+  margin-top:4px;padding:12px 16px;
+  background:var(--gold);color:var(--black);
+  border:none;
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;transition:all 0.3s;
+}
+.gate-btn:hover{background:var(--gold-light);}
+.gate-btn:disabled{opacity:.6;cursor:default;}
+.gate-msg{margin-top:16px;font-size:11.5px;color:var(--grey);display:none;}
+.gate-msg.show{display:block;}
+    </style>
+</head>
+<body>
+
+<!-- ── EMAIL GATE: blocks direct-link access, not just the homepage funnel ── -->
+<div class="gate-overlay" id="gate-overlay">
+  <div class="gate-box">
+    <div class="gate-mark">MAIA</div>
+    <h2 class="gate-title">Unlock the Reality Check</h2>
+    <p class="gate-desc">Enter your email and all ten questions open right up. No spam, just the occasional new guide when I build one.</p>
+    <form class="gate-form" id="gate-form">
+      <input type="text" name="name" class="gate-input" placeholder="Your first name" required>
+      <input type="email" name="email" class="gate-input" placeholder="Your email address" required>
+      <button type="submit" class="gate-btn">Unlock the Checklist →</button>
+    </form>
+    <p class="gate-msg" id="gate-msg"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var UNLOCK_KEY = 'beforeYouLaunchUnlocked';
+  var overlay = document.getElementById('gate-overlay');
+  if(localStorage.getItem(UNLOCK_KEY) === 'true'){
+    overlay.classList.add('hidden');
+  } else {
+    document.body.style.overflow = 'hidden';
+  }
+  var form = document.getElementById('gate-form');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var msg = document.getElementById('gate-msg');
+    btn.disabled = true;
+    btn.textContent = 'Unlocking...';
+    var params = new URLSearchParams(location.search);
+    fetch('https://formspree.io/f/maqlodng', {
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body: JSON.stringify({
+        name: form.name.value,
+        email: form.email.value,
+        _subject: 'Download: The Pre-Launch Reality Check',
+        source: 'before-you-launch-direct',
+        utm_source: params.get('utm_source') || 'direct',
+        utm_medium: params.get('utm_medium') || '',
+        utm_campaign: params.get('utm_campaign') || '',
+        utm_content: params.get('utm_content') || ''
+      })
+    }).then(function(r){
+      if(r.ok){
+        localStorage.setItem(UNLOCK_KEY, 'true');
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      } else {
+        msg.textContent = 'Something went wrong. Please try again.';
+        msg.classList.add('show');
+        btn.disabled = false;
+        btn.textContent = 'Unlock the Checklist →';
+      }
+    }).catch(function(){
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.classList.add('show');
+      btn.disabled = false;
+      btn.textContent = 'Unlock the Checklist →';
+    });
+  });
+})();
+</script>
+
+<button class="nav-toggle" onclick="document.querySelector('.brand-nav').classList.toggle('open')">MENU</button>
+
+<nav class="brand-nav">
+  <div class="nav-logo">MAIA</div>
+  <div class="nav-sub">Before You Launch</div>
+
+  <div class="nav-section">Start Here</div>
+  <a class="nav-link" href="#cover">Cover</a>
+
+  <div class="nav-section">Part 1: The Honesty Check</div>
+  <a class="nav-link" href="#q1">Q1. What's Actually Wrong</a>
+  <a class="nav-link" href="#q2">Q2. The Placeholder Test</a>
+  <a class="nav-link" href="#q3">Q3. One Real Person</a>
+
+  <div class="nav-section">Part 2: The Experience Check</div>
+  <a class="nav-link" href="#q4">Q4. If 100 Showed Up</a>
+  <a class="nav-link" href="#q5">Q5. The "Fix It Later" List</a>
+  <a class="nav-link" href="#q6">Q6. Every Claim, Checked</a>
+
+  <div class="nav-section">Part 3: The Trust Check</div>
+  <a class="nav-link" href="#q7">Q7. The Cold Read</a>
+  <a class="nav-link" href="#q8">Q8. The Embarrassment Test</a>
+
+  <div class="nav-section">Part 4: The Accountability Check</div>
+  <a class="nav-link" href="#q9">Q9. Learning vs. Avoiding</a>
+  <a class="nav-link" href="#q10">Q10. Who's Watching Your Back</a>
+
+  <div class="nav-footer">
+    MAIA Creative House<br>
+    Before You Launch<br>
+    Free Edition
+  </div>
+</nav>
+
+<main>
+
+  <section id="cover" class="cover">
+    <div class="brand-name">MAIA <span class="house">Creative House</span></div>
+    <div class="product-label">Before You Launch</div>
+    <p class="tagline">10 questions that separate real iteration from avoidance disguised as speed, so shipping fast never costs you brand trust.</p>
+    <div class="cover-divider"></div>
+    <div class="cover-body">
+      <div class="cover-label">Quick Start</div>
+      <div class="qs-items">
+        <div class="qs-item">
+          <div class="qs-num">01</div>
+          <div>
+            <div class="qs-title">Go question by question, in order</div>
+            <div class="qs-desc">Don't skip to the ones that feel comfortable. The order builds on itself.</div>
+          </div>
+        </div>
+        <div class="qs-item">
+          <div class="qs-num">02</div>
+          <div>
+            <div class="qs-title">Write your answer in the line under each question</div>
+            <div class="qs-desc">If you can't answer it in one sentence, that's the answer.</div>
+          </div>
+        </div>
+        <div class="qs-item">
+          <div class="qs-num">03</div>
+          <div>
+            <div class="qs-title">Count your winces</div>
+            <div class="qs-desc">If three or more answers make you wince, you're not ready to ship yet, and now you know exactly why.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-cta">
+        <div class="cover-label">Before You Begin</div>
+        <p style="margin-bottom:0;">Speed isn't the enemy of trust. Denial is. This guide exists to catch the difference before your customers do.</p>
+      </div>
+    </div>
+    <div class="bottom-line"></div>
+  </section>
+
+  <section class="section" id="q1">
+    <div class="content-wrapper">
+      <div class="eyebrow">Part 1: The Honesty Check</div>
+      <h2 class="section-title">What's Actually <em>Wrong</em></h2>
+      <p>There's a real difference between launching something unfinished and launching something you already know is broken. The first is iteration. The second is a decision you're hoping no one notices.</p>
+
+      <div class="day-card">
+        <div class="day-number">01</div>
+        <div class="day-title">Is there a problem I've already identified and I'm hoping no one else notices?</div>
+        <div class="day-meta">Part 1 · The Honesty Check</div>
+        <div class="fill-section">
+          <div class="day-label">Your Answer</div>
+          <input type="text" class="fill-line" placeholder="Name it specifically, not 'it's not perfect,' but the actual thing.">
+          <input type="text" class="fill-line">
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <h5>Why This Matters</h5>
+        <p>If you can name the flaw precisely, you already know it's not a "we'll see." It's a "we know." Those get remembered differently by the people who find them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="q2">
+    <div class="content-wrapper">
+      <div class="eyebrow">Part 1: The Honesty Check</div>
+      <h2 class="section-title">The <em>Placeholder</em> Test</h2>
+      <p>"Placeholder pricing" and "placeholder messaging" are often just launch anxiety wearing a work-in-progress label. The test is simple: would you be comfortable if a real customer paid, or read, exactly what's live right now?</p>
+
+      <div class="day-card">
+        <div class="day-number">02</div>
+        <div class="day-title">If someone acted on this today, bought at this price, believed this message, would I stand behind it?</div>
+        <div class="day-meta">Part 1 · The Honesty Check</div>
+        <div class="fill-section">
+          <div class="day-label">Your Answer</div>
+          <input type="text" class="fill-line">
+          <input type="text" class="fill-line">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="q3">
+    <div class="content-wrapper">
+      <div class="eyebrow">Part 1: The Honesty Check</div>
+      <h2 class="section-title">One Real <em>Person</em></h2>
+      <p>Internal feedback is a mirror. Real users are a window. If your messaging has only ever been read by you and people who already understand your business, it hasn't been tested. It's been agreed with.</p>
+
+      <div class="day-card">
+        <div class="day-number">03</div>
+        <div class="day-title">Has one person outside my own head, a stranger, not a friend who already gets it, read this and told me what they actually understood?</div>
+        <div class="day-meta">Part 1 · The Honesty Check</div>
+        <div class="fill-section">
+          <div class="day-label">Your Answer</div>
+          <input type="text" class="fill-line">
+          <input type="text" class="fill-line">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider">
+    <h2>The first three questions are about honesty with <em>yourself</em>.<br>The next three are about honesty with <em>them</em>.</h2>
+  </div>
+
+  <section class="section" id="q4">
+    <div class="content-wrapper">
+      <div class="eyebrow">Part 2: The Experience Check</div>
+      <h2 class="section-title">If 100 People <em>Showed Up</em></h2>
+      <p>Most launches are built for a trickle and hoped for a flood. Trust breaks fast when the experience can't hold the attention you were actually asking for.</p>
+
+      <div class="day-card">
+        <div class="day-number">04</div>
+        <div class="day-title">If 100 strangers landed on this today, at once, would the experience hold, or would it visibly buckle?</div>
+        <div class="day-meta">Part 2 · The Experience Check</div>
+        <div class="fill-section">
+          <div class="day-label">Your Answer</div>
+          <input type="text" class="fill-line">
+          <input type="text" class="fill-line">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="q5">
+    <div class="content-wrapper">
+      <div class="eyebrow">Part 2: The Experience Check</div>
+      <h2 class="section-title">The "Fix It <em>Later</em>" List</h2>
+      <p>Write down every "we'll fix that after launch" you've said this week. Some of them are genuinely fine to defer. Some of them are the actual product, deferred.</p>
+
+      <div class="day-card">
+        <div class="day-number">05</div>
+        <div class="day-title">Of everything I've deferred to "after launch," which item is actually load-bearing, something the whole experience depends on?</div>
+        <div class="day-meta">Part 2 · The Experience Check</div>
+        <div class="fill-section">
+          <div class="day-label">Your Answer</div>
+          <input type="text" class="fill-line">
+          <input type="text" class="fill-line">
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <h5>A Useful Filter</h5>
+        <p>Ask whether the deferred item affects whether someone can get value today, or only how polished that value feels. The first stays on the list. The second can wait.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="q6">
+    <div class="content-wrapper">
+      <div class="eyebrow">Part 2: The Experience Check</div>
+      <h2 class="section-title">Every Claim, <em>Checked</em></h2>
+      <p>Every stat, testimonial, and promise on your launch page is a small trust transaction. Each one either builds credibility or spends it. There's no neutral claim.</p>
+
+      <div class="day-card">
+        <div class="day-number">06</div>
+        <div class="day-title">Does every claim on my page, every number, every "as seen in," every promise, hold up if someone checks it?</div>
+        <div class="day-meta">Part 2 · The Experience Check</div>
+        <div class="fill-section">
+          <div class="day-label">Your Answer</div>
+          <input type="text" class="fill-line">
+          <input type="text" class="fill-line">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider">
+    <h2>Trust isn't built by what you say about yourself.<br>It's built by what a <em>stranger</em> concludes on their own.</h2>
+  </div>
+
+  <section class="section" id="q7">
+    <div class="content-wrapper">
+      <div class="eyebrow">Part 3: The Trust Check</div>
+      <h2 class="section-title">The Cold <em>Read</em></h2>
+      <p>You know your own offer so well that clarity stops feeling like a requirement. A cold reader doesn't have that context, and won't ask for it before they leave.</p>
+
+      <div class="day-card">
+        <div class="day-number">07</div>
+        <div class="day-title">If a stranger read this cold, with zero context, do they know what I'm offering and why it matters to them, in the first ten seconds?</div>
+        <div class="day-meta">Part 3 · The Trust Check</div>
+        <div class="fill-section">
+          <div class="day-label">Your Answer</div>
+          <input type="text" class="fill-line">
+          <input type="text" class="fill-line">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="q8">
+    <div class="content-wrapper">
+      <div class="eyebrow">Part 3: The Trust Check</div>
+      <h2 class="section-title">The <em>Embarrassment</em> Test</h2>
+      <p>There's usually one thing you're quietly hoping a customer doesn't discover in their first week. Naming it is the fastest way to decide whether it's a real risk or just launch nerves.</p>
+
+      <div class="day-card">
+        <div class="day-number">08</div>
+        <div class="day-title">What's the one thing I'd be embarrassed for a customer to discover in their first week, and have I actually addressed it, or just hoped around it?</div>
+        <div class="day-meta">Part 3 · The Trust Check</div>
+        <div class="fill-section">
+          <div class="day-label">Your Answer</div>
+          <input type="text" class="fill-line">
+          <input type="text" class="fill-line">
+        </div>
+      </div>
+
+      <div class="upsell-box">
+        <h4>Worth Remembering</h4>
+        <p>"Ship it anyway" is only the right call when you know exactly what you're shipping with, not when you're hoping no one looks too closely.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider">
+    <h2>The last two questions decide what happens<br><em>after</em> you hit publish.</h2>
+  </div>
+
+  <section class="section" id="q9">
+    <div class="content-wrapper">
+      <div class="eyebrow">Part 4: The Accountability Check</div>
+      <h2 class="section-title">Learning vs. <em>Avoiding</em></h2>
+      <p>This is the question underneath every other question in this guide. It's worth asking out loud, not just in your head.</p>
+
+      <div class="day-card">
+        <div class="day-number">09</div>
+        <div class="day-title">Am I learning in public, or ignoring a problem I've already identified?</div>
+        <div class="day-meta">Part 4 · The Accountability Check</div>
+        <div class="fill-section">
+          <div class="day-label">Your Answer</div>
+          <input type="text" class="fill-line">
+          <input type="text" class="fill-line">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="q10">
+    <div class="content-wrapper">
+      <div class="eyebrow">Part 4: The Accountability Check</div>
+      <h2 class="section-title">Who's Watching Your <em>Back</em></h2>
+      <p>Momentum makes it easy to skip the loop that actually catches problems: someone honest, looking closely, in the first 48 hours, not a month later in a review no one reads.</p>
+
+      <div class="day-card">
+        <div class="day-number">10</div>
+        <div class="day-title">Who will I ask for honest feedback in the first 48 hours after launch, and have I actually told them I want the truth, not reassurance?</div>
+        <div class="day-meta">Part 4 · The Accountability Check</div>
+        <div class="fill-section">
+          <div class="day-label">Your Answer</div>
+          <input type="text" class="fill-line">
+          <input type="text" class="fill-line">
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <h3>Before Your Next Launch</h3>
+        <p>If three or more of your answers made you pause, that's not a sign to wait indefinitely. It's a sign to fix the load-bearing ones and ship the rest. Brand trust isn't built by being perfect. It's built by never pretending you didn't know.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="save-pdf-bar">
+  <span>Keep this checklist forever</span>
+  <button class="save-pdf-btn" onclick="window.print()">Save as PDF</button>
+</div>
+
+<script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const brandNav = document.querySelector('.brand-nav');
+  navToggle.addEventListener('click', () => brandNav.classList.toggle('open'));
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => brandNav.classList.remove('open'));
+  });
+  function updateActiveNav() {
+    const sections = document.querySelectorAll('main > .section, main > .cover');
+    const navLinks = document.querySelectorAll('.nav-link');
+    let current = '';
+    sections.forEach(section => {
+      if (window.pageYOffset >= section.offsetTop - 200) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').slice(1) === current) link.classList.add('active');
+    });
+  }
+  window.addEventListener('scroll', updateActiveNav);
+  updateActiveNav();
+</script>
+
+</body>
+</html>

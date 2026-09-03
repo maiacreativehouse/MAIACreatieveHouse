@@ -400,6 +400,13 @@
         <a href="#" onclick="openAutomationGateModal(); return false;" class="btn-pkg">Download Now</a>
       </div>
       <div class="tmpl-card">
+        <div class="tmpl-icon">✶</div>
+        <div class="tmpl-name">The Pre-Launch Reality Check</div>
+        <p class="tmpl-desc">Ten questions that separate real iteration from avoidance disguised as speed, so shipping fast never costs you brand trust. Answer them in the guide itself, then count your winces.</p>
+        <div class="tmpl-price"><em>Free</em></div>
+        <a href="#" onclick="openBeforeLaunchGateModal(); return false;" class="btn-pkg">Download Now</a>
+      </div>
+      <div class="tmpl-card">
         <div class="tmpl-icon">◎</div>
         <div class="tmpl-name">5 Claude Prompts for Brand Strategy</div>
         <p class="tmpl-desc">The five prompts I use most in real strategy work: positioning audits, voice definition, competitor teardowns, messaging tests, and content angles.</p>
@@ -735,6 +742,30 @@
       <button type="submit" class="btn-primary form-submit" style="width:100%;margin-top:4px;">Get Your Free Stack →</button>
     </form>
     <p id="automation-gate-msg" style="display:none;margin-top:16px;font-size:11px;color:var(--gold);letter-spacing:2px;"></p>
+  </div>
+</div>
+
+<!-- ══════════ EMAIL GATE: The Pre-Launch Reality Check ══════════ -->
+<div id="before-launch-gate-modal" class="modal-overlay" onclick="handleBeforeLaunchGateClick(event)">
+  <div class="modal-box" style="max-width:440px;text-align:center;">
+    <button class="modal-close" onclick="closeBeforeLaunchGateModal()" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/></svg>
+    </button>
+    <div class="modal-eyebrow">Free Download</div>
+    <h3 class="modal-title" style="margin-bottom:12px;">The Pre-Launch<br><em>Reality Check</em></h3>
+    <p style="font-size:13px;color:var(--grey);line-height:1.8;margin-bottom:28px;">Ten questions that protect brand trust when you're moving fast. All yours, instantly.</p>
+    <form id="before-launch-gate-form" action="https://formspree.io/f/maqlodng" method="POST" style="display:flex;flex-direction:column;gap:10px;">
+      <input type="hidden" name="_subject" value="Download: The Pre-Launch Reality Check">
+      <input type="hidden" name="source" value="before-you-launch-download">
+      <input type="hidden" name="utm_source" id="before-launch-utm-source">
+      <input type="hidden" name="utm_medium" id="before-launch-utm-medium">
+      <input type="hidden" name="utm_campaign" id="before-launch-utm-campaign">
+      <input type="hidden" name="utm_content" id="before-launch-utm-content">
+      <input type="text" name="name" placeholder="Your first name" required style="width:100%;padding:14px 18px;background:transparent;border:0.5px solid rgba(201,169,110,0.25);color:var(--cream);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;outline:none;">
+      <input type="email" name="email" placeholder="Your email address" required style="width:100%;padding:14px 18px;background:transparent;border:0.5px solid rgba(201,169,110,0.25);color:var(--cream);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;outline:none;">
+      <button type="submit" class="btn-primary form-submit" style="width:100%;margin-top:4px;">Get Your Free Checklist →</button>
+    </form>
+    <p id="before-launch-gate-msg" style="display:none;margin-top:16px;font-size:11px;color:var(--gold);letter-spacing:2px;"></p>
   </div>
 </div>
 
