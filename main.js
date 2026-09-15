@@ -215,7 +215,7 @@ function handleModalClick(e){
   if(e.target === document.getElementById('contact-modal')) closeContactModal();
 }
 document.addEventListener('keydown', e => {
-  if(e.key === 'Escape') { closeContactModal(); closeWaitlistModal(); closeSocialGateModal(); closeAutomationGateModal(); closeBeforeLaunchGateModal(); }
+  if(e.key === 'Escape') { closeContactModal(); closeWaitlistModal(); closeSocialGateModal(); closeAutomationGateModal(); closeBeforeLaunchGateModal(); closeCarouselGateModal(); }
 });
 
 /* ── Waitlist modal ── */
@@ -415,6 +415,64 @@ document.addEventListener('DOMContentLoaded', function(){
       msg.style.display = 'block';
       btn.disabled = false;
       btn.textContent = 'Get Your Free Checklist →';
+    });
+  });
+});
+
+/* ── Carousel Blueprint email gate modal ── */
+function openCarouselGateModal(){
+  document.getElementById('carousel-gate-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCarouselGateModal(){
+  document.getElementById('carousel-gate-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleCarouselGateClick(e){
+  if(e.target === document.getElementById('carousel-gate-modal')) closeCarouselGateModal();
+}
+
+/* ── Carousel Blueprint form submit ── */
+document.addEventListener('DOMContentLoaded', function(){
+  var params = new URLSearchParams(window.location.search);
+  var src = document.getElementById('carousel-utm-source');
+  var med = document.getElementById('carousel-utm-medium');
+  var camp = document.getElementById('carousel-utm-campaign');
+  var cont = document.getElementById('carousel-utm-content');
+  if(src) src.value = params.get('utm_source') || 'direct';
+  if(med) med.value = params.get('utm_medium') || '';
+  if(camp) camp.value = params.get('utm_campaign') || '';
+  if(cont) cont.value = params.get('utm_content') || '';
+
+  const cf = document.getElementById('carousel-gate-form');
+  if(cf) cf.addEventListener('submit', function(e){
+    e.preventDefault();
+    const form = e.target;
+    const msg = document.getElementById('carousel-gate-msg');
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    fetch(form.action, {
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    }).then(r => {
+      if(r.ok){
+        localStorage.setItem('carouselBlueprintUnlocked', 'true');
+        msg.innerHTML = "You're in! <a href='carousel-blueprint.html' style='color:var(--gold);text-decoration:underline;'>Access your blueprint here →</a>";
+        msg.style.display = 'block';
+        form.style.display = 'none';
+      } else {
+        msg.textContent = 'Something went wrong. Please try again.';
+        msg.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Get Your Free Blueprint →';
+      }
+    }).catch(() => {
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Get Your Free Blueprint →';
     });
   });
 });

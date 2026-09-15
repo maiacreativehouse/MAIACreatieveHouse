@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Carousel Blueprint | MAIA Creative House</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23170A0C'/%3E%3Ctext x='50%25' y='54%25' font-size='18' fill='%23c9a96e' text-anchor='middle' dominant-baseline='middle'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --black: #0a0a08;
+    --dark2: #170A0C;
+    --dark3: #0f0a06;
+    --cream: #f5f0e8;
+    --cream2: #e8e0d4;
+    --gold: #c9a96e;
+    --gold-light: #e8d5b0;
+    --gold-dark: #a8893e;
+    --grey: #888880;
+    --grey2: #555550;
+    --grey3: #333330;
+    --mid: #2e2e28;
+    --burgundy: #170A0C;
+    --warm-black: #111008;
+    --rose: #8c4a52;
+    --ivory: #faf6ef;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; color: var(--cream); }
+  h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 22px; color: var(--cream); margin-bottom: 10px; }
+  h5 { font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: var(--gold); opacity: 0.5; margin-bottom: 10px; font-weight: 500; }
+  em { font-style: italic; color: var(--gold); }
+  strong { color: var(--cream); font-weight: 400; }
+  p { font-size: 12px; color: var(--grey); line-height: 2; max-width: 640px; margin-bottom: 16px; }
+  a { color: var(--gold); }
+
+  .eyebrow {
+    font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); opacity: 0.7; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .eyebrow::before { content: ''; width: 28px; height: 0.5px; background: var(--gold); }
+
+  .nav-toggle {
+    display: none;
+    position: fixed; top: 20px; right: 20px; z-index: 200;
+    background: var(--dark2); color: var(--gold); border: 0.5px solid rgba(201,169,110,0.3);
+    padding: 10px 16px; font-family: 'Montserrat', sans-serif; font-size: 10px;
+    letter-spacing: 2px; cursor: pointer;
+  }
+  .brand-nav {
+    position: fixed; top: 0; left: 0; width: 280px; height: 100vh;
+    background: var(--dark3); border-right: 0.5px solid rgba(201,169,110,0.15);
+    padding: 48px 32px; overflow-y: auto; z-index: 100;
+  }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--cream); letter-spacing: 1px; }
+  .nav-sub { font-size: 10px; color: var(--gold); opacity: 0.6; letter-spacing: 2px; text-transform: uppercase; margin-top: 6px; margin-bottom: 40px; }
+  .nav-section { font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--grey2); margin: 24px 0 10px; }
+  .nav-link {
+    display: block; font-size: 12px; color: var(--grey); text-decoration: none;
+    padding: 7px 0; border-left: 1px solid transparent; padding-left: 12px;
+    transition: all 0.2s;
+  }
+  .nav-link:hover, .nav-link.active { color: var(--gold); border-left-color: var(--gold); }
+  .nav-footer { margin-top: 48px; font-size: 10px; color: var(--grey2); line-height: 1.8; }
+
+  main { margin-left: 280px; }
+  .cover {
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 80px; position: relative;
+    background: radial-gradient(circle at 80% 20%, rgba(201,169,110,0.06), transparent 60%);
+  }
+  .brand-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 44px); color: var(--cream); }
+  .brand-name .house { color: var(--gold); font-style: italic; }
+  .product-label { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(48px, 7vw, 84px); margin: 20px 0; line-height: 1.05; }
+  .tagline { font-size: 14px; color: var(--grey); max-width: 480px; line-height: 1.9; }
+  .cover-divider { width: 60px; height: 0.5px; background: var(--gold); opacity: 0.4; margin: 40px 0; }
+  .cover-label { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: var(--gold); opacity: 0.6; margin-bottom: 20px; }
+  .qs-items { display: flex; flex-direction: column; gap: 14px; }
+  .qs-item { display: flex; gap: 16px; align-items: baseline; }
+  .qs-item-num { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 20px; width: 24px; }
+  .qs-item-text { font-size: 13px; color: var(--cream2); }
+
+  .content-wrapper { max-width: 800px; padding: 0 80px 120px; }
+  section { padding-top: 100px; }
+  section h2 { font-size: clamp(28px, 3vw, 38px); margin-bottom: 24px; }
+
+  .card {
+    border: 0.5px solid rgba(201,169,110,0.15); background: rgba(255,255,255,0.02);
+    padding: 28px 32px; margin: 20px 0; transition: background 0.2s;
+  }
+  .card:hover { background: rgba(201,169,110,0.04); }
+
+  .tip-box {
+    border-left: 2px solid var(--gold); padding: 16px 24px; margin: 24px 0;
+    background: rgba(201,169,110,0.03); font-size: 12px; color: var(--cream2);
+  }
+
+  .upsell-box {
+    border-left: 2px solid var(--gold); padding: 20px 28px; margin: 28px 0;
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px;
+    color: var(--gold-light); background: rgba(201,169,110,0.03);
+  }
+
+  .cta-box {
+    background: var(--gold); color: var(--black); padding: 36px 40px; margin: 36px 0;
+    text-align: center;
+  }
+  .cta-box h3 { color: var(--black); font-size: 24px; margin-bottom: 10px; }
+  .cta-box p { color: var(--warm-black); max-width: none; opacity: 0.75; margin-bottom: 0; }
+
+  .day-card {
+    display: flex; gap: 24px; padding: 24px 0; border-bottom: 0.5px solid rgba(201,169,110,0.1);
+  }
+  .day-number { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--gold); opacity: 0.5; width: 50px; flex-shrink: 0; }
+  .day-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--cream); margin-bottom: 6px; }
+  .day-meta { font-size: 11px; color: var(--grey); line-height: 1.9; }
+  .day-label { font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); opacity: 0.6; margin-bottom: 6px; }
+
+  .hook-formula { border: 0.5px solid rgba(201,169,110,0.2); padding: 24px 28px; margin: 20px 0; }
+  .hook-text { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--gold-light); font-style: italic; margin-bottom: 12px; }
+  .hook-example { font-size: 12px; color: var(--grey); border-top: 0.5px solid rgba(201,169,110,0.12); padding-top: 12px; margin-top: 12px; }
+
+  .fill-section { margin: 24px 0; }
+  .fill-line { display: block; border: none; border-bottom: 1px dashed rgba(201,169,110,0.35); background: transparent; width: 100%; padding: 10px 4px; font-family: 'Montserrat', sans-serif; font-size: 13px; color: var(--cream); margin-bottom: 18px; outline: none; }
+  .fill-line::placeholder { color: var(--grey2); }
+
+  .section-divider {
+    margin: 100px -80px; padding: 80px; text-align: center;
+    background: radial-gradient(circle at 50% 50%, rgba(201,169,110,0.08), transparent 70%);
+    border-top: 0.5px solid rgba(201,169,110,0.1); border-bottom: 0.5px solid rgba(201,169,110,0.1);
+  }
+  .section-divider h3 { font-size: clamp(26px, 3vw, 36px); }
+
+  table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 12px; }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 0.5px solid rgba(201,169,110,0.15); color: var(--grey); }
+  th { color: var(--gold); font-weight: 500; text-transform: uppercase; font-size: 10px; letter-spacing: 1.5px; }
+  td strong { color: var(--cream2); }
+
+  .save-pdf-bar {
+    position: fixed; bottom: 0; left: 280px; right: 0; background: var(--dark2);
+    border-top: 0.5px solid rgba(201,169,110,0.2); padding: 14px 40px;
+    display: flex; justify-content: space-between; align-items: center; z-index: 90;
+  }
+  .save-pdf-bar span { font-size: 11px; color: var(--grey); letter-spacing: 0.5px; }
+  .save-pdf-btn {
+    background: transparent; border: 0.5px solid var(--gold); color: var(--gold);
+    padding: 10px 22px; font-family: 'Montserrat', sans-serif; font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
+  }
+  .save-pdf-btn:hover { background: var(--gold); color: var(--black); }
+
+  ul.plain { margin: 12px 0 20px 20px; }
+  ul.plain li { font-size: 12px; color: var(--grey); line-height: 2; }
+
+  @media print {
+    .brand-nav, .nav-toggle, .save-pdf-bar { display: none !important; }
+    main { margin-left: 0; }
+    body { background: white; color: black; }
+  }
+
+  @media (max-width: 1024px) {
+    .nav-toggle { display: block; }
+    .brand-nav { transform: translateX(-100%); transition: transform 0.3s; }
+    .brand-nav.open { transform: translateX(0); }
+    main { margin-left: 0; }
+    .cover, .content-wrapper { padding-left: 32px; padding-right: 32px; }
+    .save-pdf-bar { left: 0; }
+    .section-divider { margin-left: -32px; margin-right: -32px; padding-left: 32px; padding-right: 32px; }
+  }
+  @media (max-width: 600px) {
+    .card, .hook-formula { padding: 20px; }
+    .cta-box { padding: 28px 24px; }
+  }
+.gate-overlay{
+  position:fixed;inset:0;z-index:2000;
+  background:var(--black);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;
+}
+.gate-overlay.hidden{display:none;}
+.gate-box{
+  max-width:420px;width:100%;
+  text-align:center;
+  background:rgba(255,255,255,.03);
+  border:0.5px solid rgba(201,169,110,0.2);
+  padding:44px 36px;
+}
+.gate-mark{
+  font-family:'Montserrat',sans-serif;font-weight:300;font-size:14px;
+  letter-spacing:.38em;text-transform:uppercase;color:var(--cream);opacity:.5;
+  margin-bottom:24px;
+}
+.gate-title{
+  font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;
+  font-size:clamp(24px,3vw,30px);color:var(--gold);margin:0 0 14px;line-height:1.2;
+}
+.gate-desc{font-size:13.5px;color:var(--grey);line-height:1.7;margin-bottom:28px;}
+.gate-form{display:flex;flex-direction:column;gap:10px;}
+.gate-overlay .gate-input{
+  width:100%;padding:14px 16px;background:transparent;
+  border:0.5px solid rgba(201,169,110,0.25);
+  color:var(--cream);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;
+  outline:none;margin-bottom:0;
+}
+.gate-overlay .gate-input:focus{border-color:var(--gold);}
+.gate-btn{
+  margin-top:4px;padding:12px 16px;
+  background:var(--gold);color:var(--black);
+  border:none;
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;transition:all 0.3s;
+}
+.gate-btn:hover{background:var(--gold-light);}
+.gate-btn:disabled{opacity:.6;cursor:default;}
+.gate-msg{margin-top:16px;font-size:11.5px;color:var(--grey);display:none;}
+.gate-msg.show{display:block;}
+</style>
+</head>
+<body>
+
+<!-- ── EMAIL GATE: blocks direct-link access, not just the homepage funnel ── -->
+<div class="gate-overlay" id="gate-overlay">
+  <div class="gate-box">
+    <div class="gate-mark">MAIA</div>
+    <h2 class="gate-title">Unlock the Blueprint</h2>
+    <p class="gate-desc">Enter your email and the full guide, hook formulas, slide map, and all, opens right up. No spam, just the occasional new guide when I build one.</p>
+    <form class="gate-form" id="gate-form">
+      <input type="text" name="name" class="gate-input" placeholder="Your first name" required>
+      <input type="email" name="email" class="gate-input" placeholder="Your email address" required>
+      <button type="submit" class="gate-btn">Unlock the Blueprint →</button>
+    </form>
+    <p class="gate-msg" id="gate-msg"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var UNLOCK_KEY = 'carouselBlueprintUnlocked';
+  var overlay = document.getElementById('gate-overlay');
+  if(localStorage.getItem(UNLOCK_KEY) === 'true'){
+    overlay.classList.add('hidden');
+  } else {
+    document.body.style.overflow = 'hidden';
+  }
+  var form = document.getElementById('gate-form');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var msg = document.getElementById('gate-msg');
+    btn.disabled = true;
+    btn.textContent = 'Unlocking...';
+    var params = new URLSearchParams(location.search);
+    fetch('https://formspree.io/f/maqlodng', {
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body: JSON.stringify({
+        name: form.name.value,
+        email: form.email.value,
+        _subject: 'Download: The Carousel Blueprint',
+        source: 'carousel-blueprint-direct',
+        utm_source: params.get('utm_source') || 'direct',
+        utm_medium: params.get('utm_medium') || '',
+        utm_campaign: params.get('utm_campaign') || '',
+        utm_content: params.get('utm_content') || ''
+      })
+    }).then(function(r){
+      if(r.ok){
+        localStorage.setItem(UNLOCK_KEY, 'true');
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      } else {
+        msg.textContent = 'Something went wrong. Please try again.';
+        msg.classList.add('show');
+        btn.disabled = false;
+        btn.textContent = 'Unlock the Blueprint →';
+      }
+    }).catch(function(){
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.classList.add('show');
+      btn.disabled = false;
+      btn.textContent = 'Unlock the Blueprint →';
+    });
+  });
+})();
+</script>
+
+<button class="nav-toggle" onclick="document.querySelector('.brand-nav').classList.toggle('open')">MENU</button>
+<nav class="brand-nav">
+  <div class="nav-logo">MAIA</div>
+  <div class="nav-sub">The Carousel Blueprint</div>
+
+  <div class="nav-section">Start Here</div>
+  <a class="nav-link" href="#cover">Cover</a>
+
+  <div class="nav-section">Part 1: The Idea</div>
+  <a class="nav-link" href="#one-idea">Pick One Idea</a>
+
+  <div class="nav-section">Part 2: Structure</div>
+  <a class="nav-link" href="#slide-map">The Slide Map</a>
+  <a class="nav-link" href="#hook-slide">The Hook Slide</a>
+  <a class="nav-link" href="#slide-copy">The Slide Copy</a>
+
+  <div class="nav-section">Part 3: Design</div>
+  <a class="nav-link" href="#design-rules">Design Without a Designer</a>
+  <a class="nav-link" href="#tools">Tools & Templates</a>
+
+  <div class="nav-section">Part 4: Publishing</div>
+  <a class="nav-link" href="#caption">The Caption</a>
+  <a class="nav-link" href="#linkedin-notes">LinkedIn Specifics</a>
+
+  <div class="nav-footer">
+    MAIA Creative House<br>
+    The Carousel Blueprint<br>
+    Free Guide
+  </div>
+</nav>
+
+<main>
+  <section id="cover" class="cover">
+    <div class="brand-name">MAIA <span class="house">Creative House</span></div>
+    <div class="product-label">The Carousel<br><em>Blueprint</em></div>
+    <p class="tagline">A step-by-step guide to turning one idea into a carousel post that earns the swipe, from a brand strategist, no design background required.</p>
+    <div class="cover-divider"></div>
+    <div class="cover-body">
+      <div class="cover-label">Quick Start</div>
+      <div class="qs-items">
+        <div class="qs-item"><div class="qs-item-num">1</div><div class="qs-item-text">Pick one idea. Not five. One.</div></div>
+        <div class="qs-item"><div class="qs-item-num">2</div><div class="qs-item-text">Map it to 5-8 slides using the structure in Part 2.</div></div>
+        <div class="qs-item"><div class="qs-item-num">3</div><div class="qs-item-text">Write the hook slide before you design anything.</div></div>
+        <div class="qs-item"><div class="qs-item-num">4</div><div class="qs-item-text">Design with the consistency rules in Part 3.</div></div>
+        <div class="qs-item"><div class="qs-item-num">5</div><div class="qs-item-text">Export, write the caption, post.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+
+    <section id="one-idea">
+      <div class="eyebrow">Part 1: The Idea</div>
+      <h2>Pick <em>one</em> idea</h2>
+      <p>The single most common mistake in a first carousel is trying to fit an entire strategy deck into eight slides. A carousel isn't a summary of everything you know. It's one idea, walked through slowly enough that someone actually absorbs it.</p>
+      <p>Before you open any design tool, finish this sentence out loud: "By the last slide, I want the reader to understand ___." If you can't finish it in one clause, the idea isn't ready yet.</p>
+      <div class="tip-box">A good test: could this carousel be a single sentence someone repeats to a colleague afterward? If yes, you have your idea. If it takes a paragraph to explain, it's still two or three ideas fighting for one carousel.</div>
+      <div class="fill-section">
+        <h5>Your one sentence</h5>
+        <input class="fill-line" placeholder="By the last slide, I want the reader to understand...">
+        <p style="font-size:11px;color:var(--grey2);margin-top:-8px;">Type it here, then copy it somewhere you'll keep. It's the sentence you check every slide against.</p>
+      </div>
+    </section>
+
+    <section id="slide-map">
+      <div class="eyebrow">Part 2: Structure</div>
+      <h2>The slide map</h2>
+      <p>Every carousel that works follows some version of the same shape: a hook that earns the swipe, a short build that adds context, a middle that delivers the actual substance, and a close that gives the reader somewhere to go. Here's the map for a standard 7-slide carousel.</p>
+
+      <div class="day-card">
+        <div class="day-number">01</div>
+        <div>
+          <div class="day-label">Hook Slide</div>
+          <div class="day-title">The one line that earns the swipe</div>
+          <div class="day-meta">A claim, a number, or a contrast. No logo-heavy branding here, no long sentence. See Part 2b for the formula.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-number">02</div>
+        <div>
+          <div class="day-label">Context Slide</div>
+          <div class="day-title">Why this is true, or why it matters now</div>
+          <div class="day-meta">One or two sentences. This is where you earn the reader's trust that the rest is worth reading.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-number">03-05</div>
+        <div>
+          <div class="day-label">Substance Slides</div>
+          <div class="day-title">The actual steps, reasons, or examples</div>
+          <div class="day-meta">One idea per slide. If a slide needs two headlines, it's two slides. Number them if the sequence matters.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-number">06</div>
+        <div>
+          <div class="day-label">Recap Slide</div>
+          <div class="day-title">The one sentence from Part 1, restated</div>
+          <div class="day-meta">Say the whole point again, in one line. This is what people screenshot.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-number">07</div>
+        <div>
+          <div class="day-label">Close Slide</div>
+          <div class="day-title">Where the reader goes next</div>
+          <div class="day-meta">A question, a follow prompt, or an offer. Never more than one ask.</div>
+        </div>
+      </div>
+
+      <div class="tip-box">Eight or nine slides is fine if the idea genuinely needs the room. Twelve is almost never earned. If you're past ten, you likely have two carousels, not one.</div>
+    </section>
+
+    <section id="hook-slide">
+      <div class="eyebrow">Part 2b: The Hook</div>
+      <h2>Writing the hook slide</h2>
+      <p>The hook slide is doing the same job as the first line of a post: it's the whole reason someone taps to slide two. Most hook slides fail because they describe the topic instead of making a claim about it.</p>
+
+      <div class="hook-formula">
+        <div class="hook-text">"[Surprising number or contrast] + [why that's worth your next ten seconds]"</div>
+        <div class="hook-example"><strong>Example:</strong> "Carousels get 11x more interactions than static images. We still post 6x more images."</div>
+      </div>
+      <div class="hook-formula">
+        <div class="hook-text">"[Common belief], but [what's actually true]"</div>
+        <div class="hook-example"><strong>Example:</strong> "More slides doesn't mean more value. Most carousels should be shorter than they are."</div>
+      </div>
+      <div class="hook-formula">
+        <div class="hook-text">"[A specific moment or decision] that changed [outcome]"</div>
+        <div class="hook-example"><strong>Example:</strong> "I killed a client's tagline three days before launch. Here's why."</div>
+      </div>
+      <div class="upsell-box">The hook slide has one job: earn the second slide. It does not need to explain the whole idea. That's what the rest of the carousel is for.</div>
+    </section>
+
+    <section id="slide-copy">
+      <div class="eyebrow">Part 2c: The Words</div>
+      <h2>Writing the slide copy</h2>
+      <p>This is where most non-designers actually get stuck. Not on fonts, on the blank slide. You have the map and the hook, and now each slide needs words, and the instinct is to write a paragraph. Don't. A slide is read in about two seconds, on a phone, by someone half-scrolling.</p>
+      <ul class="plain">
+        <li>Headline under ten words. If it needs a comma, it's probably two headlines.</li>
+        <li>Body under 25 words, and only if the headline can't stand alone. Many slides don't need one.</li>
+        <li>One thought per slide. If you write "also" or "and another thing," that's your next slide.</li>
+        <li>Write every slide as plain text first, in a doc, before you touch a design tool. Read them top to bottom. If the sequence makes sense as a list, it will make sense as a carousel.</li>
+      </ul>
+      <div class="tip-box">Read your slides out loud in order. Anywhere you pause to explain something, the slide is missing a line. Anywhere you skim, the slide has too many.</div>
+    </section>
+
+    <div class="section-divider">
+      <h3>Now the idea is mapped.<br>Time to make it look like something.</h3>
+    </div>
+
+    <section id="design-rules">
+      <div class="eyebrow">Part 3: Design</div>
+      <h2>Design without a designer</h2>
+      <p>You don't need original illustration or a brand system to make a carousel look intentional. You need four things held consistent across every slide.</p>
+
+      <table>
+        <tr><th>Rule</th><th>Why it matters</th></tr>
+        <tr><td><strong>One font pairing</strong></td><td>A serif for headlines, a sans for body, used the same way on every slide. Switching fonts mid-carousel reads as unfinished.</td></tr>
+        <tr><td><strong>One color system</strong></td><td>Background, text, and one accent color. Pick these once, lock them, don't second-guess slide to slide.</td></tr>
+        <tr><td><strong>Consistent margins</strong></td><td>Same padding around text on every slide. Inconsistent margins are the fastest way to look amateur, even with good content.</td></tr>
+        <tr><td><strong>A repeating anchor element</strong></td><td>A small logo mark, a page number, or a thin rule in the same spot on every slide. It signals the set belongs together before anyone reads a word.</td></tr>
+      </table>
+
+      <div class="tip-box">Resist the urge to make each slide "more designed" than the last. The best carousels look almost plain, so the ideas do the work instead of the graphics.</div>
+    </section>
+
+    <section id="tools">
+      <div class="eyebrow">Part 3b: Tools</div>
+      <h2>Tools & templates</h2>
+      <p>Any of these will get you there. The tool matters less than sticking to the four rules above.</p>
+      <ul class="plain">
+        <li><strong>Canva</strong> — fastest to start, has native multi-page carousel templates, easiest for a first attempt.</li>
+        <li><strong>Figma</strong> — better if you want a reusable template you'll adjust weekly, more control over exact spacing.</li>
+        <li><strong>Google Slides / Keynote</strong> — genuinely fine for a first carousel. Export each slide as an image. Nobody can tell.</li>
+      </ul>
+      <div class="tip-box">Whichever tool you use, build one template slide first with your fonts, colors, and margins locked in, then duplicate it for every slide after. Never design each slide from a blank canvas.</div>
+    </section>
+
+    <div class="section-divider">
+      <h3>Designed. Now write<br>the words around it.</h3>
+    </div>
+
+    <section id="caption">
+      <div class="eyebrow">Part 4: Publishing</div>
+      <h2>The caption that carries it</h2>
+      <p>The caption isn't a summary of the carousel. It's the reason someone opens the carousel in the first place, and the place where you add what didn't fit on the slides.</p>
+      <div class="card">
+        <h4>A caption has three jobs</h4>
+        <p style="margin-bottom:0;"><strong>1. Restate the hook</strong>, in different words than slide one.<br><strong>2. Add one layer</strong> the slides didn't have room for, a source, a caveat, a personal note.<br><strong>3. Give a real next step</strong>, a question or an offer, not "swipe for more" after they've already swiped.</p>
+      </div>
+    </section>
+
+    <section id="linkedin-notes">
+      <div class="eyebrow">Part 4b: Platform Notes</div>
+      <h2>LinkedIn specifics</h2>
+      <p>Everything above applies to any platform. These are the details that are LinkedIn-only, worth checking before you hit publish.</p>
+
+      <table>
+        <tr><th>What</th><th>Spec</th></tr>
+        <tr><td>File type</td><td>PDF (LinkedIn's native "document post" format), not a video or image carousel</td></tr>
+        <tr><td>Dimensions</td><td>1080 x 1350px per page (4:5), portrait reads best on mobile feed</td></tr>
+        <tr><td>Page count</td><td>7-10 pages is the sweet spot; LinkedIn allows up to 300 but nobody should use that many</td></tr>
+        <tr><td>Upload</td><td>Export your design as a single multi-page PDF, then use "Add a document" when composing the post</td></tr>
+      </table>
+
+      <div class="tip-box">LinkedIn's document viewer auto-plays the next page if someone doesn't tap, but dwell time on early pages is still what earns algorithmic reach. A slow, clear first three slides matter more than a clever last one.</div>
+      <div class="tip-box">Put your real CTA in the caption, not just the last slide. A large share of readers never make it to slide seven, but almost everyone reads the caption first.</div>
+
+      <div class="cta-box">
+        <h3>Built one from this?</h3>
+        <p>Send it to me on LinkedIn. I read every one, and I'll tell you honestly whether the hook earns the swipe.</p>
+        <p style="margin-top:14px;"><a href="https://www.linkedin.com/in/gunesferah" style="color:var(--black);text-decoration:underline;">linkedin.com/in/gunesferah</a></p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<div class="save-pdf-bar">
+  <span>Keep this playbook forever</span>
+  <button class="save-pdf-btn" onclick="window.print()">Save as PDF</button>
+</div>
+
+<script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const brandNav = document.querySelector('.brand-nav');
+  navToggle.addEventListener('click', () => brandNav.classList.toggle('open'));
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => brandNav.classList.remove('open'));
+  });
+  function updateActiveNav() {
+    const sections = document.querySelectorAll('main > div.content-wrapper > section, main > .cover');
+    const navLinks = document.querySelectorAll('.nav-link');
+    let current = '';
+    sections.forEach(section => {
+      if (window.pageYOffset >= section.offsetTop - 200) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').slice(1) === current) link.classList.add('active');
+    });
+  }
+  window.addEventListener('scroll', updateActiveNav);
+  updateActiveNav();
+</script>
+
+</body>
+</html>
